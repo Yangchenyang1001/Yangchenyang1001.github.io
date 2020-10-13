@@ -16,7 +16,7 @@
 <meta property="og:description" content="javaFile-io">
 <meta property="og:locale">
 <meta property="article:published_time" content="2020-09-26T02:29:46.000Z">
-<meta property="article:modified_time" content="2020-10-06T08:55:10.665Z">
+<meta property="article:modified_time" content="2020-10-13T06:20:44.586Z">
 <meta property="article:author" content="杨晨阳">
 <meta name="twitter:card" content="summary">
   
@@ -64,7 +64,7 @@
 			</ul>
 		</nav>
 		<nav>
-        总文章数 10
+        总文章数 11
     </nav>
 		<nav class="header-smart-menu">
     		
@@ -176,7 +176,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">10.8k字</span>
+        <span class="post-count">12.4k字</span>
       </span>
     </span>
 
@@ -185,7 +185,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">47分</span>
+        <span class="post-count">53分</span>
       </span>
     </span>
 </div>
@@ -689,10 +689,8 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">InputStreamDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        <span class="comment">//  1.创建FileinputStream对象,构造方法中绑定要读取的数据源</span></span><br><span class="line">        FileInputStream fis = <span class="keyword">new</span> FileInputStream(<span class="keyword">new</span> File(<span class="string">&quot;a.txt&quot;</span>));</span><br><span class="line">        <span class="comment">//  2.使用FileinputStream对象中read,读取文件</span></span><br><span class="line">        <span class="comment">//int read() 读取文件中的一个字节返回,读取到文件的末尾返回-1</span></span><br><span class="line">        <span class="comment">//a.txt:ABC</span></span><br><span class="line"><span class="comment">//        int len = fis.read();</span></span><br><span class="line"><span class="comment">//        System.out.println(len);//A</span></span><br><span class="line"><span class="comment">//        int len2 = fis.read();</span></span><br><span class="line"><span class="comment">//        System.out.println(len2);//B</span></span><br><span class="line"><span class="comment">//        int len3 = fis.read();</span></span><br><span class="line"><span class="comment">//        System.out.println(len3);//C</span></span><br><span class="line"><span class="comment">//        int len4 = fis.read();</span></span><br><span class="line"><span class="comment">//        System.out.println(len4);//-1</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        以上读取文件是一个重复的过程可以使用循环优化</span></span><br><span class="line"><span class="comment">        不知道文件中有多少字节,使用while循环</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">        布尔表达式((len=fis.read())!=-1)</span></span><br><span class="line"><span class="comment">        1.fis.read():读取一个字节</span></span><br><span class="line"><span class="comment">        2.把字节赋值给len</span></span><br><span class="line"><span class="comment">        3.判断len是否不等于-1</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">        错误范例:</span></span><br><span class="line"><span class="comment">        while(fis.read()!=-1)&#123;</span></span><br><span class="line"><span class="comment">            System. out .println(fis.read());</span></span><br><span class="line"><span class="comment">        &#125;</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">int</span> len=<span class="number">0</span>;<span class="comment">//记录读取的字节</span></span><br><span class="line">        <span class="keyword">while</span> ((len=fis.read())!=-<span class="number">1</span>)&#123;</span><br><span class="line">            System.out.print(len);<span class="comment">//656667</span></span><br><span class="line">            System.out.print((<span class="keyword">char</span>) len);<span class="comment">//ABC</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//  3.释放资源</span></span><br><span class="line">        fis.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
-<li><p>int read(byte[] b)从输入流中读取一定数量的字节,并将其存储在缓冲区数组b中</p>
-</li>
-<li><p>明确两件事</p>
-<ul>
+<li>int read(byte[] b)从输入流中读取一定数量的字节,并将其存储在缓冲区数组b中</li>
+<li>明确两件事<ul>
 <li>方法的参数作用<ul>
 <li>起到缓冲作用,存储每次读取的多个字节</li>
 <li>数组的长度定义为1024(1kb)或者是1024的整数倍</li>
@@ -722,7 +720,7 @@
 
 
 <h2 id="字符输出流"><a href="#字符输出流" class="headerlink" title="字符输出流"></a>字符输出流</h2><ul>
-<li>java.io.Reader</li>
+<li>java.io.Writer</li>
 </ul>
 <ul>
 <li>wold write(int c)写入单个字符。</li>
@@ -738,8 +736,8 @@
 </li>
 <li><p>构造方法</p>
 <ul>
-<li>Filewriter(File file)根据给定的File对象构造-一个Filewrtter 对象。</li>
-<li>Filewriter(String fileName) 根据给定的文件名构造-个Filewriter 对象。</li>
+<li>Filewriter(File file)根据给定的File对象构造一个Filewrtter 对象。</li>
+<li>Filewriter(String fileName) 根据给定的文件名构造一个Filewriter 对象。</li>
 </ul>
 </li>
 <li><p>参数:写入数据的目的地</p>
@@ -792,6 +790,37 @@
 <li>FileReader文件数据输入流</li>
 <li>把硬盘中的数据以字符的方式读取到设备中</li>
 </ul>
+<ul>
+<li>构造方法<ul>
+<li>FileReader(string fileName)</li>
+<li>FileReader(File file)</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>参数:文件读取的数据源</p>
+<ul>
+<li>String fileName文件的路径</li>
+<li>File file一个文件</li>
+</ul>
+</li>
+<li><p>字符输入流的使用步骤</p>
+<ul>
+<li>创建 一个FileReader对象,构造方法中要绑定读取的数据源</li>
+<li>使用FileReader 对象中的方法read</li>
+<li>释放资源</li>
+</ul>
+</li>
+<li><p>注意</p>
+<ul>
+<li>string类的构造方法</li>
+<li>string(char[] value) 把字符数组转换为字符串</li>
+<li>String(char[] value, int offset, int count) 把字符数组的一-部分转换为字符串offset数组的开始sua|</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileReader_</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line"><span class="comment">//        FileInputStream fis = new FileInputStream(&quot;a.txt&quot;);</span></span><br><span class="line"><span class="comment">//        int len = 0;</span></span><br><span class="line"><span class="comment">//        while ((len = fis.read()) != -1) &#123;</span></span><br><span class="line"><span class="comment">//            System.out.println(len);</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line"><span class="comment">//        fis.close();</span></span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">         *字符输入流的使用步骤</span></span><br><span class="line"><span class="comment">         * 创建 一个FileReader对象,构造方法中要绑定读取的数据源</span></span><br><span class="line"><span class="comment">         * 使用FileReader 对象中的方法read</span></span><br><span class="line"><span class="comment">         * 释放资源</span></span><br><span class="line"><span class="comment">         *</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        FileReader fr = <span class="keyword">new</span> FileReader(<span class="string">&quot;a.txt&quot;</span>);</span><br><span class="line"><span class="comment">//        int len=0;</span></span><br><span class="line"><span class="comment">//        while((len=fr.read())!=-1)&#123;</span></span><br><span class="line"><span class="comment">//            System.out.println(len);</span></span><br><span class="line"><span class="comment">//            System.out.println((char)len);</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">char</span>[] cs = <span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">1024</span>];<span class="comment">//每次读取多个字符</span></span><br><span class="line">        <span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> ((len = fr.read(cs)) != -<span class="number">1</span>) &#123;</span><br><span class="line">            <span class="comment">/*</span></span><br><span class="line"><span class="comment">             *string类的构造方法</span></span><br><span class="line"><span class="comment">             *string(char[] value) 把字符数组转换为字符串</span></span><br><span class="line"><span class="comment">             *String(char[] value, int offset, int count) 把字符数组的一-部分转换为字符串offset数组的开始sua|</span></span><br><span class="line"><span class="comment">             */</span></span><br><span class="line">            System.out.println(<span class="keyword">new</span> String(cs,<span class="number">0</span>,len));</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        fr.close();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <h2 id="IO异常处理"><a href="#IO异常处理" class="headerlink" title="IO异常处理"></a>IO异常处理</h2><ul>
 <li><p>在jdk1.7之前使用try catch finally处理流中的异常</p>
 </li>
@@ -935,10 +964,13 @@
 </ul>
 </li>
 </ul>
-<h3 id="Bufferedoutputstream"><a href="#Bufferedoutputstream" class="headerlink" title="Bufferedoutputstream"></a>Bufferedoutputstream</h3><ul>
-<li>java.io. Bufferedoutputstream extends Outputstream</li>
-<li>BufferedOutputstream:字节缓冲输出流</li>
-<li>继承自父类的共性成员方法:<ul>
+<h3 id="BufferedOutputstream"><a href="#BufferedOutputstream" class="headerlink" title="BufferedOutputstream"></a>BufferedOutputstream</h3><ul>
+<li><p>java.io. Bufferedoutputstream extends Outputstream</p>
+</li>
+<li><p>BufferedOutputstream:字节缓冲输出流</p>
+</li>
+<li><p>继承自父类的共性成员方法:</p>
+<ul>
 <li>public void close() :关闭此输出流并释放与此流相关联的任何系统资源。</li>
 <li>public void flush() :刷新此输出流并强制任何缓冲的输出字节被写出。</li>
 <li>public void write(byte[] b):将b.length字节从指定的字节数组写入此输出流。</li>
@@ -946,17 +978,21 @@
 <li>public abstract void write(int b) :将指定的字节输出流。</li>
 </ul>
 </li>
-<li>构造方法:<ul>
+<li><p>构造方法:</p>
+<ul>
 <li>Bufferedoutputstream(outputstream out)创建一个新的缓冲输出流,以将数据写入指定的底层输出流。</li>
 <li>Bufferedoutputstream(outputStream out, int size)创建一个新的缓冲输出流，以将具有指定缓冲区大小的数据写入指定的缓冲区</li>
 </ul>
 </li>
-<li>参数:<ul>
+<li><p>参数:</p>
+<ul>
 <li>Outputstreom out :字节输出流</li>
 <li>我们可以传递FileoutputStream,缓冲流会给Fileoutputstream增加一个缓冲区,提高FileOutputstream的写入效率</li>
+<li>int size:指定缓冲流内部缓冲区的大小,不指定默认</li>
 </ul>
 </li>
-<li>使用步骤:<ol>
+<li><p>使用步骤:</p>
+<ol>
 <li>创建一个字节输出流,构造方法中绑定要输出的目的地</li>
 <li>创建BufferedOutputStream对象,构造方法中传递FileOutputStream对象,提高效率</li>
 <li>使用BufferedOutputStream对象中的write方法,吧数据写入到内部缓冲区</li>
@@ -1125,6 +1161,124 @@
 
 <p>代码</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        HashMap&lt;String, String&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        BufferedReader br = <span class="keyword">new</span> BufferedReader(<span class="keyword">new</span> FileReader(<span class="string">&quot;a.txt&quot;</span>));</span><br><span class="line">        BufferedWriter bw = <span class="keyword">new</span> BufferedWriter(<span class="keyword">new</span> FileWriter(<span class="string">&quot;asdf.txt&quot;</span>));</span><br><span class="line"></span><br><span class="line">        String line;</span><br><span class="line">        <span class="keyword">while</span> ((line = br.readLine()) != <span class="keyword">null</span>) &#123;</span><br><span class="line">            map.put(String.valueOf(line.charAt(<span class="number">0</span>)),line.substring(<span class="number">2</span>,line.length()));</span><br><span class="line">            <span class="comment">//对文本进行切割</span></span><br><span class="line"><span class="comment">//            String[] arr = line.split(&quot;\\.&quot;);</span></span><br><span class="line"><span class="comment">//            map.put(arr[0],arr[1]);</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (String key : map.keySet()) &#123;</span><br><span class="line">            String value = map.get(key);</span><br><span class="line">            line=key+<span class="string">&quot;.&quot;</span>+value;</span><br><span class="line">            bw.write(line);</span><br><span class="line">            bw.newLine();<span class="comment">//写换行</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        bw.close();</span><br><span class="line">        br.close();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="转换流"><a href="#转换流" class="headerlink" title="转换流"></a>转换流</h2><ul>
+<li><font color="red">可以指定编码形式</font></li>
+</ul>
+<h3 id="InputStreamReader"><a href="#InputStreamReader" class="headerlink" title="InputStreamReader"></a>InputStreamReader</h3><ul>
+<li><p>InputStreanReader是字节流通向字符流的桥梁:它使用指定的charset 读取字节并将其解码为字符。它使用的字符集可以由名称指定或显式给定，或者可以接受平台默认的字符集。</p>
+<ul>
+<li>FileReader是该类的直接子类,解码只能查询IDE的默认码表UTF-8</li>
+</ul>
+</li>
+<li><p>字符写入原理:</p>
+<ol>
+<li>字符通过FileInputStream读取</li>
+<li>InputStreamReader通过utf-8,GBK等编码从字节转换成字符</li>
+<li>输出到内存</li>
+</ol>
+</li>
+<li><p>java. io. InputStreamReader extends Reader</p>
+</li>
+<li><p>继承自父类的共性成员方法:</p>
+<ul>
+<li>int read() 读取单个字符并返回。</li>
+<li>int read(char[] cbuf)- 次读取多个字符将字符读入数组。</li>
+<li>void close()关闭该流并释放与之关联的所有资源。</li>
+</ul>
+</li>
+<li><p>构造方法:</p>
+<ul>
+<li>InputStreamReader(InputStream in) 创建-一个使用默认字符集的InputStreamReader.</li>
+<li>InputStreamReader(InputStream in, String charsetName) 创建使用指定字符集的InputStreamReader。</li>
+</ul>
+</li>
+<li><p>参数:</p>
+<ul>
+<li>Inputstream in:字节输入流,用来读取文件中保存的字节</li>
+<li>String charsetName :指定的编码表名称,不区分大小写，可以是utf-8/UTF-8, gbk/GBK,.. .不指定默认使用UTF-8</li>
+</ul>
+</li>
+<li><p>使用步骤: :</p>
+<ol>
+<li>创建InputstreamReader对象,构造方法中传递字节输入流和指定的编码表名称</li>
+<li>使用InputStreamReader对象中的方法read读取文件</li>
+<li>释放资源</li>
+</ol>
+</li>
+<li><p>注意事项:</p>
+<ul>
+<li>构造方法中指定的编码表名称要和文件的编码相同,否则会发生乱</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">转换流读取GBK文件</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">readGBK</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    InputStreamReader isr = <span class="keyword">new</span> InputStreamReader(<span class="keyword">new</span> FileInputStream(<span class="string">&quot;a.txt&quot;</span>), <span class="string">&quot;GBK&quot;</span>);</span><br><span class="line">    <span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> ((len = isr.read()) != -<span class="number">1</span>) &#123;</span><br><span class="line">        System.out.println((<span class="keyword">char</span>) len);</span><br><span class="line">    &#125;</span><br><span class="line">    isr.close();</span><br><span class="line">&#125;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">使用转换流读取utf-8格式文件</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">readUTF_8</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    InputStreamReader isr = <span class="keyword">new</span> InputStreamReader(<span class="keyword">new</span> FileInputStream(<span class="string">&quot;a.txt&quot;</span>));</span><br><span class="line">    <span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> ((len = isr.read()) != -<span class="number">1</span>) &#123;</span><br><span class="line">        System.out.println((<span class="keyword">char</span>) len);</span><br><span class="line">    &#125;</span><br><span class="line">    isr.close();</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="OutputStreamWriter"><a href="#OutputStreamWriter" class="headerlink" title="OutputStreamWriter"></a>OutputStreamWriter</h3><ul>
+<li><p>OutputStreamwriter是字符流通向字节流的桥粱:可使用指定的charset 将要写入流中的字符编码成字节。它使用的字符集可以由名称指定或显式给定，否则将接受平台默认的字符集。</p>
+<ul>
+<li>FileWriter是该类的直接子类,编码只能查询IDE的默认码表UTF-8</li>
+</ul>
+</li>
+<li><p>字符读取原理</p>
+<ol>
+<li>内存输出字符</li>
+<li>OutputStreamWriter读取字符自动转换UTF-8或GBK等字节编码</li>
+<li>字节通过FileOutputStream写入到内存</li>
+</ol>
+</li>
+<li><p>java. io. InputStreamReader extends Reader</p>
+</li>
+<li><p>继续自父类的共性成员方法:</p>
+<ul>
+<li>void write(int c)写入单个字符。</li>
+<li>void write(char[] cbuf)写入字符数组。</li>
+<li>abstract void write(char[] cbuf, int off, int len)写入字符数组的某- 一部分, off数组的开始索引, Len写的字符个数。</li>
+<li>void write(String str)写入字符串。</li>
+<li>void write(String str, int off, int len) 写入字符串的某-一部分, off字符串的开始索引, len写的字符个数。</li>
+<li>void fLush()刷新该流的缓冲。</li>
+<li>void close() 关闭此流,但要先刷新它。 I</li>
+</ul>
+</li>
+<li><p>构造方法:</p>
+<ul>
+<li>Outputstreamiwriter(OutputStream out )创建使用默认字符编码的Outputstreamlvriter。</li>
+<li>Outputstreamwriter(OutputStream out, String charsetName) 创建使用指定字符集的Outputstreamwriter。</li>
+</ul>
+</li>
+<li><p>参数:</p>
+<ul>
+<li>Outputstream out :字节输出流,可以用来写转换之后的字节到文件中</li>
+<li>String charsetName :指定的编码表名称，不区分大小写，可以是utf- 8/UTF-8, gbk/GBK, .. .不指定默认使用UTF-8</li>
+</ul>
+</li>
+<li><p>使用步骤:</p>
+<ol>
+<li>创建0utputStreamlriter对象,构造方法中传递字节输出流和指定的编码表名称</li>
+<li>使用OutputStreamlvriter对象中的方法write,把字符转换为字节存储缓冲区中(编码)</li>
+<li>使用outputstreamlriter对象中的方法flush,把内存缓冲区中的字节刷新到文件中(使用字节流写字节的过程)</li>
+<li>释放资源<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     *使用转换流写GBK格式文件</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">writeGBK</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;<span class="comment">//        OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream(&quot;a.txt&quot;), &quot;utf-8&quot;);</span></span><br><span class="line">        OutputStreamWriter osw = <span class="keyword">new</span> OutputStreamWriter(<span class="keyword">new</span> FileOutputStream(<span class="string">&quot;a.txt&quot;</span>), <span class="string">&quot;gbk&quot;</span>);</span><br><span class="line">        osw.write(<span class="string">&quot;你好&quot;</span>);</span><br><span class="line">        osw.flush();</span><br><span class="line">        osw.close();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     *使用转换流</span></span><br><span class="line"><span class="comment">     * 写utf-8格式的文件,不指定默认使用u8格式</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">writeUTF_8</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line"><span class="comment">//        OutputStreamWriter osw = new OutputStreamWriter(new FileOutputStream(&quot;a.txt&quot;), &quot;utf-8&quot;);</span></span><br><span class="line">        OutputStreamWriter osw = <span class="keyword">new</span> OutputStreamWriter(<span class="keyword">new</span> FileOutputStream(<span class="string">&quot;a.txt&quot;</span>));</span><br><span class="line">        osw.write(<span class="string">&quot;你好&quot;</span>);</span><br><span class="line">        osw.flush();</span><br><span class="line">        osw.close();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="练习-文件编码格式转换"><a href="#练习-文件编码格式转换" class="headerlink" title="练习:文件编码格式转换"></a>练习:文件编码格式转换</h3><ul>
+<li>转换文件的编码<ul>
+<li>将GBK编码的文本文件,转换成UTF-8文件格式的文件</li>
+</ul>
+</li>
+<li>分析:<ol>
+<li>创建InputStreamReader对象，构造方法中传递字节输入流和指定的编码表名称GBK</li>
+<li>创建OutputStreamwriter对象,构造方法中传递字节输出流和指定的编码表名称UTF-8</li>
+<li>使用InputStreamReader对象中的方法read读取文件</li>
+<li>使用0utputStreamWriter对象中的方法write,把读取的数据写入到文件中</li>
+<li>释放资源</li>
+</ol>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">    InputStreamReader isr = <span class="keyword">new</span> InputStreamReader(<span class="keyword">new</span> FileInputStream(<span class="string">&quot;asdf.txt&quot;</span>), <span class="string">&quot;utf-8&quot;</span>);</span><br><span class="line">    OutputStreamWriter osw = <span class="keyword">new</span> OutputStreamWriter(<span class="keyword">new</span> FileOutputStream(<span class="string">&quot;a.txt&quot;</span>), <span class="string">&quot;GBK&quot;</span>);</span><br><span class="line">    <span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> ((len = isr.read()) != -<span class="number">1</span>) &#123;</span><br><span class="line">        osw.write(len);</span><br><span class="line">    &#125;</span><br><span class="line">    osw.close();</span><br><span class="line">    osw.close();</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
       
 
       
@@ -1226,6 +1380,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2020/10/13/java%E7%BA%BF%E7%A8%8B/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
   
   
     <a href="/2020/09/21/java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%BC%82%E5%B8%B8/" id="article-nav-older" class="article-nav-link-wrap">
