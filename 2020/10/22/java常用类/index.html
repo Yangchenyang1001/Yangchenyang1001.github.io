@@ -6,24 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>kmp绝命算法记录 | 桌角是小黑</title>
+  <title>桌角是小黑</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="kmp算法记录">
+  <meta name="description" content="Spring String的特性 String类: 代表字符串。Java程序中的所有字符串字面值(如”abc” )都作为此类的实例实现。 String是一个final类，代表不可变的字符序列。 字符串是常量，用双引号引起来表示。它们的值在创建之后不能更改。 tring对象的字符内容是存储在-一个字符数组value[中的。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="kmp绝命算法记录">
-<meta property="og:url" content="http://yoursite.com/2020/08/26/kmp%E7%BB%9D%E5%91%BD%E7%AE%97%E6%B3%95%E8%AE%B0%E5%BD%95%F0%9F%99%83/index.html">
+<meta property="og:title" content="桌角是小黑">
+<meta property="og:url" content="http://yoursite.com/2020/10/22/java%E5%B8%B8%E7%94%A8%E7%B1%BB/index.html">
 <meta property="og:site_name" content="桌角是小黑">
-<meta property="og:description" content="kmp算法记录">
+<meta property="og:description" content="Spring String的特性 String类: 代表字符串。Java程序中的所有字符串字面值(如”abc” )都作为此类的实例实现。 String是一个final类，代表不可变的字符序列。 字符串是常量，用双引号引起来表示。它们的值在创建之后不能更改。 tring对象的字符内容是存储在-一个字符数组value[中的。">
 <meta property="og:locale">
-<meta property="og:image" content="https://yangchenyang1001.github.io/assets/learn/1.png">
-<meta property="og:image" content="https://yangchenyang1001.github.io/assets/learn/2.png">
-<meta property="og:image" content="https://yangchenyang1001.github.io/assets/learn/3.png">
-<meta property="og:image" content="https://yangchenyang1001.github.io/assets/learn/4.png">
-<meta property="article:published_time" content="2020-08-26T03:14:01.000Z">
-<meta property="article:modified_time" content="2020-09-06T13:40:21.077Z">
+<meta property="article:published_time" content="2020-10-22T09:36:18.101Z">
+<meta property="article:modified_time" content="2020-10-22T14:01:59.832Z">
 <meta property="article:author" content="杨晨阳">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://yangchenyang1001.github.io/assets/learn/1.png">
   
     <link rel="alternative" href="/atom.xml" title="桌角是小黑" type="application/atom+xml">
   
@@ -158,87 +153,18 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-kmp绝命算法记录🙃" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-java常用类" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-              
-  
-    <h1 class="article-title" itemprop="name">
-      kmp绝命算法记录
-    </h1>
-  
-
-              
-              <a href="/2020/08/26/kmp%E7%BB%9D%E5%91%BD%E7%AE%97%E6%B3%95%E8%AE%B0%E5%BD%95%F0%9F%99%83/" class="archive-article-date">
-  	<time datetime="2020-08-26T03:14:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-26</time>
-</a>
-              <!-- 需要添加的位置 -->
-              <!-- 开始添加字数统计-->
-              
-                <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.1k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">4分</span>
-      </span>
-    </span>
-</div>
-                
-              <!-- 添加完成 -->
-
-              
-            </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <center>
-
-<font face="黑体" size=10>
-kmp算法记录
-</font>
-
-</center>
-
-<a id="more"></a>
-
-<h1 id="kmp算法"><a href="#kmp算法" class="headerlink" title="kmp算法"></a>kmp算法</h1><p>在绝命的数据结构中学习绝命的kmp算法</p>
-<blockquote>
-<p>来自度娘的简介</p>
-</blockquote>
-<p>MP算法是一种改进的字符串匹配算法，由D.E.Knuth，J.H.Morris和V.R.Pratt提出的，因此人们称它为克努特—莫里斯—普拉特操作（简称KMP算法）。KMP算法的核心是利用匹配失败后的信息，尽量减少模式串与主串的匹配次数以达到快速匹配的目的。具体实现就是通过一个next()函数实现，函数本身包含了模式串的局部匹配信息。KMP算法的时间复杂度O(m+n)</p>
-<blockquote>
-<p>BF和KMP差异</p>
-</blockquote>
-<p>bf通俗讲就是主串回溯，重新匹配的算法。是一种很好理解很费时费力的算法。<br>见代码</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//返回主串s中从位置pos开始首次包含子串T的位置，若不存在，则反回-1</span></span><br><span class="line">   <span class="comment">//src：指向主患的指针，patn：指向子患的指针,pos：始匹配的起始位置</span></span><br><span class="line">   <span class="comment">//slen：主串长度，plen：子串长度</span></span><br><span class="line">   <span class="keyword">int</span> i = pos;</span><br><span class="line">   <span class="keyword">int</span> j = <span class="number">0</span>;</span><br><span class="line">   <span class="keyword">while</span>(i &lt; slen &amp;&amp; j &lt; plen)&#123;</span><br><span class="line">       <span class="keyword">if</span>(src[i] = patn[j])&#123;</span><br><span class="line">           ++i;</span><br><span class="line">           ++j;</span><br><span class="line">       &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">           i = i - j + <span class="number">1</span>;</span><br><span class="line">           j = <span class="number">0</span>;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="keyword">if</span>(j &gt;= slen)</span><br><span class="line">           <span class="keyword">return</span> i-slen;</span><br><span class="line">       <span class="keyword">else</span></span><br><span class="line">           <span class="keyword">return</span>- <span class="number">1</span> ;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
-<p>相对于BF算法暴力查找,kmp算法在主串指针和模式串指针失配时同时进行退位的情况做出调整，只进行模式串指针的退位这里主要用到了next[]数组，以及nextVal[]数组</p>
-<blockquote>
-<p>对next[]，nextVal[]的区别及理解</p>
-</blockquote>
-<p>kmp中next数组表示如果当前匹配不成功，匹配串移动到的位置，不考虑移动到的位置的数与当前位置数的关系。</p>
-<p>kmp中nextval数组表示如果当前匹配不成功，匹配串移动到的位置，考虑移动到的位置的数与当前位置数的关系。</p>
-<p>以下是我计算的方法</p>
-<p><img src="https://yangchenyang1001.github.io/assets/learn/1.png" alt="1"></p>
-<hr>
-<p>maxL表示在该序号之前包括该序号，所有字符的前缀后缀的重复位数<br><img src="https://yangchenyang1001.github.io/assets/learn/2.png" alt="2"><br>序号3表示的字符串是ABA，最大重复前后缀是A，重复位数是1<br>序号5表示的字符串是ABABA，最大重复前后缀是ABA，重复位数是3</p>
-<hr>
-<p>Next表示失配后模式串移动的位置<br>计算方法前一个序号的maxL值加1，例如<br><img src="https://yangchenyang1001.github.io/assets/learn/3.png" alt="3"><br>序号2的maxl值为o等于序号为3的next值<br>maxL[i]=next[i+1]</p>
-<hr>
-<p>nextVal表示失配后的模式串移动，考虑到退位后新位置的退位，也就是最小退位<br>对比maxL和Next的大小<br>如果相等则跳转到相应序号的next值<br>如果不相等nextval[i]=next[i]<br>例如<br><img src="https://yangchenyang1001.github.io/assets/learn/4.png" alt="4"><br>序号为2时maxl不等于next，所有nextVal[2]=next[2]=1<br>序号为4时maxl等于next，maxl和next相等等于2这里nextval的值就是序号为2的next[2] 值，也就是nextVal[4]=next[2]=1</p>
-<hr>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">origin</span><span class="params">(String target, String pattern)</span></span>&#123;</span><br><span class="line">	<span class="keyword">char</span>[] s = target.toCharArray();</span><br><span class="line">	<span class="keyword">char</span>[] p = pattern.toCharArray();</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> pos = <span class="number">0</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>,j; i&lt;s.length-p.length+<span class="number">1</span>; ++i)&#123;</span><br><span class="line">		<span class="keyword">for</span>(j=<span class="number">0</span>; j&lt;p.length; ++j)&#123;</span><br><span class="line">			<span class="keyword">if</span>(s[i+j]!=p[j])</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(j==p.length)</span><br><span class="line">			<span class="keyword">return</span> i;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">fastfind</span><span class="params">(String target, String pattern)</span></span>&#123;</span><br><span class="line">	<span class="keyword">char</span>[] s = target.toCharArray();</span><br><span class="line">	<span class="keyword">char</span>[] p = pattern.toCharArray();</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span>[] f = <span class="keyword">new</span> <span class="keyword">int</span>[p.length];</span><br><span class="line">	<span class="comment">//失败函数f[j],表示前一次匹配匹配到模式串下标为j的地方，且在j处不匹配，</span></span><br><span class="line">	<span class="comment">//通过f[j]查找已经匹配成功的部分模式串中，最大的前后匹配的子串，并返回</span></span><br><span class="line">	<span class="comment">//前子串最后一个字符坐标，指示接下来应该从模式串的哪个地方开始匹配</span></span><br><span class="line">	<span class="comment">//如模式串匹配成功的部分子串为abcdabcd，则返回第一个abcd的d的下标，为3.</span></span><br><span class="line">	</span><br><span class="line">	failure(p, f);<span class="comment">//初始化失败函数f[]</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">int</span> pos = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> i=<span class="number">0</span>, j=<span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>(i&lt;s.length &amp;&amp; j&lt;p.length)&#123;</span><br><span class="line">		<span class="keyword">if</span>(s[i]==p[j])&#123;<span class="comment">//匹配成功则继续</span></span><br><span class="line">			++i;</span><br><span class="line">			++j;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">if</span>(j==<span class="number">0</span>)<span class="comment">//若第一个就匹配失败，则从目标串下一个字符开始匹配</span></span><br><span class="line">				++i;</span><br><span class="line">			<span class="keyword">else</span></span><br><span class="line">				j = f[j-<span class="number">1</span>]+<span class="number">1</span>;<span class="comment">//若不是在匹配模式串第一个字符就失败，则模式串用失败函数回退</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">if</span>(j &lt; p.length)</span><br><span class="line">		<span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">		<span class="keyword">return</span> i-j;<span class="comment">//目标串最后停留位置减去模式串长度即为所求</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">failure</span><span class="params">(<span class="keyword">char</span>[] p, <span class="keyword">int</span>[] f)</span></span>&#123;</span><br><span class="line">	f[<span class="number">0</span>] = -<span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>,i; j&lt;f.length; ++j)&#123;</span><br><span class="line">		i = f[j-<span class="number">1</span>];</span><br><span class="line">		<span class="keyword">while</span>(p[j]!=p[i+<span class="number">1</span>] &amp;&amp; i&gt;<span class="number">0</span>)&#123;</span><br><span class="line">			i = f[i];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">if</span>(p[j] == p[i+<span class="number">1</span>])</span><br><span class="line">			f[j] = i+<span class="number">1</span>;</span><br><span class="line">		<span class="keyword">else</span></span><br><span class="line">			f[j] = -<span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>部分代码参考csdn博主<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/wjzhang5514/article/details/78213629">源码</a></p>
+        <h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><ul>
+<li>String的特性</li>
+<li>String类: 代表字符串。Java程序中的所有字符串字面值(如”abc” )都作为此类的实例实现。</li>
+<li>String是一个final类，代表<font color="red">不可变的字符序列。</font></li>
+<li>字符串是常量，用双引号引起来表示。它们的值在创建之后不能更改。</li>
+<li>tring对象的字符内容是存储在-一个字符数组value[中的。</li>
+</ul>
 
       
 
@@ -328,7 +254,7 @@ kmp算法记录
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/08/26/kmp%E7%BB%9D%E5%91%BD%E7%AE%97%E6%B3%95%E8%AE%B0%E5%BD%95%F0%9F%99%83/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/10/22/java%E5%B8%B8%E7%94%A8%E7%B1%BB/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -342,18 +268,9 @@ kmp算法记录
   
 <nav id="article-nav">
   
-    <a href="/2020/08/28/doc%E5%91%BD%E4%BB%A4/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          doc命令
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/08/23/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">我的第一篇博客文章</div>
+    <a href="/2020/10/20/java%E7%BA%BF%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java多线程</div>
       <i class="icon-circle-right"></i>
     </a>
   
