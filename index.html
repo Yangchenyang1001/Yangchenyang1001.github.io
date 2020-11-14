@@ -62,7 +62,7 @@
 			</ul>
 		</nav>
 		<nav>
-        总文章数 12
+        总文章数 14
     </nav>
 		<nav class="header-smart-menu">
     		
@@ -156,14 +156,185 @@
     <article id="post-java常用类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
+      <header class="article-header">
+              
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/11/java%E5%B8%B8%E7%94%A8%E7%B1%BB/">java常用类</a>
+    </h1>
+  
+
+              
+              <a href="/2020/11/11/java%E5%B8%B8%E7%94%A8%E7%B1%BB/" class="archive-article-date">
+  	<time datetime="2020-11-11T07:26:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-11</time>
+</a>
+              <!-- 需要添加的位置 -->
+              <!-- 开始添加字数统计-->
+              
+                <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">5.9k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">27分</span>
+      </span>
+    </span>
+</div>
+                
+              <!-- 添加完成 -->
+
+              
+            </header>
+    
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><ul>
-<li>String的特性</li>
-<li>String类: 代表字符串。Java程序中的所有字符串字面值(如”abc” )都作为此类的实例实现。</li>
-<li>String是一个final类，代表<font color="red">不可变的字符序列。</font></li>
-<li>字符串是常量，用双引号引起来表示。它们的值在创建之后不能更改。</li>
-<li>tring对象的字符内容是存储在-一个字符数组value[中的。</li>
+        <center>
+
+<font face="黑体" size=10>
+java常用类
+</font>
+
+</center>
+        
+          <a class="article-more-a" href="/2020/11/11/java%E5%B8%B8%E7%94%A8%E7%B1%BB/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/11/11/java%E5%B8%B8%E7%94%A8%E7%B1%BB/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-正则表达式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><h2 id="匹配任意字符"><a href="#匹配任意字符" class="headerlink" title="匹配任意字符"></a>匹配任意字符</h2><ul>
+<li>\ 转义字符</li>
+<li>. 匹配除断行外任意一个字符</li>
+</ul>
+<h2 id="匹配字母和字符"><a href="#匹配字母和字符" class="headerlink" title="匹配字母和字符"></a>匹配字母和字符</h2><ul>
+<li>\w (write)匹配范围0-9,a-z,A-Z以及_下划线</li>
+<li>\W 匹配\w的补集,通常包括各种字符<h2 id="数字匹配"><a href="#数字匹配" class="headerlink" title="数字匹配"></a>数字匹配</h2></li>
+<li>\d (digital)只匹配阿拉伯数字,不匹配小数<ul>
+<li>匹配浮点数可以用\d.\d</li>
+</ul>
+</li>
+<li>\D 匹配\d的补集,包括英文字符以及各种符号<h2 id="匹配空白字符"><a href="#匹配空白字符" class="headerlink" title="匹配空白字符"></a>匹配空白字符</h2></li>
+<li>\s (space)匹配空白字符,tab制表符,断行符</li>
+<li>\S 匹配\s的补集</li>
+</ul>
+<h2 id="行开始符"><a href="#行开始符" class="headerlink" title="行开始符"></a>行开始符</h2><ul>
+<li>^ 表示匹配行开始<ul>
+<li>^\d 表示必须以数字开头</li>
+</ul>
+</li>
+</ul>
+<h2 id="行结束符"><a href="#行结束符" class="headerlink" title="行结束符"></a>行结束符</h2><ul>
+<li>$ 表示匹配行结束<ul>
+<li>\d$ 表示必须以数字结束</li>
+</ul>
+</li>
+</ul>
+<h2 id="全局匹配"><a href="#全局匹配" class="headerlink" title="全局匹配"></a>全局匹配</h2><ul>
+<li>g 表示全局匹配</li>
+</ul>
+<h2 id="字符集合"><a href="#字符集合" class="headerlink" title="字符集合"></a>字符集合</h2><ul>
+<li>[]范围,可以匹配括号中任意出现的元素方括号中表示一个元素<ul>
+<li>[abc]可以匹配出现的a,b,c三种字符.无论是abc,aaaa,aba等等都在匹配的范围内</li>
+<li>[a-c]表示匹配小写字母a-c中任何字符</li>
+<li>[A-Z]表示从A到Z之间的任意字符都可以匹配成功</li>
+<li>[0-9]表示0至9之间的字符都可以匹配成功</li>
+<li>[\u4e00-\u9fa5]表示utf-8所有汉字编码,都在可以匹配的范围中.\u4e00表示编码表中的19968实际为汉字”一”,\9fa5表示编码表中40869实际为汉字”龥”yv(狱)<h2 id="选择匹配"><a href="#选择匹配" class="headerlink" title="选择匹配"></a>选择匹配</h2></li>
+</ul>
+</li>
+<li>[范围]|[范围] 表示可以匹配|前或者是|后的元素<ul>
+<li>J|java可以匹配到Java,java</li>
+</ul>
+</li>
+</ul>
+<h2 id="重复一次或多次"><a href="#重复一次或多次" class="headerlink" title="重复一次或多次"></a>重复一次或多次</h2><ul>
+<li>[范围]+ 加号前范围中出现的字符可以匹配一次或者是多次<ul>
+<li>yo+ 可以匹配到yo,yo,yoooooo等等.</li>
+<li>[Yy]0+ 可以匹配Yo,Yoo,yooo等等</li>
+<li>[Yy][Oo]+ 可以匹配Yo,YO,Yoooo,YOOO,yO,yo,yOOO,yooo等等.这里表示O或o可以出现一次或者是多次</li>
+</ul>
+</li>
+</ul>
+<h2 id="重复零次或多次"><a href="#重复零次或多次" class="headerlink" title="重复零次或多次"></a>重复零次或多次</h2><ul>
+<li>[范围]* 星号前范围中出现的字符可以出现零次或者多次<ul>
+<li>yo+[!]* 可以匹配yoo,yoo!!!等等</li>
+</ul>
+</li>
+</ul>
+<h2 id="出现零次或一次"><a href="#出现零次或一次" class="headerlink" title="出现零次或一次"></a>出现零次或一次</h2><ul>
+<li>[范围]? 问号前范围中出现的字符可以出现零次或一次<ul>
+<li>yo+p? 可以匹配到yoooop,yop,yooo等等</li>
+</ul>
+</li>
+</ul>
+<h2 id="边界符"><a href="#边界符" class="headerlink" title="边界符"></a>边界符</h2><ul>
+<li>\b 匹配一个单词边界,字与空格之间的位置,相当于边界符<ul>
+<li>ab\b 表示可以匹配ab,但是不匹配abbbbb,abdfad等等,限制b后面不出现任何字符</li>
+</ul>
+</li>
+</ul>
+<h2 id="指定重复范围"><a href="#指定重复范围" class="headerlink" title="指定重复范围"></a>指定重复范围</h2><ul>
+<li>[范围]{x} 表示范围中的字符可以出现x次<ul>
+<li>yo{2,}表示匹配o出现2次或2次以上,可以匹配yoo,yoooo等等</li>
+<li>yo{2,5}表示可以匹配o出现2次至5次,不可以匹配yo,yooooooo</li>
+</ul>
+</li>
+</ul>
+<h2 id="分组匹配"><a href="#分组匹配" class="headerlink" title="分组匹配"></a>分组匹配</h2><ul>
+<li>(范围) 表示将括号中的范围定义成一个分组,暂时缓存,可以进行替换或者其他操作<ul>
+<li>(.+)好吃,(.+)不好吃  可以匹配到苹果好吃,香蕉不好吃.可以利用$1,$2分别获得到缓存中的苹果,香蕉</li>
+</ul>
+</li>
 </ul>
 
       
@@ -177,7 +348,67 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/10/22/java%E5%B8%B8%E7%94%A8%E7%B1%BB/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/11/05/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-css" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="什么是css"><a href="#什么是css" class="headerlink" title="什么是css"></a>什么是css</h1><ol>
+<li>CSS是什么</li>
+<li>CSS怎么用(快速入门)</li>
+<li>CSS选择器(重点+难点)</li>
+<li>美化网页(文字, 阴影，超链接，列表渐变…</li>
+<li>盒子模型</li>
+<li>浮动</li>
+<li>定位</li>
+<li>网页动画（特效）</li>
+</ol>
+<p>css(Cascading Style Sheet)</p>
+<p>css:表现（美化页面）</p>
+<p>字体,颜色,边距,高度,宽度,背景图,网页定位,网页浮动</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/10/30/css/">展开全文 >></a>
         </p>
       
 
@@ -804,207 +1035,6 @@ java方法和数组
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2020/09/06/java%E5%8F%98%E9%87%8F-%E8%BF%90%E7%AE%97%E7%AC%A6-%E5%8C%85%E6%9C%BA%E5%88%B6-javaDoc/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-java数据类型" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-              
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/31/java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">java数据类型</a>
-    </h1>
-  
-
-              
-              <a href="/2020/08/31/java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" class="archive-article-date">
-  	<time datetime="2020-08-31T09:51:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-31</time>
-</a>
-              <!-- 需要添加的位置 -->
-              <!-- 开始添加字数统计-->
-              
-                <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">904字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">4分</span>
-      </span>
-    </span>
-</div>
-                
-              <!-- 添加完成 -->
-
-              
-            </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <center>
-
-<font face="黑体" size=10>
- java数据类型
-</font>
-
-</center>
-        
-          <a class="article-more-a" href="/2020/08/31/java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/31/java%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-doc命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-              
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/08/28/doc%E5%91%BD%E4%BB%A4/">doc命令</a>
-    </h1>
-  
-
-              
-              <a href="/2020/08/28/doc%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-  	<time datetime="2020-08-28T10:35:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-08-28</time>
-</a>
-              <!-- 需要添加的位置 -->
-              <!-- 开始添加字数统计-->
-              
-                <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">186字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">1分</span>
-      </span>
-    </span>
-</div>
-                
-              <!-- 添加完成 -->
-
-              
-            </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <center>
-
-<font face="黑体" size=10>
- doc命令
-</font>
-
-</center>
-        
-          <a class="article-more-a" href="/2020/08/28/doc%E5%91%BD%E4%BB%A4/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">window10</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/08/28/doc%E5%91%BD%E4%BB%A4/">展开全文 >></a>
         </p>
       
 
