@@ -16,7 +16,7 @@
 <meta property="og:description" content="java面向对象&amp;异常">
 <meta property="og:locale">
 <meta property="article:published_time" content="2020-09-21T07:14:56.000Z">
-<meta property="article:modified_time" content="2020-09-21T07:15:27.228Z">
+<meta property="article:modified_time" content="2021-01-02T07:09:21.469Z">
 <meta property="article:author" content="杨晨阳">
 <meta name="twitter:card" content="summary">
   
@@ -64,7 +64,7 @@
 			</ul>
 		</nav>
 		<nav>
-        总文章数 14
+        总文章数 18
     </nav>
 		<nav class="header-smart-menu">
     		
@@ -176,7 +176,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">4.5k字</span>
+        <span class="post-count">4.6k字</span>
       </span>
     </span>
 
@@ -205,8 +205,32 @@ java面向对象&异常
 
 </center>
 <a id="more"></a>
+<!-- TOC -->
 
-<h1 id="一-面向对象"><a href="#一-面向对象" class="headerlink" title="一. 面向对象"></a>一. 面向对象</h1><h2 id="1-1-面向过程-amp-面向对象"><a href="#1-1-面向过程-amp-面向对象" class="headerlink" title="1.1 面向过程&amp;面向对象"></a>1.1 面向过程&amp;面向对象</h2><ul>
+<ul>
+<li><a href="#1-%E4%B8%80-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1">1. 一. 面向对象</a><ul>
+<li><a href="#11-%E9%9D%A2%E5%90%91%E8%BF%87%E7%A8%8B%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1">1.1. 面向过程&amp;面向对象</a></li>
+<li><a href="#12-%E4%BB%80%E4%B9%88%E6%98%AF%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1">1.2. 什么是面向对象</a></li>
+<li><a href="#13-%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8">1.3. 方法调用</a></li>
+<li><a href="#14-%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%85%B3%E7%B3%BB">1.4. 类与对象的关系</a></li>
+<li><a href="#15-%E5%88%9B%E5%BB%BA%E4%B8%8E%E5%88%9D%E5%A7%8B%E5%8C%96%E5%AF%B9%E8%B1%A1">1.5. 创建与初始化对象</a></li>
+<li><a href="#16-%E5%B0%81%E8%A3%85">1.6. 封装</a></li>
+<li><a href="#17-%E7%BB%A7%E6%89%BF">1.7. 继承</a></li>
+<li><a href="#18-%E5%A4%9A%E6%80%81">1.8. 多态</a></li>
+<li><a href="#19-static">1.9. static</a></li>
+<li><a href="#110-%E6%8A%BD%E8%B1%A1%E7%B1%BB">1.10. 抽象类</a></li>
+<li><a href="#111-%E6%8E%A5%E5%8F%A3">1.11. 接口</a></li>
+</ul>
+</li>
+<li><a href="#2-%E4%BA%8C-%E5%BC%82%E5%B8%B8">2. 二. 异常</a><ul>
+<li><a href="#21-%E4%BB%80%E4%B9%88%E6%98%AF%E5%BC%82%E5%B8%B8">2.1. 什么是异常</a></li>
+<li><a href="#22-%E5%BC%82%E5%B8%B8%E7%AE%80%E5%8D%95%E5%88%86%E7%B1%BB">2.2. 异常简单分类</a></li>
+<li><a href="#23-%E8%87%AA%E5%AE%9A%E4%B9%89%E5%BC%82%E5%B8%B8">2.3. 自定义异常</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<h1 id="1-一-面向对象"><a href="#1-一-面向对象" class="headerlink" title="1. 一. 面向对象"></a>1. 一. 面向对象</h1><h2 id="1-1-面向过程-amp-面向对象"><a href="#1-1-面向过程-amp-面向对象" class="headerlink" title="1.1. 面向过程&amp;面向对象"></a>1.1. 面向过程&amp;面向对象</h2><ul>
 <li>面向过程思想</li>
 <li>步骤清晰简单,第一步做什么，第二步做什么… .</li>
 <li>面向过程适合处理-些较为简单的问题</li>
@@ -219,7 +243,7 @@ java面向对象&异常
 
 </li>
 </ul>
-<h2 id="1-2-什么是面向对象"><a href="#1-2-什么是面向对象" class="headerlink" title="1.2 什么是面向对象"></a>1.2 什么是面向对象</h2><ul>
+<h2 id="1-2-什么是面向对象"><a href="#1-2-什么是面向对象" class="headerlink" title="1.2. 什么是面向对象"></a>1.2. 什么是面向对象</h2><ul>
 <li><p>面向对象编程(Object-Oriented Programming, OOP)</p>
 </li>
 <li><p>面向对象编程的本质就是:<font color=red>以类的方式组织代码，以对象的组织(封装)数据。</font></p>
@@ -240,10 +264,10 @@ java面向对象&异常
 * 从认识论角度考虑是先有对象后有类。对象,是具体的事物。类,是抽象的，是对对象的抽象
 * 从代码运行角度考虑是先有类后有对象。类是对象的模板。
 
-<h2 id="1-3-方法调用"><a href="#1-3-方法调用" class="headerlink" title="1.3 方法调用"></a>1.3 方法调用</h2><p>!非静态方法可以调用静态方法</p>
+<h2 id="1-3-方法调用"><a href="#1-3-方法调用" class="headerlink" title="1.3. 方法调用"></a>1.3. 方法调用</h2><p>!非静态方法可以调用静态方法</p>
 <p>!但是静态方法不可以调用非静态方法</p>
 <p>原因:静态方法同类创建时就加载完成了,而非静态方法是在类实例化时才进行加载.</p>
-<h2 id="1-4-类与对象的关系"><a href="#1-4-类与对象的关系" class="headerlink" title="1.4 类与对象的关系"></a>1.4 类与对象的关系</h2><ul>
+<h2 id="1-4-类与对象的关系"><a href="#1-4-类与对象的关系" class="headerlink" title="1.4. 类与对象的关系"></a>1.4. 类与对象的关系</h2><ul>
 <li><font color=red>类是一种抽象的数据类型,它是对某-类事物整体描述/定义,但是并不能代表某- 个具体的事物.</font><ul>
 <li>动物、植物、手机、电脑….</li>
 <li>Person类、Pet类. Car类等,这些类都是用来描述/定义某-类具体的事物应该具备的特<br>点和行为</li>
@@ -255,7 +279,7 @@ java面向对象&异常
 </ul>
 </li>
 </ul>
-<h2 id="1-5-创建与初始化对象"><a href="#1-5-创建与初始化对象" class="headerlink" title="1.5 创建与初始化对象"></a>1.5 创建与初始化对象</h2><ul>
+<h2 id="1-5-创建与初始化对象"><a href="#1-5-创建与初始化对象" class="headerlink" title="1.5. 创建与初始化对象"></a>1.5. 创建与初始化对象</h2><ul>
 <li>使用new关键字创建对象</li>
 <li>使用new关键宇创建的时候，除了分配内存空间之外，还会给创建好的对象进行就认的初始化<br>以及对类中构造器的调用。</li>
 <li>类中的构造器也称为构造方法，是在进行创建对象的时候必须要调用的。并且构造器有以下俩<br>个特点:<ol>
@@ -272,7 +296,7 @@ java面向对象&异常
 
 </li>
 </ul>
-<h2 id="1-6-封装"><a href="#1-6-封装" class="headerlink" title="1.6 封装"></a>1.6 封装</h2><ul>
+<h2 id="1-6-封装"><a href="#1-6-封装" class="headerlink" title="1.6. 封装"></a>1.6. 封装</h2><ul>
 <li>该露的露，该藏的藏</li>
 <li>我们程序设计要追求<font color=red>“高内聚，低耦合”</font>.高内聚就是类的内部数据操作细节自己完成，不允许外部<br>干涉;低耦合:仅暴露少量的方法给外部使用。</li>
 <li>封装(数据的隐藏)</li>
@@ -281,7 +305,7 @@ java面向对象&异常
 
 </li>
 </ul>
-<h2 id="1-7-继承"><a href="#1-7-继承" class="headerlink" title="1.7 继承"></a>1.7 继承</h2><ul>
+<h2 id="1-7-继承"><a href="#1-7-继承" class="headerlink" title="1.7. 继承"></a>1.7. 继承</h2><ul>
 <li><p>继承的本质是对某一批类的抽象，从而实现对现实世界更好的建模。</p>
 </li>
 <li><p><font color=red>extends</font>的意思是“扩展”。子类是父类的扩展。</p>
@@ -335,7 +359,7 @@ java面向对象&异常
     * static方法,属于类不属于对象
     * final常量
     * private私有</code></pre>
-<h2 id="1-8-多态"><a href="#1-8-多态" class="headerlink" title="1.8 多态"></a>1.8 多态</h2><ul>
+<h2 id="1-8-多态"><a href="#1-8-多态" class="headerlink" title="1.8. 多态"></a>1.8. 多态</h2><ul>
 <li>即同一方法可以根据发送对象的不同而采用多种不同的行为方式.</li>
 <li>一个对象的实际类型是确定的，但可以指向对象的引用的类型有很多</li>
 <li>多态存在的条件<ul>
@@ -392,7 +416,7 @@ java面向对象&异常
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">castClass</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] argv)</span></span>&#123;</span><br><span class="line">        A as[]=<span class="keyword">new</span> A[<span class="number">2</span>];</span><br><span class="line">        as[<span class="number">0</span>]=<span class="keyword">new</span> A();</span><br><span class="line">        as[<span class="number">1</span>]=<span class="keyword">new</span> B();</span><br><span class="line">        ((B)as[<span class="number">1</span>]).getB();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getA</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> a;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> b;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getA</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getB</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> b;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="1-9-static"><a href="#1-9-static" class="headerlink" title="1.9 static"></a>1.9 static</h2><ul>
+<h2 id="1-9-static"><a href="#1-9-static" class="headerlink" title="1.9. static"></a>1.9. static</h2><ul>
 <li>静态代码块在类加载时加载</li>
 <li>匿名代码块在静态代码加载后加载</li>
 <li>构造方法在类声明后加载<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Teacher</span> <span class="keyword">extends</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;匿名代码块&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;静态代码块&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Teacher</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;构造方法&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Teacher teacher = <span class="keyword">new</span> Teacher();</span><br><span class="line">        System.out.println(<span class="string">&quot;----------&quot;</span>);</span><br><span class="line">        Teacher teacher1 = <span class="keyword">new</span> Teacher();</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        静态代码块</span></span><br><span class="line"><span class="comment">        匿名代码块</span></span><br><span class="line"><span class="comment">        构造方法</span></span><br><span class="line"><span class="comment">        ----------</span></span><br><span class="line"><span class="comment">        匿名代码块</span></span><br><span class="line"><span class="comment">        构造方法</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
@@ -400,7 +424,7 @@ java面向对象&异常
 
 </li>
 </ul>
-<h2 id="1-10-抽象类"><a href="#1-10-抽象类" class="headerlink" title="1.10 抽象类"></a>1.10 抽象类</h2><ul>
+<h2 id="1-10-抽象类"><a href="#1-10-抽象类" class="headerlink" title="1.10. 抽象类"></a>1.10. 抽象类</h2><ul>
 <li><font color="red">abstract</font>修饰符可以用来修饰方法也可以修饰类,如果修饰方法，那么该方法就是|抽象方法;如果<br>修饰类,那么该类就是抽象类。</li>
 <li>抽象类中可以没有抽象方法但是有抽象方法的类-定要声明为抽象类。</li>
 <li>抽象类,不能使用new关键字来创建对象,它是用来让子类继承的。</li>
@@ -409,7 +433,7 @@ java面向对象&异常
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Action</span> </span>&#123;</span><br><span class="line">    <span class="comment">//约束有人帮我们实现</span></span><br><span class="line">    <span class="comment">//abstract 抽象方法,只有方法名字没有方法实现</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">doSomething</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//不能new抽象类,只能靠子类实现:约束!</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//抽象类可以写普通方法</span></span><br><span class="line">    <span class="comment">//抽象方法必须在抽象类中</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">hello</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//思考题:抽象类构造器问题:</span></span><br><span class="line">    <span class="comment">//子类在调用父类时无论自己有没有构造方法都会先去执行父类无参的函数。</span></span><br><span class="line">    <span class="comment">//抽象类存在意义 :</span></span><br><span class="line">    <span class="comment">//提高开发效率提高可扩展性</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<h2 id="1-11-接口"><a href="#1-11-接口" class="headerlink" title="1.11 接口"></a>1.11 接口</h2><ul>
+<h2 id="1-11-接口"><a href="#1-11-接口" class="headerlink" title="1.11. 接口"></a>1.11. 接口</h2><ul>
 <li><p>普通类:只有具体实现</p>
 </li>
 <li><p>抽象类:具体实现和规范(抽象方法)都有! </p>
@@ -431,13 +455,13 @@ java面向对象&异常
 <li><p>接口没有构造方法</p>
 </li>
 </ul>
-<h1 id="二-异常"><a href="#二-异常" class="headerlink" title="二. 异常"></a>二. 异常</h1><h2 id="2-1-什么是异常"><a href="#2-1-什么是异常" class="headerlink" title="2.1 什么是异常"></a>2.1 什么是异常</h2><ul>
+<h1 id="2-二-异常"><a href="#2-二-异常" class="headerlink" title="2. 二. 异常"></a>2. 二. 异常</h1><h2 id="2-1-什么是异常"><a href="#2-1-什么是异常" class="headerlink" title="2.1. 什么是异常"></a>2.1. 什么是异常</h2><ul>
 <li>实际工作中，遇到的情况不可能是非常完美的。比如:你写的某个模块，用户输入不一定符合你的要求、你的程序要打开某个文件，这个文件可能不存在或者文件格式不对，你要读取数据库的数据，数据可能是空的等。我们的程序再跑着，内存或硬盘可能满了。等等。</li>
 <li>软件程序在运行过程中，非常可能遇到刚刚提到的这些异常问题，我们叫异常,英文是:Exception,意思是例外。这些，例外情况，或者叫异常，怎么让我们写的程序做出合理的处理。而不至于程序崩溃。</li>
 <li>异常指程序运行中出现的不期而至的各种状况,如:文件找不到、网络连接失败、非法参数等。</li>
 <li>异常发生在程序运行期间,它影响了正常的程序执行流程。</li>
 </ul>
-<h2 id="2-2-异常简单分类"><a href="#2-2-异常简单分类" class="headerlink" title="2.2 异常简单分类"></a>2.2 异常简单分类</h2><ul>
+<h2 id="2-2-异常简单分类"><a href="#2-2-异常简单分类" class="headerlink" title="2.2. 异常简单分类"></a>2.2. 异常简单分类</h2><ul>
 <li><p>要理解Java异常处理是如何工作的，你需要掌握以下种类型的异常:</p>
 </li>
 <li><p>异常处理框架</p>
@@ -469,7 +493,7 @@ java面向对象&异常
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a=<span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> b=<span class="number">0</span>;</span><br><span class="line">    <span class="comment">//ctrl alt t</span></span><br><span class="line">    <span class="comment">//假设要不或多个异常,需要从小到大</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//主动抛出异常一般在方法中使用</span></span><br><span class="line">        <span class="keyword">if</span> (b==<span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> ArithmeticException();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(a/b);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;<span class="comment">//想要捕获的异常类型</span></span><br><span class="line">        System.out.println(<span class="string">&quot;被除数不能为0&quot;</span>);</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;结束&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="2-3-自定义异常"><a href="#2-3-自定义异常" class="headerlink" title="2.3 自定义异常"></a>2.3 自定义异常</h2><ul>
+<h2 id="2-3-自定义异常"><a href="#2-3-自定义异常" class="headerlink" title="2.3. 自定义异常"></a>2.3. 自定义异常</h2><ul>
 <li>使用Java内置的异常类可以描述在编程时出现的大部分异常情况。除此之外，用户还可以自定<br>义异常。用户自定义异常类,只需继承Exception类即可。</li>
 <li>在程序中使用自定义异常类,大体可分为以下几个步骤:<ol>
 <li>创建自定义异常类。</li>
@@ -603,8 +627,8 @@ java面向对象&异常
     </a>
   
   
-    <a href="/2020/09/15/java%E6%96%B9%E6%B3%95%E5%92%8C%E6%95%B0%E7%BB%84/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">java方法和数组</div>
+    <a href="/2020/09/19/java%E9%9B%86%E5%90%88/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">java集合</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -647,7 +671,7 @@ java面向对象&异常
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 杨晨阳
+    		&copy; 2021 杨晨阳
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

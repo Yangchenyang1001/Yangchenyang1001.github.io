@@ -16,7 +16,7 @@
 <meta property="og:description" content="java常用类">
 <meta property="og:locale">
 <meta property="article:published_time" content="2020-11-11T07:26:36.000Z">
-<meta property="article:modified_time" content="2020-11-14T07:26:54.132Z">
+<meta property="article:modified_time" content="2021-01-02T07:05:46.919Z">
 <meta property="article:author" content="杨晨阳">
 <meta name="twitter:card" content="summary">
   
@@ -64,7 +64,7 @@
 			</ul>
 		</nav>
 		<nav>
-        总文章数 14
+        总文章数 18
     </nav>
 		<nav class="header-smart-menu">
     		
@@ -176,7 +176,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">5.9k字</span>
+        <span class="post-count">6.2k字</span>
       </span>
     </span>
 
@@ -185,7 +185,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">27分</span>
+        <span class="post-count">28分</span>
       </span>
     </span>
 </div>
@@ -205,16 +205,38 @@ java常用类
 
 </center>
 <a id="more"></a>
+<!-- TOC -->
 
+<ul>
+<li><a href="#1-spring">1. Spring</a><ul>
+<li><a href="#11-%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95">1.1. 常用方法</a></li>
+</ul>
+</li>
+<li><a href="#2-springbufferspringbuilder">2. SpringBuffer&amp;&amp;SpringBuilder</a></li>
+<li><a href="#3-date%E7%B1%BB">3. Date类</a><ul>
+<li><a href="#31-javautildate">3.1. java.util.Date</a></li>
+<li><a href="#32-simpledateformat">3.2. SimpleDateFormat</a></li>
+<li><a href="#33-calendar">3.3. Calendar</a></li>
+<li><a href="#34-localdate-localtime-localdatetime">3.4. LocalDate、 LocalTime、 LocalDateTime</a></li>
+<li><a href="#35-instant">3.5. Instant</a></li>
+<li><a href="#36-datetimeformatter">3.6. DateTimeFormatter</a></li>
+<li><a href="#37-comparablecomparator">3.7. Comparable&amp;Comparator</a></li>
+<li><a href="#38-system">3.8. System</a></li>
+<li><a href="#39-math">3.9. Math</a></li>
+<li><a href="#310-bigintegerbigdecimal">3.10. BigInteger&amp;BigDecimal</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
 
-<h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><ul>
+<h1 id="1-Spring"><a href="#1-Spring" class="headerlink" title="1. Spring"></a>1. Spring</h1><ul>
 <li>String的特性</li>
 <li>String类: 代表字符串。Java程序中的所有字符串字面值(如”abc” )都作为此类的实例实现。</li>
 <li>String是一个final类，代表<font color="red">不可变的字符序列。</font></li>
 <li>字符串是常量，用双引号引起来表示。它们的值在创建之后不能更改。</li>
 <li>String对象的字符内容是存储在一个字符数组value[]中的。</li>
 </ul>
-<h2 id="常用方法"><a href="#常用方法" class="headerlink" title="常用方法"></a>常用方法</h2><ul>
+<h2 id="1-1-常用方法"><a href="#1-1-常用方法" class="headerlink" title="1.1. 常用方法"></a>1.1. 常用方法</h2><ul>
 <li><p>int length():返回字符串的长度: return value.length</p>
 </li>
 <li><p>char charAt(int index):返回某索引处的字符return value[index]</p>
@@ -323,7 +345,7 @@ java常用类
 </ul>
 </li>
 </ul>
-<h1 id="SpringBuffer-amp-amp-SpringBuilder"><a href="#SpringBuffer-amp-amp-SpringBuilder" class="headerlink" title="SpringBuffer&amp;&amp;SpringBuilder"></a>SpringBuffer&amp;&amp;SpringBuilder</h1><ul>
+<h1 id="2-SpringBuffer-amp-amp-SpringBuilder"><a href="#2-SpringBuffer-amp-amp-SpringBuilder" class="headerlink" title="2. SpringBuffer&amp;&amp;SpringBuilder"></a>2. SpringBuffer&amp;&amp;SpringBuilder</h1><ul>
 <li><p>String StringBuffer, StringBuilder异同</p>
 <ul>
 <li><p>String:JDK1.0,不可变的字符序列,底层使用char[]数组储存</p>
@@ -392,7 +414,7 @@ java常用类
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testStringBuffer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        String str = <span class="keyword">null</span>;</span><br><span class="line">        StringBuffer sb = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">        sb.append(str);<span class="comment">//</span></span><br><span class="line">        System.out.println(sb.length());<span class="comment">//4</span></span><br><span class="line">        System.out.println(sb);<span class="comment">// &quot;null&quot;</span></span><br><span class="line">        StringBuffer sb1 = <span class="keyword">new</span> StringBuffer(str);</span><br><span class="line">        System.out.println(sb1);<span class="comment">//空指针异常</span></span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//StringBuffer.java</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">synchronized</span> StringBuffer <span class="title">append</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">        toStringCache = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">super</span>.append(str);</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//AbstractStringBuilder.java</span></span><br><span class="line">            <span class="keyword">if</span> (str == <span class="keyword">null</span>)</span><br><span class="line">            <span class="keyword">return</span> appendNull();</span><br><span class="line">        <span class="keyword">int</span> len = str.length();</span><br><span class="line"><span class="comment">//AbstractStringBuilder.java</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> AbstractStringBuilder <span class="title">appendNull</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> c = count;</span><br><span class="line">        ensureCapacityInternal(c + <span class="number">4</span>);</span><br><span class="line">        <span class="keyword">final</span> <span class="keyword">char</span>[] value = <span class="keyword">this</span>.value;</span><br><span class="line">        value[c++] = <span class="string">&#x27;n&#x27;</span>;</span><br><span class="line">        value[c++] = <span class="string">&#x27;u&#x27;</span>;</span><br><span class="line">        value[c++] = <span class="string">&#x27;l&#x27;</span>;</span><br><span class="line">        value[c++] = <span class="string">&#x27;l&#x27;</span>;</span><br><span class="line">        count = c;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
 
 
-<h1 id="Date类"><a href="#Date类" class="headerlink" title="Date类"></a>Date类</h1><h2 id="java-util-Date"><a href="#java-util-Date" class="headerlink" title="java.util.Date"></a>java.util.Date</h2><ul>
+<h1 id="3-Date类"><a href="#3-Date类" class="headerlink" title="3. Date类"></a>3. Date类</h1><h2 id="3-1-java-util-Date"><a href="#3-1-java-util-Date" class="headerlink" title="3.1. java.util.Date"></a>3.1. java.util.Date</h2><ul>
 <li>两个构造器的使用</li>
 <li>两个方法的使用<ul>
 <li>toString显示当前的年月日时分秒</li>
@@ -410,7 +432,7 @@ java常用类
 </ul>
 </li>
 </ul>
-<h2 id="SimpleDateFormat"><a href="#SimpleDateFormat" class="headerlink" title="SimpleDateFormat"></a>SimpleDateFormat</h2><ul>
+<h2 id="3-2-SimpleDateFormat"><a href="#3-2-SimpleDateFormat" class="headerlink" title="3.2. SimpleDateFormat"></a>3.2. SimpleDateFormat</h2><ul>
 <li>java.text.SimpleDateFormat类<ul>
 <li>Date类的API不易于国际化，大部分被废弃了，java.text.SimpleDateFormat类是一个不与语言环境有关的方式来格式化和解析日期的具体类。</li>
 <li>它允许进行格式化:日期–&gt;文本、解析:文本–&gt;日期</li>
@@ -432,7 +454,7 @@ java常用类
 </ul>
 </li>
 </ul>
-<h2 id="Calendar"><a href="#Calendar" class="headerlink" title="Calendar"></a>Calendar</h2><ul>
+<h2 id="3-3-Calendar"><a href="#3-3-Calendar" class="headerlink" title="3.3. Calendar"></a>3.3. Calendar</h2><ul>
 <li>Calendar日历类的使用(抽象类)</li>
 <li>实例化<ul>
 <li>方式一:创建子类对象GregorianCalendar</li>
@@ -453,7 +475,7 @@ java常用类
 </ul>
 </li>
 </ul>
-<h2 id="LocalDate、-LocalTime、-LocalDateTime"><a href="#LocalDate、-LocalTime、-LocalDateTime" class="headerlink" title="LocalDate、 LocalTime、 LocalDateTime"></a>LocalDate、 LocalTime、 LocalDateTime</h2><ul>
+<h2 id="3-4-LocalDate、-LocalTime、-LocalDateTime"><a href="#3-4-LocalDate、-LocalTime、-LocalDateTime" class="headerlink" title="3.4. LocalDate、 LocalTime、 LocalDateTime"></a>3.4. LocalDate、 LocalTime、 LocalDateTime</h2><ul>
 <li><p>LocalDate、 LocalTime、 LocalDateTime类是其中较重要的几个类，它们的实例是不可变的对象，分别表示使用ISO-8601日历系统的日期、时间、日期和时间。它们提供了简单的本地日期或时间，并不包含当前的时间信息，也不包含与时区相关的信息。</p>
 </li>
 <li><p>LocalDate代表IOS格式(yy-MM-dd) 的日期，可以存储生日、纪念日等日期。</p>
@@ -476,10 +498,10 @@ java常用类
 </ul>
 </li>
 </ul>
-<h2 id="Instant"><a href="#Instant" class="headerlink" title="Instant"></a>Instant</h2><ul>
+<h2 id="3-5-Instant"><a href="#3-5-Instant" class="headerlink" title="3.5. Instant"></a>3.5. Instant</h2><ul>
 <li>Instant:时间线上的一个瞬时点。这可能被用来记录应用程序中的事件时间戳<ul>
 <li>类似于java.util.Date<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//now()获取本初子午线对应的时区</span></span><br><span class="line">Instant now = Instant.now();</span><br><span class="line">System.out.println(now);<span class="comment">//2020-11-13T06:07:24.510Z</span></span><br><span class="line"><span class="comment">//添加时间的偏移量</span></span><br><span class="line">OffsetDateTime offsetDateTime = now.atOffset(ZoneOffset.ofHours(<span class="number">8</span>));</span><br><span class="line">System.out.println(offsetDateTime);<span class="comment">//2020-11-13T14:21:45.323+08:00</span></span><br><span class="line"><span class="comment">//获取时间的的毫秒数</span></span><br><span class="line"><span class="keyword">long</span> l = now.toEpochMilli();</span><br><span class="line">System.out.println(l);<span class="comment">//1605248624162</span></span><br><span class="line"><span class="comment">//ofEpochMilli():通过给定的毫秒数,获取instant实例的--&gt;Date类的get</span></span><br><span class="line">Instant instant = Instant.ofEpochMilli(<span class="number">1605248624162l</span>);</span><br><span class="line">System.out.println(instant);<span class="comment">//2020-11-13T06:23:44.162Z</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="DateTimeFormatter"><a href="#DateTimeFormatter" class="headerlink" title="DateTimeFormatter"></a>DateTimeFormatter</h2></li>
+<h2 id="3-6-DateTimeFormatter"><a href="#3-6-DateTimeFormatter" class="headerlink" title="3.6. DateTimeFormatter"></a>3.6. DateTimeFormatter</h2></li>
 </ul>
 </li>
 <li>DateTimeFormatter用来格式化或解析日期或时间<ul>
@@ -496,7 +518,7 @@ java常用类
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方式一:预定义的标准格式。 如:ISO_ LOCAL_DATE_TIME;ISO_LOCAL_DATE;ISO_LOCAL_TIME</span></span><br><span class="line">DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE_TIME;</span><br><span class="line"><span class="comment">//格式化 :日期--&gt;字符串</span></span><br><span class="line">LocalDateTime localDateTime = LocalDateTime.now();</span><br><span class="line">String format = formatter.format(localDateTime);</span><br><span class="line">System.out.println(format);<span class="comment">//2020-11-13T16:34:40.339</span></span><br><span class="line"><span class="comment">//解析:字符串--&gt;日期</span></span><br><span class="line">TemporalAccessor parse = formatter.parse(<span class="string">&quot;2020-11-13T16:34:40.339&quot;</span>);</span><br><span class="line">System.out.println(parse);<span class="comment">//&#123;&#125;,ISO resolved to 2020-11-13T16:34:40.339</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//方拾二:本地化相关的格式。如: ofLocalizedDate Time(FormatStyle.LONG)</span></span><br><span class="line">DateTimeFormatter formatter1 = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG);</span><br><span class="line"><span class="comment">//格式化</span></span><br><span class="line">String format1 = formatter1.format(localDateTime);</span><br><span class="line">System.out.println(format1);<span class="comment">//2020年11月13日 下午04时38分50秒</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//方式三:自定义的格式。如: ofPattern(&#x27;yyyy-MM-dd hh:mm:ss E&quot;)</span></span><br><span class="line">DateTimeFormatter formatter2 = DateTimeFormatter.ofPattern(<span class="string">&quot;yyyy-MM-dd hh:mm:ss&quot;</span>);</span><br><span class="line"><span class="comment">//格式化</span></span><br><span class="line">String format2 = formatter2.format(localDateTime);</span><br><span class="line">System.out.println(format2);<span class="comment">//2020-11-13 04:42:13</span></span><br><span class="line"><span class="comment">//解析</span></span><br><span class="line">TemporalAccessor parse1 = formatter2.parse(<span class="string">&quot;2020-11-13 04:42:13&quot;</span>);</span><br><span class="line">System.out.println(parse1);<span class="comment">//&#123;SecondOfMinute=13, NanoOfSecond=0, HourOfAmPm=4, MicroOfSecond=0, MinuteOfHour=42, MilliOfSecond=0&#125;,ISO resolved to 2020-11-13</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
-<h2 id="Comparable-amp-Comparator"><a href="#Comparable-amp-Comparator" class="headerlink" title="Comparable&amp;Comparator"></a>Comparable&amp;Comparator</h2><ul>
+<h2 id="3-7-Comparable-amp-Comparator"><a href="#3-7-Comparable-amp-Comparator" class="headerlink" title="3.7. Comparable&amp;Comparator"></a>3.7. Comparable&amp;Comparator</h2><ul>
 <li>同为比较接口<ul>
 <li>java.util.Comparator</li>
 <li>java.lang.Comparable</li>
@@ -550,7 +572,7 @@ java常用类
 </ul>
 </li>
 </ul>
-<h2 id="System"><a href="#System" class="headerlink" title="System"></a>System</h2><ul>
+<h2 id="3-8-System"><a href="#3-8-System" class="headerlink" title="3.8. System"></a>3.8. System</h2><ul>
 <li>System类代表 系统，系统级的很多属性和控制方法都放置在该类的内部。该类位于java.lang包。</li>
 <li>由于该类的构造器是private的，所以无法创建该类的对象，也就是无法实例化该类.其内部的成员变量和成员方法都是static的，所以也可以很方便的进行调用。</li>
 <li>成员变量<ul>
@@ -568,8 +590,13 @@ java常用类
 </ul>
 </li>
 </ul>
-<h2 id="Math"><a href="#Math" class="headerlink" title="Math"></a>Math</h2><p>用于数学运算的类</p>
-<h2 id="BigInteger-amp-BigDecimal"><a href="#BigInteger-amp-BigDecimal" class="headerlink" title="BigInteger&amp;BigDecimal"></a>BigInteger&amp;BigDecimal</h2><ul>
+<ul>
+<li>练习:从键盘新人字符串，要求将读取到的整行字符串转成大写输出。然后继续进行输入操作，直至当输入“e”或者“exit”时，退出程序。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    InputStreamReader isr = <span class="keyword">new</span> InputStreamReader(System.in);</span><br><span class="line">    BufferedReader br = <span class="keyword">new</span> BufferedReader(isr);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;请输入字符串&quot;</span>);</span><br><span class="line">                String data = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line">                data = br.readLine();</span><br><span class="line">                <span class="keyword">if</span> (<span class="string">&quot;e&quot;</span>.equalsIgnoreCase(data) || <span class="string">&quot;exit&quot;</span>.equalsIgnoreCase(data)) &#123;</span><br><span class="line">                    System.out.println(<span class="string">&quot;程序结束&quot;</span>);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                String uppercase = data.toUpperCase();</span><br><span class="line">                System.out.println(uppercase);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                br.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-9-Math"><a href="#3-9-Math" class="headerlink" title="3.9. Math"></a>3.9. Math</h2><p>用于数学运算的类</p>
+<h2 id="3-10-BigInteger-amp-BigDecimal"><a href="#3-10-BigInteger-amp-BigDecimal" class="headerlink" title="3.10. BigInteger&amp;BigDecimal"></a>3.10. BigInteger&amp;BigDecimal</h2><ul>
 <li>Integer类 作为int的包装类，能存储的最大整型值为231-1，Long类 也是有限的，最大为263-1。如果要表示再大的整数，不管是基本数据类型还是他们的包装类都无能为力，更不用说进行运算了。</li>
 <li>java.math包的BigInteger可 以表示不可变的任意精度的整数。BigInteger 提供<br>所有Java的基本整数操作符的对应物，并提供java lang,Math的所有相关方法。另外，BigInteger 还提供以下运算:模算术、GCD计算、质数测试、素数生成、位操作以及一些其他操作。</li>
 <li>构造器<ul>
@@ -684,6 +711,15 @@ java常用类
   
 <nav id="article-nav">
   
+    <a href="/2020/11/15/java%E6%9E%9A%E4%B8%BE%E5%92%8C%E6%B3%A8%E8%A7%A3/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          java注解和枚举
+        
+      </div>
+    </a>
+  
   
     <a href="/2020/10/20/java%E7%BA%BF%E7%A8%8B/" id="article-nav-older" class="article-nav-link-wrap">
       <div class="article-nav-title">java多线程</div>
@@ -729,7 +765,7 @@ java常用类
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 杨晨阳
+    		&copy; 2021 杨晨阳
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

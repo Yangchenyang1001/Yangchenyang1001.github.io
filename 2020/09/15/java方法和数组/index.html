@@ -16,7 +16,7 @@
 <meta property="og:description" content="java方法和数组">
 <meta property="og:locale">
 <meta property="article:published_time" content="2020-09-15T10:28:36.000Z">
-<meta property="article:modified_time" content="2020-09-15T10:40:31.928Z">
+<meta property="article:modified_time" content="2021-03-16T02:42:48.060Z">
 <meta property="article:author" content="杨晨阳">
 <meta name="twitter:card" content="summary">
   
@@ -64,7 +64,7 @@
 			</ul>
 		</nav>
 		<nav>
-        总文章数 14
+        总文章数 18
     </nav>
 		<nav class="header-smart-menu">
     		
@@ -176,7 +176,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">3.4k字</span>
+        <span class="post-count">3.6k字</span>
       </span>
     </span>
 
@@ -205,8 +205,45 @@ java方法和数组
 
 </center>
 <a id="more"></a>
+<!-- TOC -->
 
-<h1 id="一-方法"><a href="#一-方法" class="headerlink" title="一. 方法"></a>一. 方法</h1><h2 id="1-1-什么是方法"><a href="#1-1-什么是方法" class="headerlink" title="1.1 什么是方法"></a>1.1 什么是方法</h2><ul>
+<ul>
+<li><a href="#1-%E4%B8%80-%E6%96%B9%E6%B3%95">1. 一. 方法</a><ul>
+<li><a href="#11-%E4%BB%80%E4%B9%88%E6%98%AF%E6%96%B9%E6%B3%95">1.1. 什么是方法</a></li>
+<li><a href="#12-%E6%96%B9%E6%B3%95%E7%9A%84%E5%AE%9A%E4%B9%89">1.2. 方法的定义</a></li>
+<li><a href="#13-%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8">1.3. 方法调用</a></li>
+<li><a href="#14-%E6%96%B9%E6%B3%95%E7%9A%84%E9%87%8D%E8%BD%BD">1.4. 方法的重载</a></li>
+<li><a href="#15-%E5%91%BD%E4%BB%A4%E8%A1%8C%E4%BC%A0%E5%8F%82">1.5. 命令行传参</a></li>
+<li><a href="#16-%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0">1.6. 可变参数</a></li>
+<li><a href="#17-%E9%80%92%E5%BD%92">1.7. 递归</a></li>
+</ul>
+</li>
+<li><a href="#2-%E4%BA%8C-%E6%95%B0%E7%BB%84">2. 二. 数组</a><ul>
+<li><a href="#21-%E6%95%B0%E7%BB%84%E7%9A%84%E5%AE%9A%E4%B9%89">2.1. 数组的定义</a><ul>
+<li><a href="#211-%E6%95%B0%E7%BB%84%E7%9A%84%E5%9B%9B%E4%B8%AA%E5%9F%BA%E6%9C%AC%E7%89%B9%E7%82%B9">2.1.1. 数组的四个基本特点</a></li>
+</ul>
+</li>
+<li><a href="#22-%E6%95%B0%E7%BB%84%E7%9A%84%E5%A3%B0%E6%98%8E%E5%88%9B%E5%BB%BA">2.2. 数组的声明创建</a></li>
+<li><a href="#23-%E6%95%B0%E7%BB%84%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90">2.3. 数组内存分析</a></li>
+<li><a href="#24-%E6%95%B0%E7%BB%84%E5%88%9D%E5%A7%8B%E5%8C%96%E6%96%B9%E6%B3%95">2.4. 数组初始化方法</a><ul>
+<li><a href="#241-%E9%9D%99%E6%80%81%E5%88%9D%E5%A7%8B%E5%8C%96">2.4.1. 静态初始化</a></li>
+<li><a href="#242-%E5%8A%A8%E6%80%81%E5%88%9D%E5%A7%8B%E5%8C%96">2.4.2. 动态初始化</a></li>
+<li><a href="#243-%E9%BB%98%E8%AE%A4%E5%88%9D%E5%A7%8B%E5%8C%96">2.4.3. 默认初始化</a></li>
+</ul>
+</li>
+<li><a href="#25-%E6%95%B0%E7%BB%84%E7%9A%84%E4%BD%BF%E7%94%A8">2.5. 数组的使用</a></li>
+<li><a href="#26-%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84">2.6. 多维数组</a></li>
+<li><a href="#27-arrays%E7%B1%BB">2.7. Arrays类</a></li>
+<li><a href="#28-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F">2.8. 冒泡排序</a></li>
+<li><a href="#29-%E7%A8%80%E7%96%8F%E6%95%B0%E7%BB%84">2.9. 稀疏数组</a><ul>
+<li><a href="#291-%E7%A8%80%E7%96%8F%E6%95%B0%E7%BB%84%E4%BB%8B%E7%BB%8D">2.9.1. 稀疏数组介绍</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<h1 id="1-一-方法"><a href="#1-一-方法" class="headerlink" title="1. 一. 方法"></a>1. 一. 方法</h1><h2 id="1-1-什么是方法"><a href="#1-1-什么是方法" class="headerlink" title="1.1. 什么是方法"></a>1.1. 什么是方法</h2><ul>
 <li>System.out.println(),那么它是什么呢?</li>
 <li>Java方法是语句的集合,它们在-起执行一个功能。<ul>
 <li>方法是解决-类问题的步骤的有序组合</li>
@@ -221,7 +258,7 @@ java方法和数组
 <p>回顾:方法的命名规则<br>    <strong>首字母小写,保持驼峰原则</strong></p>
 </font>
 
-<h2 id="1-2-方法的定义"><a href="#1-2-方法的定义" class="headerlink" title="1.2 方法的定义"></a>1.2 方法的定义</h2><ul>
+<h2 id="1-2-方法的定义"><a href="#1-2-方法的定义" class="headerlink" title="1.2. 方法的定义"></a>1.2. 方法的定义</h2><ul>
 <li><p>Java的方法类似于其它语言的函数,是一段<font color=red>用来完成特定功能的代码片段</font>，-般情况下，定义<br>一个方法包含以下语法:</p>
 </li>
 <li><p><font color=red>方法包含一个方法头和一个方法体</font>。下面是一个方法的所有部分:</p>
@@ -235,7 +272,7 @@ java方法和数组
 </ol>
 </li>
 <li><strong>方法体</strong>:方法体包含具体的语句，定义该方法的功能。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> a, <span class="keyword">int</span> b)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="1-3-方法调用"><a href="#1-3-方法调用" class="headerlink" title="1.3 方法调用"></a>1.3 方法调用</h2></li>
+<h2 id="1-3-方法调用"><a href="#1-3-方法调用" class="headerlink" title="1.3. 方法调用"></a>1.3. 方法调用</h2></li>
 </ul>
 </li>
 <li><p>调用方法:对象名.方法名(实参列表)</p>
@@ -264,7 +301,7 @@ java方法和数组
 <li>错误理解二：Java是引用传递。</li>
 <li>错误理解三：传递的参数如果是普通类型，那就是值传递，如果是对象，那就是引用传递。</li>
 </ol>
-<h2 id="1-4-方法的重载"><a href="#1-4-方法的重载" class="headerlink" title="1.4 方法的重载"></a>1.4 方法的重载</h2><ul>
+<h2 id="1-4-方法的重载"><a href="#1-4-方法的重载" class="headerlink" title="1.4. 方法的重载"></a>1.4. 方法的重载</h2><ul>
 <li>重载就是在-个类中,有相同的函数名称，但形参不同的函数。</li>
 <li>方法的重载的规则:<ul>
 <li>方法名称必须相同。</li>
@@ -278,16 +315,16 @@ java方法和数组
 </ul>
 </li>
 </ul>
-<h2 id="1-5-命令行传参"><a href="#1-5-命令行传参" class="headerlink" title="1.5 命令行传参"></a>1.5 命令行传参</h2><p>有时候你希望运行一个程序时候再传递给它消息。这要靠传递命令行参数给main()函数实现。</p>
+<h2 id="1-5-命令行传参"><a href="#1-5-命令行传参" class="headerlink" title="1.5. 命令行传参"></a>1.5. 命令行传参</h2><p>有时候你希望运行一个程序时候再传递给它消息。这要靠传递命令行参数给main()函数实现。</p>
 <p>在src目录下执行:java 文件路径.文件名</p>
-<h2 id="1-6-可变参数"><a href="#1-6-可变参数" class="headerlink" title="1.6 可变参数"></a>1.6 可变参数</h2><ul>
+<h2 id="1-6-可变参数"><a href="#1-6-可变参数" class="headerlink" title="1.6. 可变参数"></a>1.6. 可变参数</h2><ul>
 <li>JDK 1.5开始，Java支持传递同类型的可变参数给一个方法。</li>
 <li>在方法声明中,在指定参数类型后加一个省略号(…)。</li>
 <li>一个方法中只能指定一个可变参数，它必须是方法的<font color=red>最后</font>一个参数。任何普通的参数必须在它之前声明。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    Test4 test4 = <span class="keyword">new</span> Test4();</span><br><span class="line">    test4.test(<span class="number">1</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">8</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(<span class="keyword">int</span> j,<span class="keyword">int</span>... i)</span></span>&#123;</span><br><span class="line">    System.out.println(j);</span><br><span class="line">    System.out.println(i[<span class="number">0</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 </li>
 </ul>
-<h2 id="1-7-递归"><a href="#1-7-递归" class="headerlink" title="1.7 递归"></a>1.7 递归</h2><ul>
+<h2 id="1-7-递归"><a href="#1-7-递归" class="headerlink" title="1.7. 递归"></a>1.7. 递归</h2><ul>
 <li>A方法调用B方法，我们很容易理解!</li>
 <li>递归就是: A方法调用A方法!就是自己调用自己</li>
 <li>利用递归可以用简单的程序来解决一些复杂的问题。 它通常把一个大型复 杂的问题层层转化为<br>一个与原问题相似的规模较小的问题来求解，递归策略只需少量的程序就可描述出解题过程所<br>需要的多次重复计算，大大地减少了程序的代码量。递归的能力在于用有限的语句来定义对象<br>的无限集合。<font color=red></li>
@@ -300,18 +337,18 @@ java方法和数组
 </ul>
 </li>
 </ul>
-<h1 id="二-数组"><a href="#二-数组" class="headerlink" title="二. 数组"></a>二. 数组</h1><h2 id="2-1-数组的定义"><a href="#2-1-数组的定义" class="headerlink" title="2.1 数组的定义"></a>2.1 数组的定义</h2><ul>
+<h1 id="2-二-数组"><a href="#2-二-数组" class="headerlink" title="2. 二. 数组"></a>2. 二. 数组</h1><h2 id="2-1-数组的定义"><a href="#2-1-数组的定义" class="headerlink" title="2.1. 数组的定义"></a>2.1. 数组的定义</h2><ul>
 <li>数组是相同类型数据的有序集合.</li>
 <li>数组描述的是相同类型的若干个数据,按照一定的先后次序排列组合而成。</li>
 <li>其中,每一个数据称作一个数组元素,每个数组元素可以通过一个下标来访问它们.</li>
 </ul>
-<h3 id="2-2-数组的四个基本特点"><a href="#2-2-数组的四个基本特点" class="headerlink" title="2.2 数组的四个基本特点"></a>2.2 数组的四个基本特点</h3><ul>
+<h3 id="2-1-1-数组的四个基本特点"><a href="#2-1-1-数组的四个基本特点" class="headerlink" title="2.1.1. 数组的四个基本特点"></a>2.1.1. 数组的四个基本特点</h3><ul>
 <li>其长度是确定的。数组一旦被创建，它的大小就是不可以改变的。</li>
 <li>其元素必须是相同类型，不允许出现混合类型。</li>
 <li>数组中的元素可以是任何数据类型，包括基本类型和引用类型。</li>
 <li>数组变量属引用类型，数组也可以看成是对象，数组中的每个元素相当于该对象的成员变量.<br>数组本身就是对象，Java中对象是在堆中的，因此数组无论保存原始类型还是!其他对象类型，<br><font color=red>数组对象本身是在堆中的。</font></li>
 </ul>
-<h2 id="2-3-数组的声明创建"><a href="#2-3-数组的声明创建" class="headerlink" title="2.3 数组的声明创建"></a>2.3 数组的声明创建</h2><ul>
+<h2 id="2-2-数组的声明创建"><a href="#2-2-数组的声明创建" class="headerlink" title="2.2. 数组的声明创建"></a>2.2. 数组的声明创建</h2><ul>
 <li>首先必须声明数组变量,才能在程序中使用数组。下面是声明数组变量的语法:</li>
 </ul>
 <blockquote>
@@ -334,7 +371,7 @@ java方法和数组
 <p>arrays. length</p>
 </blockquote>
 <!--
-## 数组内存分析
+## 2.3. 数组内存分析
 
 >堆:
 >>存放new的对象和数组.
@@ -349,17 +386,17 @@ java方法和数组
 包含了所有的class和static变量
 -->
 
-<h2 id="2-4-数组初始化方法"><a href="#2-4-数组初始化方法" class="headerlink" title="2.4 数组初始化方法"></a>2.4 数组初始化方法</h2><h3 id="2-4-1-静态初始化"><a href="#2-4-1-静态初始化" class="headerlink" title="2.4.1 静态初始化"></a>2.4.1 静态初始化</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//静态初始化</span></span><br><span class="line"><span class="keyword">int</span>[] a=&#123;<span class="number">0</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>&#125;;</span><br><span class="line">System.out.println(a[<span class="number">0</span>]);</span><br></pre></td></tr></table></figure>
-<h3 id="2-4-2-动态初始化"><a href="#2-4-2-动态初始化" class="headerlink" title="2.4.2 动态初始化"></a>2.4.2 动态初始化</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] b=<span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line">b[<span class="number">0</span>]=<span class="number">10</span>;</span><br><span class="line">System.out.println(b[<span class="number">0</span>]);</span><br></pre></td></tr></table></figure>
+<h2 id="2-4-数组初始化方法"><a href="#2-4-数组初始化方法" class="headerlink" title="2.4. 数组初始化方法"></a>2.4. 数组初始化方法</h2><h3 id="2-4-1-静态初始化"><a href="#2-4-1-静态初始化" class="headerlink" title="2.4.1. 静态初始化"></a>2.4.1. 静态初始化</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//静态初始化</span></span><br><span class="line"><span class="keyword">int</span>[] a=&#123;<span class="number">0</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>&#125;;</span><br><span class="line">System.out.println(a[<span class="number">0</span>]);</span><br></pre></td></tr></table></figure>
+<h3 id="2-4-2-动态初始化"><a href="#2-4-2-动态初始化" class="headerlink" title="2.4.2. 动态初始化"></a>2.4.2. 动态初始化</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] b=<span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line">b[<span class="number">0</span>]=<span class="number">10</span>;</span><br><span class="line">System.out.println(b[<span class="number">0</span>]);</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-4-3-默认初始化"><a href="#2-4-3-默认初始化" class="headerlink" title="2.4.3 默认初始化"></a>2.4.3 默认初始化</h3><p>动态初始化中未被赋值的单位进行默认初始化</p>
+<h3 id="2-4-3-默认初始化"><a href="#2-4-3-默认初始化" class="headerlink" title="2.4.3. 默认初始化"></a>2.4.3. 默认初始化</h3><p>动态初始化中未被赋值的单位进行默认初始化</p>
 <font color=red>
 
 <p>ArrayIndexOutOfBoundsException :数组下标越界异常!</p>
 </font>
 
 
-<h2 id="2-5-数组的使用"><a href="#2-5-数组的使用" class="headerlink" title="2.5 数组的使用"></a>2.5 数组的使用</h2><ul>
+<h2 id="2-5-数组的使用"><a href="#2-5-数组的使用" class="headerlink" title="2.5. 数组的使用"></a>2.5. 数组的使用</h2><ul>
 <li>for循环<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] a = &#123;<span class="number">0</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>&#125;;</span><br><span class="line"><span class="comment">//打印全部数组元素</span></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; a.length; i++) &#123;</span><br><span class="line">    System.out.println(a[i]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li>For-Each循环<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//jdk1.5,没有下标</span></span><br><span class="line"><span class="keyword">int</span>[] arrays = &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>&#125;;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> array : arrays) &#123;</span><br><span class="line">    System.out.println(array);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li>数组作方法入参<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printArray</span><span class="params">(<span class="keyword">int</span>[] arrays)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arrays.length; i++) &#123;</span><br><span class="line">        System.out.println(arrays[i] + <span class="string">&quot;&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
@@ -367,7 +404,7 @@ java方法和数组
 
 </li>
 </ul>
-<h2 id="2-6-多维数组"><a href="#2-6-多维数组" class="headerlink" title="2.6 多维数组"></a>2.6 多维数组</h2><ul>
+<h2 id="2-6-多维数组"><a href="#2-6-多维数组" class="headerlink" title="2.6. 多维数组"></a>2.6. 多维数组</h2><ul>
 <li>多维数组可以看成是数组的数组,比如维数组就是一 个特殊的一维数组，其每一个元素都是<br>一个一维数组。</li>
 <li>二维数组</li>
 </ul>
@@ -378,7 +415,7 @@ java方法和数组
 <li>解析:以上二维数组a可以看成一个两行五列的数组。</li>
 <li>思考:多维数组的使用?</li>
 </ul>
-<h2 id="2-7-Arrays类"><a href="#2-7-Arrays类" class="headerlink" title="2.7 Arrays类"></a>2.7 Arrays类</h2><ul>
+<h2 id="2-7-Arrays类"><a href="#2-7-Arrays类" class="headerlink" title="2.7. Arrays类"></a>2.7. Arrays类</h2><ul>
 <li>数组的工具类java.util.Arrays</li>
 <li>由于数组对象本身并没有什么方法可以供我们调用，但API中提供了-个工具类Arrays供我们使<br>用,从而可以对数据对象进行一些基本的操作。<br>查看JDK帮助文档</li>
 <li>Arrays类中的方法都是static修饰的静态方法,在使用的时候可以直接使用类名进行调用,而”不<br>用”使用对象来调用(注意:是”不用”而不是“不能”)</li>
@@ -392,7 +429,7 @@ java方法和数组
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] a=&#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">9</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>&#125;;</span><br><span class="line"></span><br><span class="line">System.out.println(a);</span><br><span class="line">System.out.println(Arrays.toString(a));<span class="comment">//[1, 2, 5, 9, 7, 3, 6, 7, 8]</span></span><br><span class="line"></span><br><span class="line">Arrays.sort(a);</span><br><span class="line">System.out.println(Arrays.toString(a));<span class="comment">//[1, 2, 3, 5, 6, 7, 7, 8, 9]</span></span><br><span class="line"></span><br><span class="line">Arrays.fill(a,<span class="number">0</span>);</span><br><span class="line">System.out.println(Arrays.toString(a));<span class="comment">//[0, 0, 0, 0, 0, 0, 0, 0, 0]</span></span><br><span class="line">    </span><br></pre></td></tr></table></figure>
 
-<h2 id="2-8-冒泡排序"><a href="#2-8-冒泡排序" class="headerlink" title="2.8 冒泡排序"></a>2.8 冒泡排序</h2><ul>
+<h2 id="2-8-冒泡排序"><a href="#2-8-冒泡排序" class="headerlink" title="2.8. 冒泡排序"></a>2.8. 冒泡排序</h2><ul>
 <li>冒泡排序无疑是最为出名的排序算法之一， 总共有八大排序!</li>
 <li>冒泡的代码还是相当简单的，两层循环，外层冒泡轮数,里层依次比较,江湖中人人尽皆知。</li>
 <li>我们看到嵌套循环，应该立马就可以得出这个算法的时间复杂度为O(n2)。</li>
@@ -405,12 +442,12 @@ java方法和数组
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">(<span class="keyword">int</span>[] array)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">boolean</span> flag=<span class="keyword">false</span>;<span class="comment">//通过flag表示为没有意义的比较</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; array.length - i-<span class="number">1</span>; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (array[j + <span class="number">1</span>] &lt; array[j]) &#123;</span><br><span class="line">                temp = array[j];</span><br><span class="line">                array[j] = array[j + <span class="number">1</span>];</span><br><span class="line">                array[j + <span class="number">1</span>] = temp;</span><br><span class="line">                flag=<span class="keyword">true</span>;</span><br><span class="line">                System.out.println(<span class="string">&quot;第&quot;</span>+(j+<span class="number">1</span>)+<span class="string">&quot;位数:&quot;</span>+array[j+<span class="number">1</span>]+<span class="string">&quot;与&quot;</span>+<span class="string">&quot;第&quot;</span>+j+<span class="string">&quot;位数:&quot;</span>+array[j]+<span class="string">&quot;进行交换&quot;</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;--------------------&quot;</span>);</span><br><span class="line">        <span class="keyword">if</span> (flag==<span class="keyword">false</span>)&#123;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-<h2 id="2-9-稀疏数组"><a href="#2-9-稀疏数组" class="headerlink" title="2.9 稀疏数组"></a>2.9 稀疏数组</h2><ul>
+<h2 id="2-9-稀疏数组"><a href="#2-9-稀疏数组" class="headerlink" title="2.9. 稀疏数组"></a>2.9. 稀疏数组</h2><ul>
 <li>需求:编写五子棋游戏中,有存放退出和续上盘的功能</li>
 <li>分析问题:因为二维数组中很多只都是默认为0,因此记录了很多没有意义的数值</li>
 <li><strong>稀疏数组</strong></li>
 </ul>
-<h3 id="2-9-1-稀疏数组介绍"><a href="#2-9-1-稀疏数组介绍" class="headerlink" title="2.9.1 稀疏数组介绍"></a>2.9.1 稀疏数组介绍</h3><ul>
+<h3 id="2-9-1-稀疏数组介绍"><a href="#2-9-1-稀疏数组介绍" class="headerlink" title="2.9.1. 稀疏数组介绍"></a>2.9.1. 稀疏数组介绍</h3><ul>
 <li>当一个数组中大部分元素为0,或者为同一值的数组时,可以使用稀疏数组来保存该数组.</li>
 <li>稀疏数组的处理方式是:<ul>
 <li>记录数组一共有几行几列,有多少个不同值</li>
@@ -666,11 +703,11 @@ java方法和数组
   
 <nav id="article-nav">
   
-    <a href="/2020/09/21/java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%BC%82%E5%B8%B8/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/09/15/MySQL/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          java面向对象&amp;异常
+          mysql学习
         
       </div>
     </a>
@@ -720,7 +757,7 @@ java方法和数组
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 杨晨阳
+    		&copy; 2021 杨晨阳
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
