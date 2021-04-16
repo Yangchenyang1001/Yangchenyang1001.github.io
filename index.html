@@ -62,7 +62,7 @@
 			</ul>
 		</nav>
 		<nav>
-        总文章数 19
+        总文章数 29
     </nav>
 		<nav class="header-smart-menu">
     		
@@ -153,51 +153,60 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-JDBC" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-算法/LeetCode/T53" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+              
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/03/20/%E7%AE%97%E6%B3%95/LeetCode/T53/">T53最大子序和</a>
+    </h1>
+  
+
+              
+              <a href="/2021/03/20/%E7%AE%97%E6%B3%95/LeetCode/T53/" class="archive-article-date">
+  	<time datetime="2021-03-20T12:56:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-20</time>
+</a>
+              <!-- 需要添加的位置 -->
+              <!-- 开始添加字数统计-->
+              
+                <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">285字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">1分</span>
+      </span>
+    </span>
+</div>
+                
+              <!-- 添加完成 -->
+
+              
+            </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="JDBC"><a href="#JDBC" class="headerlink" title="JDBC"></a>JDBC</h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="持久化"><a href="#持久化" class="headerlink" title="持久化"></a>持久化</h3><ul>
-<li>持久化:将内存中的数据保存到硬盘,实现的过程大多通过各种关系数据库完成</li>
-<li>主要应用是将内存中的存储的数据岑楚在关系型数据库中,当然也可以储存在磁盘文件,xml中</li>
-</ul>
-<h3 id="java数据存储技术"><a href="#java数据存储技术" class="headerlink" title="java数据存储技术"></a>java数据存储技术</h3><ul>
-<li>在Java中,数据库存取技术可分为如下几类:<ul>
-<li>JDBC直接访问数据库</li>
-<li>jJDO (Java Data Object )技术</li>
-<li>第三方0/R工具,如Hibernate, Mybatis等</li>
-</ul>
-</li>
-<li>JDBC是java访问数据库的基石, JDO、Hibernate、 MyBatis等只是 更好的封装了JDBC。</li>
-</ul>
-<h3 id="JDBC介绍"><a href="#JDBC介绍" class="headerlink" title="JDBC介绍"></a>JDBC介绍</h3><ul>
-<li>JDBC(Java Database Connectivity)是一个<strong>独立于特定数据库管理系统、通用的SQL数据库存取和操作的公共接口</strong>（一组API），定义了用来访问数据库的标准Java类库，（<strong>java.sql,javax.sql</strong>）使用这些类库可以以一种<strong>标准</strong>的方法、方便地访问数据库资源。</li>
-<li>JDBC为访问不同的数据库提供了一种<strong>统一的途径</strong>，为开发者屏蔽了一些细节问题。</li>
-<li>JDBC的目标是使Java程序员使用JDBC可以连接任何<strong>提供了JDBC驱动程序</strong>的数据库系统，这样就使得程序员无需对特定的数据库系统的特点有过多的了解，从而大大简化和加快了开发过程。<h3 id="JDBC体系结构"><a href="#JDBC体系结构" class="headerlink" title="JDBC体系结构"></a>JDBC体系结构</h3></li>
-<li>JDBC接口（API）包括两个层次：<ul>
-<li><strong>面向应用的API</strong>：Java API，抽象接口，供应用程序开发人员使用（连接数据库，执行SQL语句，获得结果）。</li>
-<li><strong>面向数据库的API</strong>：Java Driver API，供开发商开发数据库驱动程序用。<h3 id="JDBC程序编写步骤"><a href="#JDBC程序编写步骤" class="headerlink" title="JDBC程序编写步骤"></a>JDBC程序编写步骤</h3></li>
-</ul>
-</li>
-</ul>
-<ol>
-<li>加载并注册驱动程序</li>
-<li>创建connection对象</li>
-<li>创建Statement对象</li>
-<li>执行sql语句,返回结果集</li>
-<li>关闭连接</li>
-</ol>
-<h2 id="获取数据库连接"><a href="#获取数据库连接" class="headerlink" title="获取数据库连接"></a>获取数据库连接</h2><h3 id="Driver接口实现类"><a href="#Driver接口实现类" class="headerlink" title="Driver接口实现类"></a>Driver接口实现类</h3><ul>
-<li><p>java.sql.Driver 接口是所有 JDBC 驱动程序需要实现的接口。这个接口是提供给数据库厂商使用的，不同数据库厂商提供不同的实现。</p>
-</li>
-<li><p>在程序中不需要直接去访问实现了 Driver 接口的类，而是由驱动程序管理器类(java.sql.DriverManager)去调用这些Driver实现。</p>
-<ul>
-<li>mySql的驱动： <strong>com.mysql.jdbc.Driver</strong><h4 id="加载与注册驱动"><a href="#加载与注册驱动" class="headerlink" title="加载与注册驱动"></a>加载与注册驱动</h4><h3 id="url"><a href="#url" class="headerlink" title="url"></a>url</h3></li>
-</ul>
-</li>
-</ul>
-<h3 id="用户名密码"><a href="#用户名密码" class="headerlink" title="用户名密码"></a>用户名密码</h3>
+        <center>
+
+<font face="黑体" size=6>
+T53最大子序和
+</font>
+
+</center>
+        
+          <a class="article-more-a" href="/2021/03/20/%E7%AE%97%E6%B3%95/LeetCode/T53/#more">more >></a>
+        
       
 
       
@@ -205,11 +214,22 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/03/17/JDBC/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/03/20/%E7%AE%97%E6%B3%95/LeetCode/T53/">展开全文 >></a>
         </p>
       
 
@@ -239,19 +259,761 @@
 
 
   
-    <article id="post-java枚举和注解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-算法/LeetCode/T122" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
               
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/15/java%E6%9E%9A%E4%B8%BE%E5%92%8C%E6%B3%A8%E8%A7%A3/">java注解和枚举</a>
+      <a class="article-title" href="/2021/03/19/%E7%AE%97%E6%B3%95/LeetCode/T122/">T122买股票的最佳时机II</a>
     </h1>
   
 
               
-              <a href="/2020/11/15/java%E6%9E%9A%E4%B8%BE%E5%92%8C%E6%B3%A8%E8%A7%A3/" class="archive-article-date">
+              <a href="/2021/03/19/%E7%AE%97%E6%B3%95/LeetCode/T122/" class="archive-article-date">
+  	<time datetime="2021-03-19T12:24:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-19</time>
+</a>
+              <!-- 需要添加的位置 -->
+              <!-- 开始添加字数统计-->
+              
+                <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">560字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">2分</span>
+      </span>
+    </span>
+</div>
+                
+              <!-- 添加完成 -->
+
+              
+            </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <center>
+
+<font face="黑体" size=6>
+T122买股票的最佳时机II
+</font>
+
+</center>
+        
+          <a class="article-more-a" href="/2021/03/19/%E7%AE%97%E6%B3%95/LeetCode/T122/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/03/19/%E7%AE%97%E6%B3%95/LeetCode/T122/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-算法/LeetCode/T26" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+              
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/03/19/%E7%AE%97%E6%B3%95/LeetCode/T26/">T26删除有序数组中的重复项</a>
+    </h1>
+  
+
+              
+              <a href="/2021/03/19/%E7%AE%97%E6%B3%95/LeetCode/T26/" class="archive-article-date">
+  	<time datetime="2021-03-19T12:24:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-19</time>
+</a>
+              <!-- 需要添加的位置 -->
+              <!-- 开始添加字数统计-->
+              
+                <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">549字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">2分</span>
+      </span>
+    </span>
+</div>
+                
+              <!-- 添加完成 -->
+
+              
+            </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <center>
+
+<font face="黑体" size=6>
+T26删除有序数组中的重复项
+</font>
+
+</center>
+        
+          <a class="article-more-a" href="/2021/03/19/%E7%AE%97%E6%B3%95/LeetCode/T26/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/03/19/%E7%AE%97%E6%B3%95/LeetCode/T26/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-javaWeb/JDBC" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+              
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/03/18/javaWeb/JDBC/">JDBC</a>
+    </h1>
+  
+
+              
+              <a href="/2021/03/18/javaWeb/JDBC/" class="archive-article-date">
+  	<time datetime="2021-03-18T01:18:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-18</time>
+</a>
+              <!-- 需要添加的位置 -->
+              <!-- 开始添加字数统计-->
+              
+                <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">796字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">3分</span>
+      </span>
+    </span>
+</div>
+                
+              <!-- 添加完成 -->
+
+              
+            </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <center>
+
+<font face="黑体" size=10>
+JDBC
+</font>
+
+</center>
+        
+          <a class="article-more-a" href="/2021/03/18/javaWeb/JDBC/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">javaWeb</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/03/18/javaWeb/JDBC/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-javaWeb/js入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+              
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/03/18/javaWeb/js%E5%85%A5%E9%97%A8/">javaScript</a>
+    </h1>
+  
+
+              
+              <a href="/2021/03/18/javaWeb/js%E5%85%A5%E9%97%A8/" class="archive-article-date">
+  	<time datetime="2021-03-18T01:18:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-18</time>
+</a>
+              <!-- 需要添加的位置 -->
+              <!-- 开始添加字数统计-->
+              
+                <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">3.4k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">14分</span>
+      </span>
+    </span>
+</div>
+                
+              <!-- 添加完成 -->
+
+              
+            </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <center>
+
+<font face="黑体" size=10>
+javaScript
+</font>
+
+</center>
+        
+          <a class="article-more-a" href="/2021/03/18/javaWeb/js%E5%85%A5%E9%97%A8/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">javaWeb</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/03/18/javaWeb/js%E5%85%A5%E9%97%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-javaWeb/jquery入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+              
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/03/18/javaWeb/jquery%E5%85%A5%E9%97%A8/">javaScript</a>
+    </h1>
+  
+
+              
+              <a href="/2021/03/18/javaWeb/jquery%E5%85%A5%E9%97%A8/" class="archive-article-date">
+  	<time datetime="2021-03-18T01:18:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-18</time>
+</a>
+              <!-- 需要添加的位置 -->
+              <!-- 开始添加字数统计-->
+              
+                <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">4.6k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">22分</span>
+      </span>
+    </span>
+</div>
+                
+              <!-- 添加完成 -->
+
+              
+            </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <center>
+
+<font face="黑体" size=10>
+javaScript
+</font>
+
+</center>
+        
+          <a class="article-more-a" href="/2021/03/18/javaWeb/jquery%E5%85%A5%E9%97%A8/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">javaWeb</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/03/18/javaWeb/jquery%E5%85%A5%E9%97%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-算法/LeetCode/T121" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+              
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/03/15/%E7%AE%97%E6%B3%95/LeetCode/T121/">T121买股票的最佳时机</a>
+    </h1>
+  
+
+              
+              <a href="/2021/03/15/%E7%AE%97%E6%B3%95/LeetCode/T121/" class="archive-article-date">
+  	<time datetime="2021-03-15T13:29:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-15</time>
+</a>
+              <!-- 需要添加的位置 -->
+              <!-- 开始添加字数统计-->
+              
+                <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">502字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">2分</span>
+      </span>
+    </span>
+</div>
+                
+              <!-- 添加完成 -->
+
+              
+            </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <center>
+
+<font face="黑体" size=6>
+T121买股票的最佳时机
+</font>
+
+</center>
+        
+          <a class="article-more-a" href="/2021/03/15/%E7%AE%97%E6%B3%95/LeetCode/T121/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/03/15/%E7%AE%97%E6%B3%95/LeetCode/T121/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-javaWeb/XML入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+              
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/01/15/javaWeb/XML%E5%85%A5%E9%97%A8/">xml</a>
+    </h1>
+  
+
+              
+              <a href="/2021/01/15/javaWeb/XML%E5%85%A5%E9%97%A8/" class="archive-article-date">
+  	<time datetime="2021-01-15T07:28:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-15</time>
+</a>
+              <!-- 需要添加的位置 -->
+              <!-- 开始添加字数统计-->
+              
+                <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">1.7k字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">7分</span>
+      </span>
+    </span>
+</div>
+                
+              <!-- 添加完成 -->
+
+              
+            </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <center>
+
+<font face="黑体" size=10>
+XML
+</font>
+
+</center>
+        
+          <a class="article-more-a" href="/2021/01/15/javaWeb/XML%E5%85%A5%E9%97%A8/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">javaWeb</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/01/15/javaWeb/XML%E5%85%A5%E9%97%A8/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-java基础/java枚举和注解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+              
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/11/15/java%E5%9F%BA%E7%A1%80/java%E6%9E%9A%E4%B8%BE%E5%92%8C%E6%B3%A8%E8%A7%A3/">java注解和枚举</a>
+    </h1>
+  
+
+              
+              <a href="/2020/11/15/java%E5%9F%BA%E7%A1%80/java%E6%9E%9A%E4%B8%BE%E5%92%8C%E6%B3%A8%E8%A7%A3/" class="archive-article-date">
   	<time datetime="2020-11-15T06:31:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-15</time>
 </a>
               <!-- 需要添加的位置 -->
@@ -262,7 +1024,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1.3k字</span>
+        <span class="post-count">1.8k字</span>
       </span>
     </span>
 
@@ -271,7 +1033,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">5分</span>
+        <span class="post-count">7分</span>
       </span>
     </span>
 </div>
@@ -291,7 +1053,7 @@
 
 </center>
         
-          <a class="article-more-a" href="/2020/11/15/java%E6%9E%9A%E4%B8%BE%E5%92%8C%E6%B3%A8%E8%A7%A3/#more">more >></a>
+          <a class="article-more-a" href="/2020/11/15/java%E5%9F%BA%E7%A1%80/java%E6%9E%9A%E4%B8%BE%E5%92%8C%E6%B3%A8%E8%A7%A3/#more">more >></a>
         
       
 
@@ -315,7 +1077,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/15/java%E6%9E%9A%E4%B8%BE%E5%92%8C%E6%B3%A8%E8%A7%A3/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/11/15/java%E5%9F%BA%E7%A1%80/java%E6%9E%9A%E4%B8%BE%E5%92%8C%E6%B3%A8%E8%A7%A3/">展开全文 >></a>
         </p>
       
 
@@ -345,19 +1107,19 @@
 
 
   
-    <article id="post-java常用类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-java基础/java常用类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
               
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/11/java%E5%B8%B8%E7%94%A8%E7%B1%BB/">java常用类</a>
+      <a class="article-title" href="/2020/11/11/java%E5%9F%BA%E7%A1%80/java%E5%B8%B8%E7%94%A8%E7%B1%BB/">java常用类</a>
     </h1>
   
 
               
-              <a href="/2020/11/11/java%E5%B8%B8%E7%94%A8%E7%B1%BB/" class="archive-article-date">
+              <a href="/2020/11/11/java%E5%9F%BA%E7%A1%80/java%E5%B8%B8%E7%94%A8%E7%B1%BB/" class="archive-article-date">
   	<time datetime="2020-11-11T07:26:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-11</time>
 </a>
               <!-- 需要添加的位置 -->
@@ -397,7 +1159,7 @@ java常用类
 
 </center>
         
-          <a class="article-more-a" href="/2020/11/11/java%E5%B8%B8%E7%94%A8%E7%B1%BB/#more">more >></a>
+          <a class="article-more-a" href="/2020/11/11/java%E5%9F%BA%E7%A1%80/java%E5%B8%B8%E7%94%A8%E7%B1%BB/#more">more >></a>
         
       
 
@@ -421,749 +1183,7 @@ java常用类
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/11/java%E5%B8%B8%E7%94%A8%E7%B1%BB/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-java线程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-              
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/20/java%E7%BA%BF%E7%A8%8B/">java多线程</a>
-    </h1>
-  
-
-              
-              <a href="/2020/10/20/java%E7%BA%BF%E7%A8%8B/" class="archive-article-date">
-  	<time datetime="2020-10-20T07:29:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-20</time>
-</a>
-              <!-- 需要添加的位置 -->
-              <!-- 开始添加字数统计-->
-              
-                <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">5.7k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">23分</span>
-      </span>
-    </span>
-</div>
-                
-              <!-- 添加完成 -->
-
-              
-            </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <center>
-
-<font face="黑体" size=10>
- java多线程
-</font>
-
-</center>
-        
-          <a class="article-more-a" href="/2020/10/20/java%E7%BA%BF%E7%A8%8B/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/10/20/java%E7%BA%BF%E7%A8%8B/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-正则表达式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-              
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/03/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">正则表达式</a>
-    </h1>
-  
-
-              
-              <a href="/2020/10/03/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" class="archive-article-date">
-  	<time datetime="2020-10-03T03:02:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-03</time>
-</a>
-              <!-- 需要添加的位置 -->
-              <!-- 开始添加字数统计-->
-              
-                <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">908字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">3分</span>
-      </span>
-    </span>
-</div>
-                
-              <!-- 添加完成 -->
-
-              
-            </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <center>
-
-<font face="黑体" size=10>
- 正则表达式
-</font>
-
-</center>
-        
-          <a class="article-more-a" href="/2020/10/03/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">正则表达式</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/10/03/%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-javaFile-io" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-              
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/26/javaFile-io/">javaFile-io</a>
-    </h1>
-  
-
-              
-              <a href="/2020/09/26/javaFile-io/" class="archive-article-date">
-  	<time datetime="2020-09-26T02:29:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-26</time>
-</a>
-              <!-- 需要添加的位置 -->
-              <!-- 开始添加字数统计-->
-              
-                <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">13.9k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">60分</span>
-      </span>
-    </span>
-</div>
-                
-              <!-- 添加完成 -->
-
-              
-            </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <center>
-
-<font face="黑体" size=10>
- javaFile-io
-</font>
-
-</center>
-        
-          <a class="article-more-a" href="/2020/09/26/javaFile-io/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/26/javaFile-io/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-java面向对象-异常" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-              
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/21/java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%BC%82%E5%B8%B8/">java面向对象&amp;异常</a>
-    </h1>
-  
-
-              
-              <a href="/2020/09/21/java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%BC%82%E5%B8%B8/" class="archive-article-date">
-  	<time datetime="2020-09-21T07:14:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-21</time>
-</a>
-              <!-- 需要添加的位置 -->
-              <!-- 开始添加字数统计-->
-              
-                <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">4.6k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">17分</span>
-      </span>
-    </span>
-</div>
-                
-              <!-- 添加完成 -->
-
-              
-            </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <center>
-
-<font face="黑体" size=10>
-java面向对象&异常
-</font>
-
-</center>
-        
-          <a class="article-more-a" href="/2020/09/21/java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%BC%82%E5%B8%B8/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/21/java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-%E5%BC%82%E5%B8%B8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-java集合" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-              
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/19/java%E9%9B%86%E5%90%88/">java集合</a>
-    </h1>
-  
-
-              
-              <a href="/2020/09/19/java%E9%9B%86%E5%90%88/" class="archive-article-date">
-  	<time datetime="2020-09-19T12:24:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-19</time>
-</a>
-              <!-- 需要添加的位置 -->
-              <!-- 开始添加字数统计-->
-              
-                <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">6k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">25分</span>
-      </span>
-    </span>
-</div>
-                
-              <!-- 添加完成 -->
-
-              
-            </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <center>
-
-<font face="黑体" size=10>
-java集合
-</font>
-
-</center>
-        
-          <a class="article-more-a" href="/2020/09/19/java%E9%9B%86%E5%90%88/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/19/java%E9%9B%86%E5%90%88/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-java方法和数组" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-              
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/15/java%E6%96%B9%E6%B3%95%E5%92%8C%E6%95%B0%E7%BB%84/">java方法和数组</a>
-    </h1>
-  
-
-              
-              <a href="/2020/09/15/java%E6%96%B9%E6%B3%95%E5%92%8C%E6%95%B0%E7%BB%84/" class="archive-article-date">
-  	<time datetime="2020-09-15T10:28:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-15</time>
-</a>
-              <!-- 需要添加的位置 -->
-              <!-- 开始添加字数统计-->
-              
-                <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">3.6k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">14分</span>
-      </span>
-    </span>
-</div>
-                
-              <!-- 添加完成 -->
-
-              
-            </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <center>
-
-<font face="黑体" size=10>
-java方法和数组
-</font>
-
-</center>
-        
-          <a class="article-more-a" href="/2020/09/15/java%E6%96%B9%E6%B3%95%E5%92%8C%E6%95%B0%E7%BB%84/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/15/java%E6%96%B9%E6%B3%95%E5%92%8C%E6%95%B0%E7%BB%84/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-MySQL" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-              
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/09/15/MySQL/">mysql学习</a>
-    </h1>
-  
-
-              
-              <a href="/2020/09/15/MySQL/" class="archive-article-date">
-  	<time datetime="2020-09-15T10:28:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-15</time>
-</a>
-              <!-- 需要添加的位置 -->
-              <!-- 开始添加字数统计-->
-              
-                <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">9.7k字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">37分</span>
-      </span>
-    </span>
-</div>
-                
-              <!-- 添加完成 -->
-
-              
-            </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <center>
-
-<font face="黑体" size=10>
-mysql学习
-</font>
-
-</center>
-        
-          <a class="article-more-a" href="/2020/09/15/MySQL/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/09/15/MySQL/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/11/11/java%E5%9F%BA%E7%A1%80/java%E5%B8%B8%E7%94%A8%E7%B1%BB/">展开全文 >></a>
         </p>
       
 
@@ -1195,7 +1215,7 @@ mysql学习
   
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 
@@ -1291,11 +1311,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color4">window10</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">window10</a>
+                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">javaWeb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1304,10 +1332,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">正则表达式</a>
               </li>
              
               <li class="article-tag-list-item">
