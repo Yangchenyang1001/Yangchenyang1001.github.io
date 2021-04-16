@@ -65,7 +65,7 @@
 			</ul>
 		</nav>
 		<nav>
-        总文章数 29
+        总文章数 34
     </nav>
 		<nav class="header-smart-menu">
     		
@@ -177,7 +177,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">4.2k字</span>
+        <span class="post-count">4,120字</span>
       </span>
     </span>
 
@@ -186,7 +186,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">17分</span>
+        <span class="post-count">18分</span>
       </span>
     </span>
 </div>
@@ -200,7 +200,7 @@
       
         <center>
 
-<font face="黑体" size=10>
+<font face="黑体" size="10">
 servlet
 </font>
 
@@ -270,7 +270,7 @@ servlet
 </ol>
 <ul>
 <li>常见的错误:<url-pattern>/hello</url-pattern>没有斜杠<blockquote>
-<p>Caused by: java.lang. IllegalArgumentException: servLet映 射中的<url-pattern> [hello]无效</p>
+<p>Caused by: java.lang. IllegalArgumentException: servLet映 射中的<url-pattern> [hello]无效</url-pattern></p>
 </blockquote>
 </li>
 <li>正确配置文件<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://xmlns.jcp.org/xml/ns/javaee&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd&quot;</span></span></span><br><span class="line"><span class="tag">         <span class="attr">version</span>=<span class="string">&quot;4.0&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--servletname标签用于取别名--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>HelloServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--servletclass是servlet程序的全类名--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>com.zut.servlet.HelloServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!--servletmapping标签给servlet程序配置访问地址--&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--servletname 标签的作用是告诉服务器,当前配置给哪个servlet程序使用--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>HelloServlet<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- url-pattern配置访问位置</span></span><br><span class="line"><span class="comment">        /斜杠在服务器解析的时候,表示地址为http:/ ip: port/工程名</span></span><br><span class="line"><span class="comment">        /hello 表示路径为http:// ip: port/工程名/hello</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">        --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/hello<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
@@ -413,7 +413,7 @@ servlet
 <h3 id="1-8-1-域对象"><a href="#1-8-1-域对象" class="headerlink" title="1.8.1. 域对象"></a>1.8.1. 域对象</h3><ul>
 <li>可以像Map一样存取数据的对象.这里的域指的是存取数据的操作范围</li>
 </ul>
-<table >
+<table>
 <tr>
 <td></td>
 <td>存数据</td>
@@ -432,7 +432,7 @@ servlet
 <td>getAttribute()</td>
 <td>removeAttribute()</td>
 </tr>
-</tr>
+
 </table>
 
 <h3 id="1-8-2-ServletContext四个作用"><a href="#1-8-2-ServletContext四个作用" class="headerlink" title="1.8.2. ServletContext四个作用"></a>1.8.2. ServletContext四个作用</h3><ol>
@@ -565,7 +565,7 @@ servlet
 </ul>
 <p>JPEG图形<br>.jpeg,jpg<br>image/jpeg</p>
 <p>MPEG文件<br>.mpg,.mpeg<br>video/mpeg</p>
-<table >
+<table>
 <tr>
 
 <td>文件</td>
@@ -581,40 +581,40 @@ servlet
 </tr>
 <td>RTF文本</td>
 <td>.rtf   application/rtf</td>
-</tr>
+
 <td>GIF图形</td>
 <td>.gif   image/gif</td>
-</tr>
+
 <td>JPEG图形</td>
 <td>.jpeg,jpg     image/jpeg</td>
-</tr>
+
 <td>au声音文件 </td>
 <td>.au    audio/basic</td>
-</tr>
+
 <td>MIDI音乐文件</td>
 <td>.mid,.midi   audio/midi,audio/x-midi</td>
-</tr>
+
 <td>RealAudio音乐文件
 </td>
 <td>ra, .ram  audio/x-pn-realaudio</td>
-</tr>
+
 <td>MPEG文件 </td>
 <td>.mpg,.mpeg   video/mpeg</td>
-</tr>
 
 
-</tr>
+
+
 <td>AVI文件</td>
 <td>avi     video/x-msvideo </td>
-</tr>
-</tr>
+
+
 <td>GZIP文件</td>
 <td>.gz    application/x-gzip</td>
-</tr>
-</tr>
+
+
 <td>TAR文件</td>
 <td>.tar    application/x-tar</td>
-</tr>
+
 </table>
 
 
@@ -1017,6 +1017,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">组成原理</a>
               </li>
              
               <li class="article-tag-list-item">
