@@ -6,19 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>java注解和枚举 | 桌角是小黑</title>
+  <title>桌角是小黑</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="java注解和枚举">
+  <meta name="description" content="jvm基础 什么是jvm   Java Virtual Machine: Java虚拟机,用来保证Java语言跨平台 Java虚拟机可以看做是一台抽象的计算机， 如同真实的计算机那样，它有自己的指令集以及各种运行时内存区域 Java虚拟机与Java语言并没有必然的联系，它只与特定的二进制文件格式(class文件格式所关联) java虚拟机就是一个字节码翻译器,它将字节码文件翻译成各个系统对应的机器">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java注解和枚举">
-<meta property="og:url" content="http://yoursite.com/2020/11/15/java%E5%9F%BA%E7%A1%80/java%E6%9E%9A%E4%B8%BE%E5%92%8C%E6%B3%A8%E8%A7%A3/index.html">
+<meta property="og:title" content="桌角是小黑">
+<meta property="og:url" content="http://yoursite.com/2021/08/26/java%E8%BF%9B%E9%98%B6/jvm%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="桌角是小黑">
-<meta property="og:description" content="java注解和枚举">
+<meta property="og:description" content="jvm基础 什么是jvm   Java Virtual Machine: Java虚拟机,用来保证Java语言跨平台 Java虚拟机可以看做是一台抽象的计算机， 如同真实的计算机那样，它有自己的指令集以及各种运行时内存区域 Java虚拟机与Java语言并没有必然的联系，它只与特定的二进制文件格式(class文件格式所关联) java虚拟机就是一个字节码翻译器,它将字节码文件翻译成各个系统对应的机器">
 <meta property="og:locale">
-<meta property="article:published_time" content="2020-11-15T06:31:48.000Z">
-<meta property="article:modified_time" content="2021-04-03T16:34:30.932Z">
+<meta property="article:published_time" content="2021-08-26T02:09:05.516Z">
+<meta property="article:modified_time" content="2021-08-30T05:52:20.589Z">
 <meta property="article:author" content="杨晨阳">
-<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="桌角是小黑" type="application/atom+xml">
@@ -154,165 +153,109 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-java基础/java枚举和注解" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-java进阶/jvm基础" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
-    
-      <header class="article-header">
-              
-  
-    <h1 class="article-title" itemprop="name">
-      java注解和枚举
-    </h1>
-  
-
-              
-              <a href="/2020/11/15/java%E5%9F%BA%E7%A1%80/java%E6%9E%9A%E4%B8%BE%E5%92%8C%E6%B3%A8%E8%A7%A3/" class="archive-article-date">
-  	<time datetime="2020-11-15T06:31:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-15</time>
-</a>
-              <!-- 需要添加的位置 -->
-              <!-- 开始添加字数统计-->
-              
-                <div style="margin-top:10px;">
-    <span class="post-time">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-keyboard-o"></i>
-        <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1,775字</span>
-      </span>
-    </span>
-
-    <span class="post-time">
-      &nbsp; | &nbsp;
-      <span class="post-meta-item-icon">
-        <i class="fa fa-hourglass-half"></i>
-        <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">8分</span>
-      </span>
-    </span>
-</div>
-                
-              <!-- 添加完成 -->
-
-              
-            </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <center>
-
-<font face="黑体" size="10">
- java注解和枚举
-</font>
-
-</center>
-<a id="more"></a>
-
-<!-- TOC -->
-
+        <h1 id="jvm基础"><a href="#jvm基础" class="headerlink" title="jvm基础"></a>jvm基础</h1><ul>
+<li><p>什么是jvm </p>
 <ul>
-<li><a href="#1-%E6%9E%9A%E4%B8%BE%E7%B1%BB">1. 枚举类</a></li>
-<li><a href="#2-%E6%B3%A8%E8%A7%A3">2. 注解</a><ul>
-<li><a href="#21-%E8%87%AA%E5%AE%9A%E4%B9%89%E6%B3%A8%E8%A7%A3-%E5%8F%82%E7%85%A7suppresswarning">2.1. 自定义注解 参照@SuppressWarning</a></li>
+<li>Java Virtual Machine: Java虚拟机,用来保证Java语言跨平台</li>
+<li>Java虚拟机可以看做是一台抽象的计算机， 如同真实的计算机那样，它有自己的指令集以及各种运行时内存区域</li>
+<li>Java虚拟机与Java语言并没有必然的联系，它只与特定的二进制文件格式(class文件格式所关联)</li>
+<li>java虚拟机就是一个字节码翻译器,它将字节码文件翻译成各个系统对应的机器码,确保字节码文件能在各个系统正常运行</li>
 </ul>
 </li>
-</ul>
-<!-- /TOC -->
-
-<h1 id="1-枚举类"><a href="#1-枚举类" class="headerlink" title="1. 枚举类"></a>1. 枚举类</h1><ul>
-<li><p>枚举类的使用</p>
-<ol>
-<li>枚举类的理解:类的对象只有有限个,确定的,我们称此类为枚举类</li>
-<li>当需要定义一组常量时,强烈建议使用枚举类</li>
-<li>如果枚举类中只有一个对象则可以作为单例模式的实现方式</li>
-</ol>
-</li>
-<li><p>如何定义枚举类</p>
+<li><p>为什么学习jvm</p>
 <ul>
-<li>方式一:jdk5.0之前,自定义枚举类</li>
-<li>方式二:jdk5.0,可以使用enum关键字定义枚举类,定义的枚举类默认继承Enum类<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Season_</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Season autumn = Season.AUTUMN;</span><br><span class="line">        System.out.println(autumn.toString());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Season</span></span>&#123;</span><br><span class="line">    <span class="comment">//1.声明Season对象的属性</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String seasonName;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String seasonDesc;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//2.私有化类的构造器</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Season</span><span class="params">(String seasonName, String seasonDesc)</span></span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.seasonName=seasonName;</span><br><span class="line">        <span class="keyword">this</span>.seasonDesc=seasonDesc;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//3.提供当前枚举类的多个对象public static final</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Season SPRING=<span class="keyword">new</span> Season(<span class="string">&quot;春天&quot;</span>,<span class="string">&quot;春暖花开&quot;</span>);</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Season SUMMER=<span class="keyword">new</span> Season(<span class="string">&quot;夏天&quot;</span>,<span class="string">&quot;烈日炎炎&quot;</span>);</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Season AUTUMN=<span class="keyword">new</span> Season(<span class="string">&quot;秋天&quot;</span>,<span class="string">&quot;秋高气爽&quot;</span>);</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> Season WINTER=<span class="keyword">new</span> Season(<span class="string">&quot;冬天&quot;</span>,<span class="string">&quot;冰天雪地&quot;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//4.获取枚举类对象的属性</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getSeasonName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> seasonName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getSeasonDesc</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> seasonDesc;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;Season&#123;&quot;</span> +</span><br><span class="line">                <span class="string">&quot;seasonName=&#x27;&quot;</span> + seasonName + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&quot;, seasonDesc=&#x27;&quot;</span> + seasonDesc + <span class="string">&#x27;\&#x27;&#x27;</span> +</span><br><span class="line">                <span class="string">&#x27;&#125;&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>解决问题可以治其然知其所以然</li>
+</ul>
+</li>
+<li><p>一般反编译java文件用  javap -c 生成一个更可读的文件</p>
+</li>
+</ul>
+<h2 id="jvm核心组成解析"><a href="#jvm核心组成解析" class="headerlink" title="jvm核心组成解析"></a>jvm核心组成解析</h2><p>类执行顺序:类装载系统-&gt;内存模型-&gt;字节码执行引擎</p>
+<p>内存模型包括:堆,栈,本地方法栈 方法区 程序计数器</p>
+<h3 id="虚拟机栈"><a href="#虚拟机栈" class="headerlink" title="虚拟机栈"></a>虚拟机栈</h3><ul>
+<li>底层使用栈做数据结构</li>
+<li>栈帧:线程给每个方法执行分配的栈空间 每个线程多个犯法则多个栈帧<ul>
+<li>栈帧中存放局部变量,操作数栈,动态链接,方法出口<ul>
+<li>局部变量表结构</li>
+<li>操作数栈记录实际数值,通常赋值要使操作数出栈,到局部变量表给其赋值</li>
+<li>动态链接: 直接链接到方法区中指定方法代码的具体位置</li>
+<li>方法出口:找到返回的方法位置</li>
+</ul>
 </li>
 </ul>
 </li>
-<li><p>Enum类的常用方法</p>
+<li>main方法的对象变量执行堆中的具体地址</li>
+<li>栈中指针引用堆中的内存地址<h3 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h3></li>
+<li>和线程同时创建,每个线程都有属于自己的程序计数器,由字节码执行引擎修改<ul>
+<li>用于记录已经运行到哪一行代码,多线程用于恢复挂起的线程</li>
+</ul>
+</li>
+</ul>
+<h3 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h3><ul>
+<li>1.8之前叫做永久代 1.8之后叫做元空间 保存在堆中</li>
+<li>保存个方法的具体地址</li>
+<li>具体包含常量+静态变量+类信息<ul>
+<li>常量</li>
+<li>静态变量 </li>
+<li>类信息</li>
+</ul>
+</li>
+<li>如果变量中引用一个对象则需要在堆中的寻找内存地址<h3 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h3></li>
+<li>堆包含 年轻代(eden区 新生区) 老年代<ul>
+<li>eden区 如果被填满 则执行minor gc 回收垃圾    </li>
+<li>survivor区 设置分代年龄 如果某一对象达到该区的一半会直接进入老年区<ul>
+<li>s0 设置分代年龄+1 eden区剩下存活对象的则进入该区域 并清空eden区</li>
+<li>s1 设置分代年龄+1 s1和eden区再次gc 存活的对象分代年龄+1 都进入s0 </li>
+</ul>
+</li>
+<li>老年代 分代年龄已经达到足够的值15会被移入老年代或者是s1中放满了也执行,如果老年区满了执行full gc 如果没有被清除的对象则直接报oom<ul>
+<li>例如连接池,springbean对象和容器,静态工具对象</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>gc收集机制 gc roots<ul>
+<li>可达性分析算法,从本地变量静态变量出发,寻找堆中所有被引用的对象 标记为非垃圾对象</li>
+</ul>
+</li>
+<li>对象头object header : 一个表结构记录了该对象加锁的状态,对象的hashcode值,分代年龄</li>
+<li>minor gc和full gc由字节码执行引擎执行<h3 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h3></li>
+<li>直接操作操作系统,原生使用c或c++实现,如今已经不怎么使用了</li>
+<li>本地方法想需要的内存空间,用于存放本地方法的空间</li>
+</ul>
+<h3 id="私有和共享"><a href="#私有和共享" class="headerlink" title="私有和共享"></a>私有和共享</h3><ul>
+<li><p>一个线程中会包含线程栈,本地方法栈,程序计数器.</p>
 <ul>
-<li>values(方法: 返回枚举类型的对象数组。该方法可以很方便地遍历所有的枚举值。</li>
-<li>valueOf(String str): 可以把一个字符串转为对应的枚举类对象。要求字符串必须是枚举类对象的“名字”。如不是，会有运行时异常:llegalArgumentException。</li>
-<li>toString(): 返回当前枚举类对象常量的名称</li>
+<li>外部无法访问该线程内部数据</li>
 </ul>
 </li>
-<li><p>使用enum关键字定义的枚举类实现接口的情况</p>
-<ul>
-<li>情况一实现接口,在enum课中实现抽象方法</li>
-<li>情况二让枚举类的对象分别重写抽象类中的方法</li>
-</ul>
+<li><p>所有线程都需要使用堆和方法区中的数据</p>
+<h3 id="jvisualvm工具"><a href="#jvisualvm工具" class="headerlink" title="jvisualvm工具"></a>jvisualvm工具</h3></li>
+<li><p>识别jvm本地所有进程</p>
+</li>
+<li><p>插件中添加 visual GC插件 就可以看到分区情况</p>
 </li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Season_2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Season1 autumn = Season1.AUTUMN;</span><br><span class="line">        <span class="comment">//toString</span></span><br><span class="line">        System.out.println(autumn.toString());</span><br><span class="line"><span class="comment">//value()</span></span><br><span class="line">        Season1[] values = Season1.values();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; values.length; i++) &#123;</span><br><span class="line">            System.out.println(values[i]);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; values.length; i++) &#123;</span><br><span class="line">            System.out.println(values[i]);</span><br><span class="line">            values[i].show();</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(Season1.class.getSuperclass());</span><br><span class="line"></span><br><span class="line">        Thread.State[] values1 = Thread.State.values();</span><br><span class="line">        <span class="keyword">for</span> (Thread.State state : values1) &#123;</span><br><span class="line">            System.out.println(state);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//valueOf(String objName):根据提供的ObjName返回相同的枚举类中</span></span><br><span class="line">        <span class="comment">//如果没有objName的枚举对象,则会抛出异常</span></span><br><span class="line">        Season1 winter = Season1.valueOf( <span class="string">&quot;WINTER&quot;</span>) ;</span><br><span class="line">        System. out . println(winter);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">interface</span>  <span class="title">Info</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//使用enum关键字</span></span><br><span class="line"><span class="keyword">enum</span> Season1 implements Info&#123;</span><br><span class="line">    <span class="comment">//1.提供当前枚举类的多个对象,多个对象之间用,,末尾用;</span></span><br><span class="line">    SPRING(<span class="string">&quot;春天&quot;</span>, <span class="string">&quot;春暖花开&quot;</span>)&#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">         <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;春天在哪里&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    SUMMER(<span class="string">&quot;夏天&quot;</span>, <span class="string">&quot;烈日炎炎&quot;</span>)&#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;宁夏&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    AUTUMN(<span class="string">&quot;秋天&quot;</span>, <span class="string">&quot;秋高气爽&quot;</span>)&#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;秋天不回来&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    WINTER(<span class="string">&quot;冬天&quot;</span>, <span class="string">&quot;冰天雪地&quot;</span>)&#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span>  <span class="keyword">void</span> <span class="title">show</span><span class="params">()</span></span>&#123;</span><br><span class="line">            System.out.println(<span class="string">&quot;大约在冬季&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    <span class="comment">//1.声明Season对象的属性</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String seasonName;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String seasonDesc;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//2.私有化类的构造器</span></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">Season1</span><span class="params">(String seasonName, String seasonDesc)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.seasonName = seasonName;</span><br><span class="line">        <span class="keyword">this</span>.seasonDesc = seasonDesc;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">//4.获取枚举类对象的属性</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getSeasonName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> seasonName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getSeasonDesc</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> seasonDesc;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//    @Override</span></span><br><span class="line"><span class="comment">//    public void show() &#123;</span></span><br><span class="line"><span class="comment">//        System.out.println(&quot;这是一个季节&quot;);</span></span><br><span class="line"><span class="comment">//    &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//    @Override</span></span><br><span class="line"><span class="comment">//    public String toString() &#123;</span></span><br><span class="line"><span class="comment">//        return &quot;Season&#123;&quot; +</span></span><br><span class="line"><span class="comment">//                &quot;seasonName=&#x27;&quot; + seasonName + &#x27;\&#x27;&#x27; +</span></span><br><span class="line"><span class="comment">//                &quot;, seasonDesc=&#x27;&quot; + seasonDesc + &#x27;\&#x27;&#x27; +</span></span><br><span class="line"><span class="comment">//                &#x27;&#125;&#x27;;</span></span><br><span class="line"><span class="comment">//    &#125;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="2-注解"><a href="#2-注解" class="headerlink" title="2. 注解"></a>2. 注解</h1><h2 id="2-1-自定义注解-参照-SuppressWarning"><a href="#2-1-自定义注解-参照-SuppressWarning" class="headerlink" title="2.1. 自定义注解 参照@SuppressWarning"></a>2.1. 自定义注解 参照@SuppressWarning</h2><ul>
-<li>步骤  <ol>
-<li>注解声明为@interface</li>
-<li>内部定义成员:通常使用value表示</li>
-<li>可以指定成员的默认值</li>
-<li>如果自定义的注解没有成员,表明是一个标识接口</li>
-</ol>
-</li>
-<li>如果注解有成员,在使用注解时,需要指明成员的值<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@interface</span> MyAnnotation &#123;</span><br><span class="line">    <span class="function">String <span class="title">value</span><span class="params">()</span> <span class="keyword">default</span> &quot;hello&quot;</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//@MyAnnotation(value = &quot;111&quot;)</span></span><br></pre></td></tr></table></figure>
-
-
-
-</li>
-</ul>
-<ul>
-<li>jdk日工的四种元注解,用于修饰注解的注解<ul>
-<li>出现频率高<ul>
-<li>Retention:指定修饰注解的生命周期,SOURCE\CLASS\RUNTIME</li>
-<li>➢Target:指定修饰注解的指定元素TYPE\FIELD\METHOD…..</li>
+<h2 id="jvm优化"><a href="#jvm优化" class="headerlink" title="jvm优化"></a>jvm优化</h2><ul>
+<li>内存分配 <ul>
+<li>年轻代:老年代 = 1:2</li>
+<li>eden:s0:s1=8:1:1<h3 id="stw-stop-the-world"><a href="#stw-stop-the-world" class="headerlink" title="stw(stop the world)"></a>stw(stop the world)</h3></li>
 </ul>
 </li>
-<li><strong><strong>出现频率低</strong></strong><ul>
-<li>➢Documented:表示注解可以被javadoc工具提取成文档,默认为不保留</li>
-<li>➢Inherited:表示子类默认继承父类Inherited注解</li>
+<li>在gc运行的过程中会出现应用程序停顿,因为在执行stw</li>
+<li>原因是在执行gcroots 或者死锁检查</li>
+<li>使用system.gc()可能会导致stw   </li>
+<li>stw设置的原因?<ul>
+<li>程序运行结束的时候 可能会回收栈空间 堆中的引用也会消失,gc无法判断是否有引用存在,所以设置stw停掉用户线程 转型让虚拟机执行gc<h3 id="解决频繁full-gc"><a href="#解决频繁full-gc" class="headerlink" title="解决频繁full gc"></a>解决频繁full gc</h3></li>
 </ul>
 </li>
+<li>放大年轻代 将老年代和年轻代比例调为1:1</li>
 </ul>
-</li>
-</ul>
-<ul>
-<li>通过反射获取注解信息</li>
-</ul>
-<ul>
-<li>jdk8中注解新特性<ol>
-<li>可重复注解@Repeatable<ul>
-<li>在MyAnnocation上声明@Repeatable,成员值为MyAonnocations.class</li>
-<li>要求MyAnnocation的@Target和@Retention相同</li>
-</ul>
-</li>
-<li>类型注解:<ul>
-<li>ELementType. TYPE PARAMETER表示该注解能写在类型变量的声明语句中(如:泛型声明)。</li>
-<li>ELementType. TYPE_ USE表示该注解能写在使用类型的任何语句中。<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//jdk8之前</span></span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> MyAnnotations &#123;</span><br><span class="line">    MyAnnotation[] value();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//@MyAnnotations(&#123;@MyAnnotation(value = &quot;111&quot;),@MyAnnotation(value = &quot;111&quot;)&#125;)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//jdk8之后</span></span><br><span class="line"><span class="meta">@Repeatable(value = MyAnnotations.class)</span></span><br><span class="line"><span class="comment">//@MyAnnotation(value = &quot;111&quot;)</span></span><br><span class="line"><span class="comment">//@MyAnnotation(value = &quot;111&quot;)</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//可以在泛型中加入注解</span></span><br><span class="line"><span class="comment">//jdk8以后可使用方式</span></span><br><span class="line"><span class="comment">//TYPE_PARAMETER,YPE_USE</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Generic</span>&lt;@<span class="title">MyAnnotation</span> <span class="title">T</span>&gt;</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">show</span><span class="params">( )</span> <span class="keyword">throws</span> @MyAnnotation RuntimeException</span>&#123;</span><br><span class="line">        ArrayList&lt;<span class="meta">@MyAnnotation</span> String&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        <span class="keyword">int</span> num = (<span class="meta">@MyAnnotation</span> <span class="keyword">int</span>) <span class="number">10L</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-</li>
-</ul>
-</li>
-</ol>
-</li>
-</ul>
-<p>1.单例设计模式</p>
-<p>单例设计模式一般有几种实现形式，饿汉式，饱汉式，双重加锁式。</p>
-<p>应用：数据库连接池。因为数据库连接池是一种数据库资源，使用数据库连接池的主要是为了节省打开或者关闭数据库连接所造成的效率损耗，这种效率上的损耗还是非常昂贵的，使用单例设计模式可以大大降低这种损耗。</p>
-<p>多线程中线程池的设计一般也采用单例设计模式，这是由于线程池要方便对池中的线程进行控制。</p>
-<p>网站中访问计数器，一般也是采用单例设计模式实现的，否则难以同步。</p>
-<p>2.享元模式</p>
-<p>由于做的是一个知识问答型的网站，发布一个问题之后，可以对其进行评论和转发。但实际在数据库中存储的该问题只有一个，有点类似于享元模式的思想。</p>
-<p>应用：在一个系统中，如果有多个相同的对象，那么只共享一份就ok了。不必每个都去实例化一个对象，可以节省大量的内存空间。</p>
-<p>在Java中，String类型的使用了享元模式，String对象是final类型的，对象一旦创建就不可以被改变。在Java中字符串常量都是存在常量池中的，Java会确保一个字符串常量在常量池中只有一个拷贝。</p>
-<p>3.代理模式</p>
-<p>应用：数据多机房同步，机房通过代理模式同步到其他机房，来避免机房宕机。</p>
-<p>4.装饰者模式</p>
-<p>动态地给一个对象添加一些额外的职责。</p>
-<p>应用：Java IO的API是典型的应用。对扩展开放，对修改关闭。</p>
 
       
 
@@ -352,17 +295,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -413,7 +345,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/11/15/java%E5%9F%BA%E7%A1%80/java%E6%9E%9A%E4%B8%BE%E5%92%8C%E6%B3%A8%E8%A7%A3/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2021/08/26/java%E8%BF%9B%E9%98%B6/jvm%E5%9F%BA%E7%A1%80/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -427,18 +359,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2021/01/15/javaWeb/XML%E5%85%A5%E9%97%A8/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          xml
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/11/11/java%E5%9F%BA%E7%A1%80/java%E5%B8%B8%E7%94%A8%E7%B1%BB/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">java常用类</div>
+    <a href="/2021/06/19/spring-/ssm-crud/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SSM-CRUD</div>
       <i class="icon-circle-right"></i>
     </a>
   

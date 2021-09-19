@@ -16,7 +16,7 @@
 <meta property="og:description" content="Redis学习">
 <meta property="og:locale">
 <meta property="article:published_time" content="2020-09-15T10:28:36.000Z">
-<meta property="article:modified_time" content="2021-08-19T13:40:33.211Z">
+<meta property="article:modified_time" content="2021-08-30T08:14:47.943Z">
 <meta property="article:author" content="杨晨阳">
 <meta property="article:tag" content="redis">
 <meta name="twitter:card" content="summary">
@@ -65,7 +65,7 @@
 			</ul>
 		</nav>
 		<nav>
-        总文章数 42
+        总文章数 44
     </nav>
 		<nav class="header-smart-menu">
     		
@@ -177,7 +177,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">7,212字</span>
+        <span class="post-count">7,981字</span>
       </span>
     </span>
 
@@ -186,7 +186,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">36分</span>
+        <span class="post-count">39分</span>
       </span>
     </span>
 </div>
@@ -206,6 +206,7 @@ Redis学习
 
 </center>
 <a id="more"></a>
+
 
 <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><ul>
 <li><p>Redis (Remote Dictionary Server ) ,即远程字典服务</p>
@@ -432,11 +433,10 @@ Redis学习
 <li>计数器</li>
 <li>统计多单位的数量 </li>
 <li>粉丝数</li>
-<li>对象缓存存储</li>
+<li>对象缓存存储<h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3>在redis里面,可以将list当做,栈,堆,阻塞队列</li>
 </ul>
 </li>
 </ul>
-<h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3><p>在redis里面,可以将list当做,栈,堆,阻塞队列</p>
 <p>所有的list命令都是l开头</p>
 <ul>
 <li>基础数据类型List<ul>
@@ -695,14 +695,14 @@ Redis学习
 <h2 id="redis-conf详情"><a href="#redis-conf详情" class="headerlink" title="redis.conf详情"></a>redis.conf详情</h2><p>启动的时候,通过配置文件启动</p>
 <h3 id="单位"><a href="#单位" class="headerlink" title="单位"></a>单位</h3><ul>
 <li>对大小写不敏感<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1k =&gt; 1000 bytes</span></span><br><span class="line"><span class="comment"># 1kb =&gt; 1024 bytes</span></span><br><span class="line"><span class="comment"># 1m =&gt; 1000000 bytes</span></span><br><span class="line"><span class="comment"># 1mb =&gt; 1024*1024 bytes</span></span><br><span class="line"><span class="comment"># 1g =&gt; 1000000000 bytes</span></span><br><span class="line"><span class="comment"># 1gb =&gt; 1024*1024*1024 bytes</span></span><br><span class="line"><span class="comment"># units are case insensitive so 1GB 1Gb 1gB are all the same.</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">bind</span> 127.0.0.1 -::1 <span class="comment">#绑定的ip</span></span><br><span class="line">protected-mode yes <span class="comment">## 保护模式</span></span><br><span class="line">port 6379 <span class="comment">##默认端口号</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">bind</span> 127.0.0.1 -::1 <span class="comment">#绑定的ip</span></span><br><span class="line">protected-mode yes <span class="comment">## 保护模式</span></span><br><span class="line">port 6379 <span class="comment">##默认端口号</span></span><br></pre></td></tr></table></figure>
 <h3 id="通用配置"><a href="#通用配置" class="headerlink" title="通用配置"></a>通用配置</h3></li>
 <li>以守护线程运行,默认是no,我们需要自己开启为yes</li>
 <li>如果以后台方式运行需要指定一个pid文件</li>
 <li>设置日志级别</li>
 <li>默认日志文件绝对路径</li>
 <li>默认数据库数量,默认十六个数据库</li>
-<li>是否开启redis服务的logo图形<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">daemonize yes</span><br><span class="line">pidfile /var/run/redis_6379.pid <span class="comment">#生成pid文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 日志级别</span></span><br><span class="line"><span class="comment"># Specify the server verbosity level.</span></span><br><span class="line"><span class="comment"># This can be one of:</span></span><br><span class="line"><span class="comment"># debug (a lot of information, useful for development/testing)用于测试和开发</span></span><br><span class="line"><span class="comment"># verbose (many rarely useful info, but not a mess like the debug level)</span></span><br><span class="line"><span class="comment"># notice (moderately verbose, what you want in production probably)生产环境适用</span></span><br><span class="line"><span class="comment"># warning (only very important / critical messages are logged)警告</span></span><br><span class="line">loglevel notice</span><br><span class="line">logfile <span class="string">&quot;&quot;</span>   <span class="comment"># 日志的文件名</span></span><br><span class="line">databases 16</span><br><span class="line">always-show-logo no</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<li>是否开启redis服务的logo图形<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">daemonize yes</span><br><span class="line">pidfile /var/run/redis_6379.pid <span class="comment">#生成pid文件</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 日志级别</span></span><br><span class="line"><span class="comment"># Specify the server verbosity level.</span></span><br><span class="line"><span class="comment"># This can be one of:</span></span><br><span class="line"><span class="comment"># debug (a lot of information, useful for development/testing)用于测试和开发</span></span><br><span class="line"><span class="comment"># verbose (many rarely useful info, but not a mess like the debug level)</span></span><br><span class="line"><span class="comment"># notice (moderately verbose, what you want in production probably)生产环境适用</span></span><br><span class="line"><span class="comment"># warning (only very important / critical messages are logged)警告</span></span><br><span class="line">loglevel notice</span><br><span class="line">logfile <span class="string">&quot;&quot;</span>   <span class="comment"># 日志的文件名</span></span><br><span class="line">databases 16</span><br><span class="line">always-show-logo no</span><br></pre></td></tr></table></figure>
 <h3 id="快照rdb配置"><a href="#快照rdb配置" class="headerlink" title="快照rdb配置"></a>快照rdb配置</h3></li>
 <li>规定时间内执行了多少操作会持久化到文件.rdb.aof</li>
 <li>默认持久化出错,是否还需要继续工作,默认yes</li>
@@ -729,9 +729,48 @@ Redis学习
 <li>默认不开启,默认使用rdb持久化</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">appendfilename <span class="string">&quot;appendonly.aof&quot;</span> 持久化文件的名字</span><br><span class="line"></span><br><span class="line"><span class="comment"># appendfsync always   每次都会同步</span></span><br><span class="line">appendfsync everysec   每一秒同步一次 可能会丢失这一秒的数据</span><br><span class="line"><span class="comment"># appendfsync no   不执行同步</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="Redis持久化"><a href="#Redis持久化" class="headerlink" title="Redis持久化"></a>Redis持久化</h2><ul>
+<h2 id="Redis持久化"><a href="#Redis持久化" class="headerlink" title="Redis持久化"></a>Redis持久化</h2><h3 id="RDB"><a href="#RDB" class="headerlink" title="RDB"></a>RDB</h3><ul>
 <li>在指定间隔内将内存中的数据快照写入磁盘,也就是snapshot,他恢复的时候将快照文件直接读到内存</li>
 <li>redb保存的文件是dump.rdb</li>
+<li>系统会单独创建一个子线程fork来创建进行rdb操作<h3 id="AOF-append-only-file"><a href="#AOF-append-only-file" class="headerlink" title="AOF (append only file)"></a>AOF (append only file)</h3>将所有命令记录下来,恢复的时候吧这个文件全部执行一遍</li>
+<li>默认不开启aof需要在配置文件中手动配置</li>
+<li>appendonly.aof以日志记录所有写操作,只有一个不断扩大,当达到一定的时候 会进行rewrite操作 之后使用lru重新构造一个小的aof文件 删除旧文件<ul>
+<li>操作先写入linux os cache再持久化到磁盘, 每秒执行一次操作系统的fsync操作 强制将os cache的数据刷入磁盘文件中</li>
+<li>如果aof文件出错是不可以连接redis的</li>
+<li>使用redis-check-aof –fix appendonly.aof修复指令  错误指令会被删除</li>
+</ul>
+</li>
+<li>优点:<ul>
+<li>每一次修改都同步,保证文件完整性</li>
+<li>每秒同步一次,可能丢失一秒数据</li>
+</ul>
+</li>
+<li>缺点:<ul>
+<li>相对于数据文件来说,aof远远大于rdb,修复的速度比rdb慢<h2 id="Redis发布订阅"><a href="#Redis发布订阅" class="headerlink" title="Redis发布订阅"></a>Redis发布订阅</h2></li>
+</ul>
+</li>
+<li>SUBSCRIBE [渠道]  订阅一个频道<ul>
+<li>底层维护了一个字典链表,表示的是一个个频道.该命令的关键就是将客户端添加到给定的频道的订阅链表中.每个频道有属于自己的订阅的集合</li>
+</ul>
+</li>
+<li>PUBLISH [渠道]  该渠道发布一个消息<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#订阅一个频道</span></span><br><span class="line">127.0.0.1:6379&gt; SUBSCRIBE ycy</span><br><span class="line">Reading messages... (press Ctrl-C to quit)</span><br><span class="line">1) <span class="string">&quot;subscribe&quot;</span></span><br><span class="line">2) <span class="string">&quot;ycy&quot;</span></span><br><span class="line">3) (<span class="built_in">integer</span>) 1</span><br><span class="line">1) <span class="string">&quot;message&quot;</span></span><br><span class="line">2) <span class="string">&quot;ycy&quot;</span></span><br><span class="line">3) <span class="string">&quot;hello&quot;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1:6379&gt; PUBLISH ycy <span class="string">&quot;hello&quot;</span></span><br><span class="line">(<span class="built_in">integer</span>) 1</span><br><span class="line">127.0.0.1:6379&gt; </span><br></pre></td></tr></table></figure>
+<h3 id="适合场景"><a href="#适合场景" class="headerlink" title="适合场景"></a>适合场景</h3></li>
+<li>实时消息系统</li>
+<li>聊天室 (将消息发给所有人)</li>
+<li>订阅,关注系统都是可以的<br>复杂些的操作需要使用中间件完成</li>
+</ul>
+<h2 id="主从复制-1"><a href="#主从复制-1" class="headerlink" title="主从复制"></a>主从复制</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul>
+<li><p>主从复制,是指将一台redis服务器的数据,复制到其他的redis服务器.前者称为主节点(master/leader),后者称为从节点(slave/follower) 数据的复制是单向的,只能由主节点到从节点. master以写为主,slave以读为主</p>
+</li>
+<li><p>主从复制的作用主要包括:</p>
+<ol>
+<li>数据冗余:主从复制实现了数据的热备份,是持久化之外的一种数据冗余方式。</li>
+<li>故障恢复:当主节点出现问题时,可以由从节点提供服务,实现快速的故障恢复;实际上是一种服务的冗余。</li>
+<li>负载均衡:在主从复制的基础上,配合读写分离,可以由主节点提供写服务,由从节点提供读服务(即写Redis数据时应用连接主节点,读Redis数据时应用连接从节点) , 分担服务器负载;尤其是在写少读多的场景下,通过多个从节点分担读负载,可以大大提高Redis服务器的并发量。</li>
+<li>高可用基石:除了上述作用以外,主从复制还是哨兵和集群能够实施的基础,因此说主从复制是Redis高可用的基础。</li>
+</ol>
+</li>
 </ul>
 
       
@@ -993,6 +1032,18 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">组成原理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">javaWeb</a>
               </li>
              
@@ -1001,15 +1052,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">java</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">组成原理</a>
+                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1022,10 +1065,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计原则</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">操作系统</a>
               </li>
             
             <div class="clearfix"></div>
