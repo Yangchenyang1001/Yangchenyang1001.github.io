@@ -16,7 +16,7 @@
 <meta property="og:description" content="JUC">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-04-25T09:19:51.000Z">
-<meta property="article:modified_time" content="2021-08-22T16:47:22.890Z">
+<meta property="article:modified_time" content="2021-09-22T13:23:40.589Z">
 <meta property="article:author" content="杨晨阳">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -65,7 +65,7 @@
 			</ul>
 		</nav>
 		<nav>
-        总文章数 44
+        总文章数 45
     </nav>
 		<nav class="header-smart-menu">
     		
@@ -177,7 +177,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">10,485字</span>
+        <span class="post-count">10,631字</span>
       </span>
     </span>
 
@@ -186,7 +186,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">47分</span>
+        <span class="post-count">48分</span>
       </span>
     </span>
 </div>
@@ -209,73 +209,73 @@ JUC
 
 <!-- TOC -->
 <ul>
-<li><a href="#1-juc">juc</a><ul>
-<li><a href="#11-juc%E6%A6%82%E8%BF%B0">juc概述</a><ul>
-<li><a href="#111-%E4%BB%80%E4%B9%88%E6%98%AFjuc">什么是juc</a></li>
-<li><a href="#112-%E7%BA%BF%E7%A8%8B%E5%92%8C%E8%BF%9B%E7%A8%8B%E6%A6%82%E5%BF%B5">线程和进程概念</a></li>
+<li><a href="#1-juc">1. juc</a><ul>
+<li><a href="#11-juc%E6%A6%82%E8%BF%B0">1.1. juc概述</a><ul>
+<li><a href="#111-%E4%BB%80%E4%B9%88%E6%98%AFjuc">1.1.1. 什么是juc</a></li>
+<li><a href="#112-%E7%BA%BF%E7%A8%8B%E5%92%8C%E8%BF%9B%E7%A8%8B%E6%A6%82%E5%BF%B5">1.1.2. 线程和进程概念</a></li>
 </ul>
 </li>
-<li><a href="#12-Lock%E6%8E%A5%E5%8F%A3">Lock接口</a><ul>
-<li><a href="#121-%E5%A4%8D%E4%B9%A0synchronized">复习synchronized</a></li>
-<li><a href="#122-%E4%BB%80%E4%B9%88%E6%98%AFLock%E6%8E%A5%E5%8F%A3">什么是Lock接口</a></li>
-<li><a href="#123-%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%A4%9A%E7%A7%8D%E6%96%B9%E5%BC%8F">创建线程的多种方式</a></li>
+<li><a href="#12-lock%E6%8E%A5%E5%8F%A3">1.2. Lock接口</a><ul>
+<li><a href="#121-%E5%A4%8D%E4%B9%A0synchronized">1.2.1. 复习synchronized</a></li>
+<li><a href="#122-%E4%BB%80%E4%B9%88%E6%98%AFlock%E6%8E%A5%E5%8F%A3">1.2.2. 什么是Lock接口</a></li>
+<li><a href="#123-%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B%E7%9A%84%E5%A4%9A%E7%A7%8D%E6%96%B9%E5%BC%8F">1.2.3. 创建线程的多种方式</a></li>
 </ul>
 </li>
-<li><a href="#13-%E7%BA%BF%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1">线程间的通信</a></li>
-<li><a href="#14-%E7%BA%BF%E7%A8%8B%E9%97%B4%E5%AE%9A%E5%88%B6%E5%8C%96%E9%80%9A%E4%BF%A1">线程间定制化通信</a></li>
-<li><a href="#15-%E9%9B%86%E5%90%88%E7%9A%84%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8">集合的线程安全</a><ul>
-<li><a href="#151-ArrayLiat%E9%9B%86%E5%90%88%E7%BA%BF%E7%A8%8B%E4%B8%8D%E5%AE%89%E5%85%A8%E6%BC%94%E7%A4%BA">ArrayLiat集合线程不安全演示</a></li>
-<li><a href="#152-ArrayLiat%E9%9B%86%E5%90%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88Vector">ArrayLiat集合解决方案Vector</a></li>
-<li><a href="#153-ArrayLiat%E9%9B%86%E5%90%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88Collections">ArrayLiat集合解决方案Collections</a></li>
-<li><a href="#154-ArrayLiat%E9%9B%86%E5%90%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88CopyOnWriteArrayList">ArrayLiat集合解决方案CopyOnWriteArrayList</a></li>
-<li><a href="#155-HashSet%E4%B8%8D%E5%AE%89%E5%85%A8%E6%BC%94%E7%A4%BA">HashSet不安全演示</a></li>
-<li><a href="#156-HashSet%E9%9B%86%E5%90%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88CopyOnWriteArraySet">HashSet集合解决方案CopyOnWriteArraySet</a></li>
-<li><a href="#157-HashMap%E4%B8%8D%E5%AE%89%E5%85%A8%E6%BC%94%E7%A4%BA">HashMap不安全演示</a></li>
-<li><a href="#158-HashMap%E9%9B%86%E5%90%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88CurrentHashMap">HashMap集合解决方案CurrentHashMap</a></li>
+<li><a href="#13-%E7%BA%BF%E7%A8%8B%E9%97%B4%E7%9A%84%E9%80%9A%E4%BF%A1">1.3. 线程间的通信</a></li>
+<li><a href="#14-%E7%BA%BF%E7%A8%8B%E9%97%B4%E5%AE%9A%E5%88%B6%E5%8C%96%E9%80%9A%E4%BF%A1">1.4. 线程间定制化通信</a></li>
+<li><a href="#15-%E9%9B%86%E5%90%88%E7%9A%84%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8">1.5. 集合的线程安全</a><ul>
+<li><a href="#151-arrayliat%E9%9B%86%E5%90%88%E7%BA%BF%E7%A8%8B%E4%B8%8D%E5%AE%89%E5%85%A8%E6%BC%94%E7%A4%BA">1.5.1. ArrayLiat集合线程不安全演示</a></li>
+<li><a href="#152-arrayliat%E9%9B%86%E5%90%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88vector">1.5.2. ArrayLiat集合解决方案Vector</a></li>
+<li><a href="#153-arrayliat%E9%9B%86%E5%90%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88collections">1.5.3. ArrayLiat集合解决方案Collections</a></li>
+<li><a href="#154-arrayliat%E9%9B%86%E5%90%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88copyonwritearraylist">1.5.4. ArrayLiat集合解决方案CopyOnWriteArrayList</a></li>
+<li><a href="#155-hashset%E4%B8%8D%E5%AE%89%E5%85%A8%E6%BC%94%E7%A4%BA">1.5.5. HashSet不安全演示</a></li>
+<li><a href="#156-hashset%E9%9B%86%E5%90%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88copyonwritearrayset">1.5.6. HashSet集合解决方案CopyOnWriteArraySet</a></li>
+<li><a href="#157-hashmap%E4%B8%8D%E5%AE%89%E5%85%A8%E6%BC%94%E7%A4%BA">1.5.7. HashMap不安全演示</a></li>
+<li><a href="#158-hashmap%E9%9B%86%E5%90%88%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88currenthashmap">1.5.8. HashMap集合解决方案CurrentHashMap</a></li>
 </ul>
 </li>
-<li><a href="#16-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%94%81">多线程锁</a><ul>
-<li><a href="#161-%E5%87%BA%E7%8E%B0%E6%83%85%E5%86%B5">出现情况</a></li>
-<li><a href="#162-%E5%85%AC%E5%B9%B3%E9%94%81%E5%92%8C%E9%9D%9E%E5%85%AC%E5%B9%B3%E9%94%81">公平锁和非公平锁</a></li>
-<li><a href="#163-%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81">可重入锁</a></li>
-<li><a href="#164-%E6%AD%BB%E9%94%81">死锁</a></li>
+<li><a href="#16-%E5%A4%9A%E7%BA%BF%E7%A8%8B%E9%94%81">1.6. 多线程锁</a><ul>
+<li><a href="#161-%E5%87%BA%E7%8E%B0%E6%83%85%E5%86%B5">1.6.1. 出现情况</a></li>
+<li><a href="#162-%E5%85%AC%E5%B9%B3%E9%94%81%E5%92%8C%E9%9D%9E%E5%85%AC%E5%B9%B3%E9%94%81">1.6.2. 公平锁和非公平锁</a></li>
+<li><a href="#163-%E5%8F%AF%E9%87%8D%E5%85%A5%E9%94%81">1.6.3. 可重入锁</a></li>
+<li><a href="#164-%E6%AD%BB%E9%94%81">1.6.4. 死锁</a></li>
 </ul>
 </li>
-<li><a href="#17-Callable%E6%8E%A5%E5%8F%A3">Callable接口</a><ul>
-<li><a href="#171-%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B">创建线程</a></li>
+<li><a href="#17-callable%E6%8E%A5%E5%8F%A3">1.7. Callable接口</a><ul>
+<li><a href="#171-%E5%88%9B%E5%BB%BA%E7%BA%BF%E7%A8%8B">1.7.1. 创建线程</a></li>
 </ul>
 </li>
-<li><a href="#18-JUC%E4%B8%AD%E5%BC%BA%E5%A4%A7%E7%9A%84%E8%BE%85%E5%8A%A9%E7%B1%BB">JUC中强大的辅助类</a><ul>
-<li><a href="#181-%E5%87%8F%E5%B0%91%E6%8A%80%E6%9C%AFCountDownLatch">减少技术CountDownLatch</a></li>
-<li><a href="#182-%E5%BE%AA%E7%8E%AF%E6%A0%85%E6%A0%8FCyclicBarrier">循环栅栏CyclicBarrier</a></li>
+<li><a href="#18-juc%E4%B8%AD%E5%BC%BA%E5%A4%A7%E7%9A%84%E8%BE%85%E5%8A%A9%E7%B1%BB">1.8. JUC中强大的辅助类</a><ul>
+<li><a href="#181-%E5%87%8F%E5%B0%91%E6%8A%80%E6%9C%AFcountdownlatch">1.8.1. 减少技术CountDownLatch</a></li>
+<li><a href="#182-%E5%BE%AA%E7%8E%AF%E6%A0%85%E6%A0%8Fcyclicbarrier">1.8.2. 循环栅栏CyclicBarrier</a></li>
 </ul>
 </li>
-<li><a href="#19-%E4%BF%A1%E5%8F%B7%E7%81%AFSemaphore">信号灯Semaphore</a></li>
-<li><a href="#110-%E8%AF%BB%E5%86%99%E9%94%81">读写锁</a><ul>
-<li><a href="#1101-%E6%BC%94%E7%A4%BA%E8%AF%BB%E5%86%99%E9%97%AE%E9%A2%98">演示读写问题</a></li>
-<li><a href="#1102-%E4%BD%BF%E7%94%A8%E8%AF%BB%E5%86%99%E9%94%81%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98">使用读写锁解决问题</a></li>
-<li><a href="#1103-%E8%AF%BB%E5%86%99%E9%94%81%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3">读写锁深入理解</a></li>
+<li><a href="#19-%E4%BF%A1%E5%8F%B7%E7%81%AFsemaphore">1.9. 信号灯Semaphore</a></li>
+<li><a href="#110-%E8%AF%BB%E5%86%99%E9%94%81">1.10. 读写锁</a><ul>
+<li><a href="#1101-%E6%BC%94%E7%A4%BA%E8%AF%BB%E5%86%99%E9%97%AE%E9%A2%98">1.10.1. 演示读写问题</a></li>
+<li><a href="#1102-%E4%BD%BF%E7%94%A8%E8%AF%BB%E5%86%99%E9%94%81%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98">1.10.2. 使用读写锁解决问题</a></li>
+<li><a href="#1103-%E8%AF%BB%E5%86%99%E9%94%81%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3">1.10.3. 读写锁深入理解</a></li>
 </ul>
 </li>
-<li><a href="#111-BlockingQueue%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97">BlockingQueue阻塞队列</a><ul>
-<li><a href="#1111-BlockingQueue%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97%E6%A6%82%E8%BF%B0">BlockingQueue阻塞队列概述</a></li>
-<li><a href="#1112-%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97%E5%88%86%E7%B1%BB">阻塞队列分类</a></li>
-<li><a href="#1113-%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97%E6%A0%B8%E5%BF%83%E6%96%B9%E6%B3%95">阻塞队列核心方法</a></li>
+<li><a href="#111-blockingqueue%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97">1.11. BlockingQueue阻塞队列</a><ul>
+<li><a href="#1111-blockingqueue%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97%E6%A6%82%E8%BF%B0">1.11.1. BlockingQueue阻塞队列概述</a></li>
+<li><a href="#1112-%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97%E5%88%86%E7%B1%BB">1.11.2. 阻塞队列分类</a></li>
+<li><a href="#1113-%E9%98%BB%E5%A1%9E%E9%98%9F%E5%88%97%E6%A0%B8%E5%BF%83%E6%96%B9%E6%B3%95">1.11.3. 阻塞队列核心方法</a></li>
 </ul>
 </li>
-<li><a href="#112-%E7%BA%BF%E7%A8%8B%E6%B1%A0">线程池</a><ul>
-<li><a href="#1121-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E6%A6%82%E8%BF%B0">线程池概述</a></li>
-<li><a href="#1122-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F">线程池使用方式</a></li>
-<li><a href="#1123-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86">线程池底层原理</a></li>
-<li><a href="#1124-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E4%B8%83%E4%B8%AA%E5%8F%82%E6%95%B0">线程池的七个参数</a></li>
-<li><a href="#1125-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%BA%95%E5%B1%82%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B">线程池底层工作流程</a></li>
-<li><a href="#1126-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BA%BF%E7%A8%8B%E6%B1%A0">自定义线程池</a></li>
+<li><a href="#112-%E7%BA%BF%E7%A8%8B%E6%B1%A0">1.12. 线程池</a><ul>
+<li><a href="#1121-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E6%A6%82%E8%BF%B0">1.12.1. 线程池概述</a></li>
+<li><a href="#1122-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E4%BD%BF%E7%94%A8%E6%96%B9%E5%BC%8F">1.12.2. 线程池使用方式</a></li>
+<li><a href="#1123-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%BA%95%E5%B1%82%E5%8E%9F%E7%90%86">1.12.3. 线程池底层原理</a></li>
+<li><a href="#1124-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E7%9A%84%E4%B8%83%E4%B8%AA%E5%8F%82%E6%95%B0">1.12.4. 线程池的七个参数</a></li>
+<li><a href="#1125-%E7%BA%BF%E7%A8%8B%E6%B1%A0%E5%BA%95%E5%B1%82%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B">1.12.5. 线程池底层工作流程</a></li>
+<li><a href="#1126-%E8%87%AA%E5%AE%9A%E4%B9%89%E7%BA%BF%E7%A8%8B%E6%B1%A0">1.12.6. 自定义线程池</a></li>
 </ul>
 </li>
-<li><a href="#113-Fork/Join%E5%88%86%E6%94%AF%E5%90%88%E5%B9%B6%E6%A1%86%E6%9E%B6">Fork/Join分支合并框架</a></li>
-<li><a href="#114-CompletableFuture%E5%BC%82%E6%AD%A5%E5%9B%9E%E8%B0%83">CompletableFuture异步回调</a><ul>
-<li><a href="#1141-%E6%97%A0%E8%BF%94%E5%9B%9E%E5%80%BC%E5%BC%82%E6%AD%A5%E5%9B%9E%E8%B0%83">无返回值异步回调</a></li>
-<li><a href="#1142-%E6%9C%89%E8%BF%94%E5%9B%9E%E5%80%BC%E5%BC%82%E6%AD%A5%E5%9B%9E%E8%B0%83">有返回值异步回调</a><!-- /TOC -->
+<li><a href="#113-forkjoin%E5%88%86%E6%94%AF%E5%90%88%E5%B9%B6%E6%A1%86%E6%9E%B6">1.13. Fork/Join分支合并框架</a></li>
+<li><a href="#114-completablefuture%E5%BC%82%E6%AD%A5%E5%9B%9E%E8%B0%83">1.14. CompletableFuture异步回调</a><ul>
+<li><a href="#1141-%E6%97%A0%E8%BF%94%E5%9B%9E%E5%80%BC%E5%BC%82%E6%AD%A5%E5%9B%9E%E8%B0%83">1.14.1. 无返回值异步回调</a></li>
+<li><a href="#1142-%E6%9C%89%E8%BF%94%E5%9B%9E%E5%80%BC%E5%BC%82%E6%AD%A5%E5%9B%9E%E8%B0%83">1.14.2. 有返回值异步回调</a><!-- /TOC -->
 <a id="toc_anchor" name="#1-juc"></a></li>
 </ul>
 </li>
@@ -473,6 +473,7 @@ JUC
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Map&lt;String,String&gt; map = <span class="keyword">new</span> ConcurrentHashMap&lt;&gt;();</span><br></pre></td></tr></table></figure></li>
 <li><p>jdk1.7 CurrentHashMap</p>
 <ul>
+<li>默认每人segment长度16,允许16个线程并发</li>
 <li>结构树如下<ul>
 <li>–CurrentHashMap<ul>
 <li>–segment数组 : Segment类继承了ReentrantLock,和可序列化接口<ul>
@@ -989,11 +990,11 @@ JUC
   
 <nav id="article-nav">
   
-    <a href="/2021/05/26/javaWeb/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/fileupload/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/05/26/%E5%88%86%E5%B8%83%E5%BC%8F/zookeeper/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          实现文件上传
+          zookeeper
         
       </div>
     </a>

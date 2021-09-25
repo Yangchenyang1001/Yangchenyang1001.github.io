@@ -62,7 +62,7 @@
 			</ul>
 		</nav>
 		<nav>
-        总文章数 44
+        总文章数 45
     </nav>
 		<nav class="header-smart-menu">
     		
@@ -152,151 +152,6 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-    <article id="post-java进阶/jvm基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="jvm基础"><a href="#jvm基础" class="headerlink" title="jvm基础"></a>jvm基础</h1><ul>
-<li><p>什么是jvm </p>
-<ul>
-<li>Java Virtual Machine: Java虚拟机,用来保证Java语言跨平台</li>
-<li>Java虚拟机可以看做是一台抽象的计算机， 如同真实的计算机那样，它有自己的指令集以及各种运行时内存区域</li>
-<li>Java虚拟机与Java语言并没有必然的联系，它只与特定的二进制文件格式(class文件格式所关联)</li>
-<li>java虚拟机就是一个字节码翻译器,它将字节码文件翻译成各个系统对应的机器码,确保字节码文件能在各个系统正常运行</li>
-</ul>
-</li>
-<li><p>为什么学习jvm</p>
-<ul>
-<li>解决问题可以治其然知其所以然</li>
-</ul>
-</li>
-<li><p>一般反编译java文件用  javap -c 生成一个更可读的文件</p>
-</li>
-</ul>
-<h2 id="jvm核心组成解析"><a href="#jvm核心组成解析" class="headerlink" title="jvm核心组成解析"></a>jvm核心组成解析</h2><p>类执行顺序:类装载系统-&gt;内存模型-&gt;字节码执行引擎</p>
-<p>内存模型包括:堆,栈,本地方法栈 方法区 程序计数器</p>
-<h3 id="虚拟机栈"><a href="#虚拟机栈" class="headerlink" title="虚拟机栈"></a>虚拟机栈</h3><ul>
-<li>底层使用栈做数据结构</li>
-<li>栈帧:线程给每个方法执行分配的栈空间 每个线程多个犯法则多个栈帧<ul>
-<li>栈帧中存放局部变量,操作数栈,动态链接,方法出口<ul>
-<li>局部变量表结构</li>
-<li>操作数栈记录实际数值,通常赋值要使操作数出栈,到局部变量表给其赋值</li>
-<li>动态链接: 直接链接到方法区中指定方法代码的具体位置</li>
-<li>方法出口:找到返回的方法位置</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>main方法的对象变量执行堆中的具体地址</li>
-<li>栈中指针引用堆中的内存地址<h3 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h3></li>
-<li>和线程同时创建,每个线程都有属于自己的程序计数器,由字节码执行引擎修改<ul>
-<li>用于记录已经运行到哪一行代码,多线程用于恢复挂起的线程</li>
-</ul>
-</li>
-</ul>
-<h3 id="方法区"><a href="#方法区" class="headerlink" title="方法区"></a>方法区</h3><ul>
-<li>1.8之前叫做永久代 1.8之后叫做元空间 保存在堆中</li>
-<li>保存个方法的具体地址</li>
-<li>具体包含常量+静态变量+类信息<ul>
-<li>常量</li>
-<li>静态变量 </li>
-<li>类信息</li>
-</ul>
-</li>
-<li>如果变量中引用一个对象则需要在堆中的寻找内存地址<h3 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h3></li>
-<li>堆包含 年轻代(eden区 新生区) 老年代<ul>
-<li>eden区 如果被填满 则执行minor gc 回收垃圾    </li>
-<li>survivor区 设置分代年龄 如果某一对象达到该区的一半会直接进入老年区<ul>
-<li>s0 设置分代年龄+1 eden区剩下存活对象的则进入该区域 并清空eden区</li>
-<li>s1 设置分代年龄+1 s1和eden区再次gc 存活的对象分代年龄+1 都进入s0 </li>
-</ul>
-</li>
-<li>老年代 分代年龄已经达到足够的值15会被移入老年代或者是s1中放满了也执行,如果老年区满了执行full gc 如果没有被清除的对象则直接报oom<ul>
-<li>例如连接池,springbean对象和容器,静态工具对象</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>gc收集机制 gc roots<ul>
-<li>可达性分析算法,从本地变量静态变量出发,寻找堆中所有被引用的对象 标记为非垃圾对象</li>
-</ul>
-</li>
-<li>对象头object header : 一个表结构记录了该对象加锁的状态,对象的hashcode值,分代年龄</li>
-<li>minor gc和full gc由字节码执行引擎执行<h3 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h3></li>
-<li>直接操作操作系统,原生使用c或c++实现,如今已经不怎么使用了</li>
-<li>本地方法想需要的内存空间,用于存放本地方法的空间</li>
-</ul>
-<h3 id="私有和共享"><a href="#私有和共享" class="headerlink" title="私有和共享"></a>私有和共享</h3><ul>
-<li><p>一个线程中会包含线程栈,本地方法栈,程序计数器.</p>
-<ul>
-<li>外部无法访问该线程内部数据</li>
-</ul>
-</li>
-<li><p>所有线程都需要使用堆和方法区中的数据</p>
-<h3 id="jvisualvm工具"><a href="#jvisualvm工具" class="headerlink" title="jvisualvm工具"></a>jvisualvm工具</h3></li>
-<li><p>识别jvm本地所有进程</p>
-</li>
-<li><p>插件中添加 visual GC插件 就可以看到分区情况</p>
-</li>
-</ul>
-<h2 id="jvm优化"><a href="#jvm优化" class="headerlink" title="jvm优化"></a>jvm优化</h2><ul>
-<li>内存分配 <ul>
-<li>年轻代:老年代 = 1:2</li>
-<li>eden:s0:s1=8:1:1<h3 id="stw-stop-the-world"><a href="#stw-stop-the-world" class="headerlink" title="stw(stop the world)"></a>stw(stop the world)</h3></li>
-</ul>
-</li>
-<li>在gc运行的过程中会出现应用程序停顿,因为在执行stw</li>
-<li>原因是在执行gcroots 或者死锁检查</li>
-<li>使用system.gc()可能会导致stw   </li>
-<li>stw设置的原因?<ul>
-<li>程序运行结束的时候 可能会回收栈空间 堆中的引用也会消失,gc无法判断是否有引用存在,所以设置stw停掉用户线程 转型让虚拟机执行gc<h3 id="解决频繁full-gc"><a href="#解决频繁full-gc" class="headerlink" title="解决频繁full gc"></a>解决频繁full gc</h3></li>
-</ul>
-</li>
-<li>放大年轻代 将老年代和年轻代比例调为1:1</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2021/08/26/java%E8%BF%9B%E9%98%B6/jvm%E5%9F%BA%E7%A1%80/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
     <article id="post-spring-/ssm-crud" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -616,6 +471,112 @@ SSM-CRUD
 
 
   
+    <article id="post-分布式/zookeeper" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+              
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2021/05/26/%E5%88%86%E5%B8%83%E5%BC%8F/zookeeper/">zookeeper</a>
+    </h1>
+  
+
+              
+              <a href="/2021/05/26/%E5%88%86%E5%B8%83%E5%BC%8F/zookeeper/" class="archive-article-date">
+  	<time datetime="2021-05-26T05:39:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-26</time>
+</a>
+              <!-- 需要添加的位置 -->
+              <!-- 开始添加字数统计-->
+              
+                <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">1,866字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">7分</span>
+      </span>
+    </span>
+</div>
+                
+              <!-- 添加完成 -->
+
+              
+            </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <center>
+
+<font face="黑体" size="10">
+zookeeper
+</font>
+
+</center>
+        
+          <a class="article-more-a" href="/2021/05/26/%E5%88%86%E5%B8%83%E5%BC%8F/zookeeper/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2021/05/26/%E5%88%86%E5%B8%83%E5%BC%8F/zookeeper/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-java进阶/juc" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -639,7 +600,7 @@ SSM-CRUD
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">10,485字</span>
+        <span class="post-count">10,631字</span>
       </span>
     </span>
 
@@ -648,7 +609,7 @@ SSM-CRUD
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">47分</span>
+        <span class="post-count">48分</span>
       </span>
     </span>
 </div>

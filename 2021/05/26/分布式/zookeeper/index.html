@@ -6,16 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2021/8 | 桌角是小黑</title>
+  <title>zookeeper | 桌角是小黑</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="学习笔记">
-<meta property="og:type" content="website">
-<meta property="og:title" content="桌角是小黑">
-<meta property="og:url" content="http://yoursite.com/archives/2021/08/index.html">
+  <meta name="description" content="zookeeper">
+<meta property="og:type" content="article">
+<meta property="og:title" content="zookeeper">
+<meta property="og:url" content="http://yoursite.com/2021/05/26/%E5%88%86%E5%B8%83%E5%BC%8F/zookeeper/index.html">
 <meta property="og:site_name" content="桌角是小黑">
-<meta property="og:description" content="学习笔记">
+<meta property="og:description" content="zookeeper">
 <meta property="og:locale">
+<meta property="article:published_time" content="2021-05-26T05:39:36.000Z">
+<meta property="article:modified_time" content="2021-09-25T10:17:03.335Z">
 <meta property="article:author" content="杨晨阳">
+<meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="桌角是小黑" type="application/atom+xml">
@@ -62,7 +65,7 @@
 			</ul>
 		</nav>
 		<nav>
-        总文章数 44
+        总文章数 45
     </nav>
 		<nav class="header-smart-menu">
     		
@@ -151,43 +154,400 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-分布式/zookeeper" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+              
   
+    <h1 class="article-title" itemprop="name">
+      zookeeper
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/08/26/java%E8%BF%9B%E9%98%B6/jvm%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2021-08-26T02:09:05.516Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-08-26</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+              
+              <a href="/2021/05/26/%E5%88%86%E5%B8%83%E5%BC%8F/zookeeper/" class="archive-article-date">
+  	<time datetime="2021-05-26T05:39:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-26</time>
+</a>
+              <!-- 需要添加的位置 -->
+              <!-- 开始添加字数统计-->
+              
+                <div style="margin-top:10px;">
+    <span class="post-time">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-keyboard-o"></i>
+        <span class="post-meta-item-text">  字数统计: </span>
+        <span class="post-count">1,866字</span>
+      </span>
+    </span>
+
+    <span class="post-time">
+      &nbsp; | &nbsp;
+      <span class="post-meta-item-icon">
+        <i class="fa fa-hourglass-half"></i>
+        <span class="post-meta-item-text">  阅读时长: </span>
+        <span class="post-count">7分</span>
+      </span>
+    </span>
+</div>
+                
+              <!-- 添加完成 -->
+
+              
+            </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <center>
+
+<font face="黑体" size="10">
+zookeeper
+</font>
+
+</center>
+<a id="more"></a>
+
+<h1 id="zookeeper"><a href="#zookeeper" class="headerlink" title="zookeeper"></a>zookeeper</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
+<li><p>Zookeeper是一个开源的分布式的，为分布式框架提供协调服务的Apache项目。</p>
+</li>
+<li><p>Zookeeper从设计模式角度来理解:是一个基于观察者模式设计的分布式服务管理框架，它负责存储和管理大家都关心的数据，然后接受观察者的注册，一旦这些数据的状态发生变化，Zookeeper就将负责通知已经在Zookeeper上注册的那些观察者做出相应的反应。</p>
+</li>
+<li><p>相当于一个<strong>文件系统+通知机制</strong></p>
+<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3></li>
+<li><p>Zookeeper:一个领导者(Leader)，多个跟随者(Follower）组成的集群。</p>
+</li>
+<li><p>只有<strong>半数以上</strong>的节点存活,zookeeper就可以正常服务,适合安装基数太服务器</p>
+</li>
+<li><p>每个server保存一份相同的数据副本,client无论连接那个server,<strong>数据都是一致</strong>的</p>
+</li>
+<li><p>来自同一client的请求按发送的<strong>顺序依次执行</strong></p>
+</li>
+<li><p>数据更新有<strong>原子性</strong>,要么成功要么失败</p>
+</li>
+<li><p><strong>实时性</strong>,在一定时间内,client能读到更新的数据</p>
+<h3 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h3></li>
+<li><p>与unit文件系统类似,使用树形结构,每个znode节点默认<strong>1mb</strong>,每个znode都可以其路径<strong>唯一标识</strong></p>
+<h3 id="应用场景"><a href="#应用场景" class="headerlink" title="应用场景"></a>应用场景</h3></li>
+<li><p>统一命名服务</p>
+<ul>
+<li>在分布式环境下，经常需要对应用/服务进行统一命名，便于识别。<ul>
+<li>ip不容易记住,但是域名可以记住</li>
+<li>nginx也可以实现</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>统一配置管理</p>
+<ul>
+<li>可将配置信息写入zookeeper的一个znode中,各个客户端监听这个znode</li>
+<li>各个客户端服务监听这个znode </li>
+</ul>
+</li>
+<li><p>统一集群管理</p>
+<ul>
+<li>分布式环境中，实时掌握每个节点的状态是必要的。<ul>
+<li>可根据节点实时状态做出一些调整。</li>
+</ul>
+</li>
+<li>ZooKeeper可以实现实时监控节点状态变化<ul>
+<li>可将节点信息写入ZooKeeper上的一个ZNode。</li>
+<li>监听这个ZNode可获取它的实时状态变化。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>服务器动态上下线</p>
+</li>
+<li><p>软负载均衡</p>
+<h2 id="配置安装"><a href="#配置安装" class="headerlink" title="配置安装"></a>配置安装</h2></li>
+<li><p>解压到三个linux系统 </p>
+</li>
+<li><p>修改配置conf <strong>zoo_sample.cfg</strong> 改名为<strong>zoo.cfg</strong></p>
+<ul>
+<li>修改zkData地址 在指定地址下创建一个myid文件 保存服务编号2</li>
+<li>同步分发脚本 xsync zookeeper-3.5.7 其他节点也会同步多出myid文件</li>
+<li>修改myid为对应服务的编号 </li>
+<li>配置参数 server.A=B:C:D</li>
+</ul>
+</li>
+<li><p>启动服务端</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/zkServer.sh start</span><br></pre></td></tr></table></figure></li>
+<li><p>jps -l 指令查看进程 </p>
+</li>
+<li><p>启动客户端</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/zkCli.sh <span class="comment"># 直接启动不需要start</span></span><br></pre></td></tr></table></figure></li>
+<li><p>退出客户端</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">quit</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>查看server状态</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/zkServer.sh status</span><br></pre></td></tr></table></figure>
+<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3></li>
+<li><p>tickTime=2000 通信心跳时间,zookeeper服务和客户端心跳时间</p>
+</li>
+<li><p>initLinit=10 LF初始化通信时限 , leader和follower通信时间 10表示十次tickTime心跳时间</p>
+</li>
+<li><p>syncLimit=5 LF同步通讯时限 再次通信时如果5次tickTime没有消息就从服务器中删除follower</p>
+</li>
+<li><p>clientPort=2181 默认不修改                </p>
+</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># The number of milliseconds of each tick</span></span><br><span class="line">tickTime=2000</span><br><span class="line"><span class="comment"># The number of ticks that the initial </span></span><br><span class="line"><span class="comment"># synchronization phase can take</span></span><br><span class="line">initLimit=10</span><br><span class="line"><span class="comment"># The number of ticks that can pass between </span></span><br><span class="line"><span class="comment"># sending a request and getting an acknowledgement</span></span><br><span class="line">syncLimit=5</span><br><span class="line"><span class="comment"># the directory where the snapshot is stored.</span></span><br><span class="line"><span class="comment"># do not use /tmp for storage, /tmp here is just </span></span><br><span class="line"><span class="comment"># example sakes.</span></span><br><span class="line">dataDir=G:\zookeeper-3.4.6\zookeeper-3.4.6\data</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在zoo.cfg添加配置<ul>
+<li>等号前.1/.2/.3表示第几号服务器</li>
+<li>server102表示ip的一个地址</li>
+<li>各服务器与leader信息交换的端口2888</li>
+<li>万一存在宕机,重新用于选举的端口<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">server.2=server102:2888:3888</span><br><span class="line">server.3=server103:2888:3888</span><br><span class="line">server.4=server104:2888:3888</span><br></pre></td></tr></table></figure>
+<h2 id="内部原理"><a href="#内部原理" class="headerlink" title="内部原理"></a>内部原理</h2><h3 id="选举机制-面试重点"><a href="#选举机制-面试重点" class="headerlink" title="选举机制(面试重点)"></a>选举机制(面试重点)</h3></li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>半数机制:集群中半数以上机器存活,集群可用.所以zookeeper适合安装技术太服务器</li>
+<li>zookeeper虽然在配置文件中没有支出master和slave.但是zookeeper工作是有一个leader节点,其他的为follower节点,leader是通过内部选举产生的<ul>
+<li>算法是FastLeaderElection， 采用投票数大于半数则胜出的逻辑。</li>
+<li>myid越大优先级越高,开始遍历每台服务器开始都投自己一票,<ul>
+<li>如果没有选出大于半数以上的票就一直处于looking状态,</li>
+<li>looking状态的服务器会把票给优先级高的服务器.</li>
+<li>直到符合的条件的服务器,处于leading状态 之前的服务器处于following状态</li>
+<li>之后启动的服务器也处于following状态<h3 id="节点类型"><a href="#节点类型" class="headerlink" title="节点类型"></a>节点类型</h3></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>持久(Persistent):客户端和服务器端断开连接后，创建的节点不删除<ul>
+<li>持久化顺序编号目录节点<ul>
+<li>客户端断开连接,节点依旧存在,只是给zookeeper给该节点进行顺序编号</li>
+<li>简历znode时设置顺序标识,znode名称会发夹一个值,顺序好是一个单调递增的计数器,父节点维护</li>
+<li>客户端可以通过节点顺序号知道事件的执行顺序</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>短暂（Ephemeral) :客户端和服务器端断开连接后，创建的节点自己删除<ul>
+<li>可以用于证明客户端下线</li>
+<li>同理也产生编号<h3 id="监听器的原理-面试重点"><a href="#监听器的原理-面试重点" class="headerlink" title="监听器的原理(面试重点)"></a>监听器的原理(面试重点)</h3></li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>首先有一个main线程</li>
+<li>在main线程中创建zookeeper客户端,这是就会创建两个线程,一个负责网络连接(connect) , 一个负责监听(listener)</li>
+<li>通过connect线程将注册的监听事件发给zookeeper</li>
+<li>在zookeeper的注册监听列表中将注册的监听事件添加到列表中</li>
+<li>zookeeper监听到数据或路径有变化就会将这个消息广播发送给listener</li>
+<li>listener线程内部调用**process()**方法</li>
+</ol>
+<ul>
+<li>使用get path [watch] 监听节点数据变化</li>
+<li>使用ls path [watch]  监听子节点增减的变化<h3 id="写数据流程"><a href="#写数据流程" class="headerlink" title="写数据流程"></a>写数据流程</h3></li>
+</ul>
+<ol>
+<li>client-&gt;server1  客户端向zookeeper的server1上写数据,发送写请求<ol>
+<li>server1不是leader,将请求转发给leader.</li>
+</ol>
+</li>
+<li>leader会将这个写请求广播给所有server<ol>
+<li>各个server执行leader转发的写操作,将写入结果告知leader</li>
+<li>保证多于半数服务器执行写请求成功</li>
+</ol>
+</li>
+<li>leader就告诉server1写入成功</li>
+<li>server1通知客户端<h2 id="客户端命令行操作"><a href="#客户端命令行操作" class="headerlink" title="客户端命令行操作"></a>客户端命令行操作</h2></li>
+</ol>
+<ul>
+<li>help 查看所有命令作用</li>
+<li>ls / 查看所有节点</li>
+<li>ls -s 查看详情</li>
+<li>create [目录名] [内容]   创建节点<ul>
+<li>create /demo “demo”</li>
+</ul>
+</li>
+<li>get [目录]  获取节点内容</li>
+<li>create -e [目录] [内容]  创建短暂节点 断开连接就消失</li>
+<li>create -s [目录] [内容]  创建带序号节点</li>
+<li>set [目录] [内容] 修改节点值</li>
+<li>get [目录] watch   实时监听变化 只支持一次变化</li>
+<li>delete [目录]    删除目录节点</li>
+<li>rmr [目录] 递归删除目录节点</li>
+</ul>
+<h2 id="Stat结构体"><a href="#Stat结构体" class="headerlink" title="Stat结构体"></a>Stat结构体</h2><ul>
+<li>czxid-创建节点的事务zxid<ul>
+<li>每次修改ZooKeeper.状态都会收到一个zxid形式的时间戳,也就是ZooKeeper.事务ID。,事务ID是ZooKeeper_中所有修改总的次序。每个修改都有唯一的zxid，如果zxid1小于zxid2，那么zxid1在 zxid2之前发生。</li>
+</ul>
+</li>
+<li>ctime - znode_被创建的毫秒数(从1970年开始)</li>
+<li>mzxid - znode最后更新的事务zxid.</li>
+<li>mtime - znode最后修改的毫秒数(从1970年开始)</li>
+<li>pZxid-znode最后更新的子节点zxid</li>
+<li>cversion - znode子节点变化号，znode子节点修改次数</li>
+<li>dataversion - znode数据变化号</li>
+<li>aclVersion - znode访问控制列表的变化号,</li>
+<li>ephemeralOwner-如果是临时节点，这个是znode.拥有者的session id。如果不是临时节</li>
+<li>dataL.ength- znode的数据长度。</li>
+<li>numChildren - znode子节点数量。</li>
+</ul>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/weixinnumber.jpg">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2021/05/26/%E5%88%86%E5%B8%83%E5%BC%8F/zookeeper/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2021/05/26/javaWeb/%E9%A1%B9%E7%9B%AE%E5%AE%9E%E6%88%98/fileupload/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          实现文件上传
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2021/04/25/java%E8%BF%9B%E9%98%B6/juc/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">javaJUC</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
   
 
-    
+  
+
+  
+
+  
+
+  
 
 
           </div>
@@ -211,8 +571,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
