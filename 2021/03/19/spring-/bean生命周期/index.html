@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>JVM基础 | 桌角是小黑</title>
+  <title>spring生命周期 | 桌角是小黑</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="JVM基础">
+  <meta name="description" content="spring生命周期">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JVM基础">
-<meta property="og:url" content="http://yoursite.com/2020/09/15/java%E8%BF%9B%E9%98%B6/jvm%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:title" content="spring生命周期">
+<meta property="og:url" content="http://yoursite.com/2021/03/19/spring-/bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/index.html">
 <meta property="og:site_name" content="桌角是小黑">
-<meta property="og:description" content="JVM基础">
+<meta property="og:description" content="spring生命周期">
 <meta property="og:locale">
-<meta property="article:published_time" content="2020-09-15T06:28:36.000Z">
-<meta property="article:modified_time" content="2021-09-25T10:17:58.425Z">
+<meta property="article:published_time" content="2021-03-19T01:03:36.000Z">
+<meta property="article:modified_time" content="2021-09-26T07:50:11.798Z">
 <meta property="article:author" content="杨晨阳">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -65,7 +65,7 @@
 			</ul>
 		</nav>
 		<nav>
-        总文章数 45
+        总文章数 46
     </nav>
 		<nav class="header-smart-menu">
     		
@@ -154,20 +154,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-java进阶/jvm基础" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-spring-/bean生命周期" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
               
   
     <h1 class="article-title" itemprop="name">
-      JVM基础
+      spring生命周期
     </h1>
   
 
               
-              <a href="/2020/09/15/java%E8%BF%9B%E9%98%B6/jvm%E5%9F%BA%E7%A1%80/" class="archive-article-date">
-  	<time datetime="2020-09-15T06:28:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-09-15</time>
+              <a href="/2021/03/19/spring-/bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" class="archive-article-date">
+  	<time datetime="2021-03-19T01:03:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-19</time>
 </a>
               <!-- 需要添加的位置 -->
               <!-- 开始添加字数统计-->
@@ -177,7 +177,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">3,233字</span>
+        <span class="post-count">1,695字</span>
       </span>
     </span>
 
@@ -186,7 +186,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">12分</span>
+        <span class="post-count">6分</span>
       </span>
     </span>
 </div>
@@ -201,255 +201,127 @@
         <center>
 
 <font face="黑体" size="10">
- JVM基础
+spring生命周期
 </font>
 
 </center>
 <a id="more"></a>
 
-<h1 id="jvm基础"><a href="#jvm基础" class="headerlink" title="jvm基础"></a>jvm基础</h1><ul>
-<li><p>什么是jvm </p>
-<ul>
-<li>Java Virtual Machine: Java虚拟机,用来保证Java语言跨平台</li>
-<li>Java虚拟机可以看做是一台抽象的计算机， 如同真实的计算机那样，它有自己的指令集以及各种运行时内存区域</li>
-<li>Java虚拟机与Java语言并没有必然的联系，它只与特定的二进制文件格式(class文件格式所关联)</li>
-<li>java虚拟机就是一个字节码翻译器,它将字节码文件翻译成各个系统对应的机器码,确保字节码文件能在各个系统正常运行</li>
+<h1 id="spring-bean生命周期"><a href="#spring-bean生命周期" class="headerlink" title="spring bean生命周期"></a>spring bean生命周期</h1><ul>
+<li>调用getbean创建bean:<ol>
+<li>class加载-&gt;</li>
+<li><strong>createBeanInstance</strong>推断构造方法-&gt;实例化      (默认使用无参构造)<ul>
+<li>有一个无参构造,有多个有参构造,将会使用无参构造创建实例</li>
+<li>只有一个有参构造,在ioc容器中找到入参对象(先byType,后byName),使用该构造方法<ul>
+<li>public UserService(OrderService orderService) <ul>
+<li>OrderService 是 byType   orderService 是 byName</li>
 </ul>
 </li>
-<li><p>为什么学习jvm</p>
-<ul>
-<li>解决问题可以治其然知其所以然</li>
+<li>单例池中寻找指定的bean       </li>
+<li>bytype 如果单例池中只有一个就注入该bean,反之在所有bean中使用byname</li>
+<li>byname 在单例池中寻找注入的形参所对应的bean的名字,有是话就注入</li>
 </ul>
 </li>
-<li><p>一般反编译java文件用  javap -c 生成一个更可读的文件</p>
-</li>
-</ul>
-<h2 id="jvm核心组成解析"><a href="#jvm核心组成解析" class="headerlink" title="jvm核心组成解析"></a>jvm核心组成解析</h2><ul>
-<li>类加载子系统<ul>
-<li>clinit方法执行的过程 加载的流程</li>
-</ul>
-</li>
-<li>运行时数据区<ul>
-<li>jvm内存分区,调用区域等 垃圾回收等</li>
-</ul>
-</li>
-<li>执行引擎<ul>
-<li>字节码指令解释/编译为对应平台上的本地机器指令才可以</li>
+<li>有多个有参构造,将会报错no default constructor <ul>
+<li>使用@Autowired注解构造方法,就使用该构造方法.同理使用上述bean注入方式 </li>
 </ul>
 </li>
 </ul>
-<h2 id="类加载机制"><a href="#类加载机制" class="headerlink" title="类加载机制"></a>类加载机制</h2><ul>
-<li><p>加载</p>
+</li>
+<li>对象-&gt;</li>
+<li><strong>populateBean</strong>属性填充-&gt;<ul>
+<li>成员变量赋值 </li>
+</ul>
+</li>
+<li><strong>initializeBean</strong>初始化-&gt;<ul>
+<li>实现Initializingbean接口 实现初始化 操作bean创建过程中属性填充的部分<ul>
+<li>重写afterPropertiesSet()方法 表示属性设置后执行的方法</li>
+<li>可以用于设置 复杂的成员变量的值</li>
+</ul>
+</li>
+<li>@PostConstruct 注解的方法,就是初始化方法</li>
+</ul>
+</li>
+<li>aop-&gt; ? 是否需要代理 , 指定对象在切面表达式的范围内   需要开启@EnableAspectJAutoProxy<ul>
+<li>cglib或者jdk创建动态代理,找到切面对象,执行代理逻辑<ul>
+<li>代理类会具有代理的对象类的成员变量,并用之前初始化之后的对象赋值</li>
+<li>代理对象没有原对象成员变量指向的bean对象 </li>
+<li>代理主要用于增强方法的逻辑,属性没有赋值可以忽略 private<h2 id="单例bean"><a href="#单例bean" class="headerlink" title="单例bean"></a>单例bean</h2></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>不等同于单例模式</li>
+<li>表示同样bean名字拿到同一个对象</li>
+<li>全局不一定只有一个同类型的对象<h2 id="单例池"><a href="#单例池" class="headerlink" title="单例池"></a>单例池</h2>底层是CurrentHashMap,key为beanName,value为bean,它是实现SpringBean单例的手段。<h2 id="Autowired详解"><a href="#Autowired详解" class="headerlink" title="@Autowired详解"></a>@Autowired详解</h2></li>
+</ul>
 <ol>
-<li>使用全路径类名获取定义此类的二进制字节流</li>
-<li>将这个字节流所代表的静态存储结构转化为方法区的运行时数据结构</li>
-<li>在内存中生成一个代表这个类的 java.lang.Class 对象，作为方法区这个类的各种数据的访问入口。</li>
-</ol>
-<ul>
-<li>总结:加载指的是将类的 class 文件读入到内存，并为之创建一个 java.lang.Class 对象，也就是说，当程序中使用任何类时，系统都会为之建立一个 java.lang.Class 对象。</li>
+<li>通过byType找到指定的类型 , 可以找到多个bean</li>
+<li>判断是不是isAutowireCandidcate 是不是主动填充的候选者  可以有多个bean<ul>
+<li>@Bean(autowireCandidate=false) 设置该bean不是autowire的候选者</li>
 </ul>
 </li>
-<li><p>验证</p>
+<li>判断是否有@Qualifier(“名字”) 定义的bean 可以定义多个,结果集也可能是多个bean</li>
+<li>判断是否有@Primary注解,是否为这个类型bean的主bean,如果有则选中这个bean , 只能有一个</li>
+<li>判断优先级@Priority() 根据优先级选择bean</li>
+<li>最后根据byname确定bean</li>
+</ol>
+<h2 id="Resource详解"><a href="#Resource详解" class="headerlink" title="@Resource详解"></a>@Resource详解</h2><ul>
+<li>javax原生注解,spring实现</li>
+</ul>
 <ol>
-<li>文件格式验证：如是否以模数 0xCAFEBABE 开头、主、次版本号是否在当前虚拟机处理范围之内、常量合理性验证等。此阶段保证输入的字节流能正确地解析并存储于方法区之内，格式上符合描述一个 Java类型信息的要求。</li>
-<li>元数据验证：是否存在父类，父类的继承链是否正确，抽象类是否实现了其父类或接口之中要求实现的所有方法，字段、方法是否与父类产生矛盾等。第二阶段，保证不存在不符合 Java 语言规范的元数据信息。</li>
-<li>字节码验证：通过数据流和控制流分析，确定程序语义是合法的、符合逻辑的。例如保证跳转指令不会跳转到方法体以外的字节码指令上。</li>
-<li>符号引用验证：在解析阶段中发生，保证可以将符号引用转化为直接引用。</li>
+<li>如果@Resource(name=”xxx”)就直接通过byname寻找bean,没有找到会报错</li>
+<li>如果直接使用@Resource通过属性名字找对应的bean,没有找到不会报错</li>
+<li>之后通过byType找bean</li>
 </ol>
+<h2 id="三级缓存"><a href="#三级缓存" class="headerlink" title="三级缓存"></a>三级缓存</h2><ul>
+<li>DefaultSingletonBeanRegistry类<ul>
+<li>一级缓存private final Map&lt;String，Object&gt; singleton0bjects = new ConcurrentHashMap&lt;&gt;(256) ;<ul>
+<li>用于存放完全初始化好的 bean，从该缓存中取出的 bean 可以直接使用;</li>
+</ul>
 </li>
-<li><p>准备</p>
+<li>三级缓存private final Map&lt;String，Object&gt; singletonFoctories = new ConcurrentHashMap&lt;&gt;(16) ;<ul>
+<li>单例对象工厂的cache，存的是 ObjectFactory&lt;?&gt; 类型的 lambda 表达式，用于处理存在 AOP 时的循环依赖问题,能将代理对象提前创建</li>
+</ul>
+</li>
+<li>二级缓存private final Map&lt;String，Object&gt; earlySingleton0bjects = new ConcurrentHashMap&lt;&gt;(16) ;<ul>
+<li>提前曝光的单例对象的cache，存放原始的bean对象（尚未填充属性），用于解决循环依赖;<h3 id="一级缓存"><a href="#一级缓存" class="headerlink" title="一级缓存"></a>一级缓存</h3></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>singleton0bjects</li>
+</ul>
 <ol>
-<li>为类变量分配内存并设置类变量初始值，这些变量所使用的内存都将在方法区中进行分配</li>
-</ol>
-</li>
-<li><p>解析</p>
-<ol>
-<li>常量池中的符号引用变为直接引用的过程</li>
-<li>主要是针对 类,接口,字段,类方法,方法类型,.方法句柄等</li>
-</ol>
-</li>
-<li><p>初始化   </p>
-<ol>
-<li>执行clinit方法<h3 id="唯一性"><a href="#唯一性" class="headerlink" title="唯一性"></a>唯一性</h3></li>
-</ol>
-</li>
-<li><p>加载他的类加载器和这个类本身一同确立其在Java虚拟机中的唯一性,比较两个类是否“相等”，只有在这两个类是由同一个类加载器加载的前提下才有意义，否则，即使这两个类来自同一个Class文件，被同一个虚拟机加载，只要加载他们的类加载器不同，那这个两个类就必定不相等。</p>
-</li>
-</ul>
-<h3 id="各种加载类"><a href="#各种加载类" class="headerlink" title="各种加载类"></a>各种加载类</h3><ul>
-<li>启动类加载器bootstrapClassLoader jre/lib/rt.jar    c++/c 原生</li>
-<li>扩展类加载器extClassLoader jre/lib/ext/*.jar     java 原生</li>
-<li>系统类加载器applicationClassLoader  classPath项目路径</li>
-<li>细节:<ul>
-<li>是虚拟机自身的一部分，如果获取它的对象，将会返回 null；扩展类加载器和应用类加载器是独立于虚拟机外部，为 Java 语言实现的，均继承自抽象类 java.lang.ClassLoader ，开发者可直接使用这两个类加载器。</li>
-<li>Application 类加载器对象可以由 ClassLoader.getSystemClassLoader() 方法的返回，所以一般也称它为系统类加载器。它负责加载用户类路径（ClassPath）上所指定的类库，如果应用程序中没有自定义过自己的类加载器，一般情况下这个就是程序中默认的类加载器。</li>
-<li>保证了核心类在内存中是唯一存在的,因为他是由上级加载器加载.例如类 java.lang.Object，它存放在 rt.jar 之中，无论哪一个类加载器要加载这个类，最终都是委派给处于模型最顶端的启动类加载器进行加载，因此 Object 类在程序的各种类加载器环境中都是同一个类。</li>
-</ul>
-</li>
-</ul>
-<h3 id="双亲委派"><a href="#双亲委派" class="headerlink" title="双亲委派"></a>双亲委派</h3><ul>
-<li>类进行加载时,首相询问父加载器是否可以处理,如果父类加载器无法处理,就由子类处理,级级传递. </li>
-</ul>
-<h4 id="破坏双亲委派"><a href="#破坏双亲委派" class="headerlink" title="破坏双亲委派"></a>破坏双亲委派</h4><ol>
-<li>因为双亲委派在jdk1.2导入,在之前类加载器是直接使用loadClass()自定义自己加载类的方式,1.2后出现了findClass()方法实现双亲委派,这时候再重写loadClass()就是破坏双亲委派的方式</li>
-<li>启动类加载器加载了(jndi java命名和目录接口),它需要调用由独立厂商实现并部署在应用程序的 ClassPath 下的 JNDI 接口提供者（SPI,Service Provider Interface，例如 JDBC 驱动就是由 MySQL 等接口提供者提供的）的代码<ol>
-<li>为此 Java 引入了线程上下文类加载器（Thread Context ClassLoader）。这个类加载器可以通过 java.lang.Thread.setContextClassLoaser() 方法进行设置，如果创建线程时还未设置，它将会从父线程中继承一个，如果在应用程序的全局范围内都没有设置过的话，那这个类加载器默认就是应用程序类加载器。通常是父加载器委托子加载器加载文件.出现了逆双亲委派的行为</li>
-<li>JNDI（Java Naming and Directory Interface ）类似于在一个中心注册一个东西，以后要用的时候，只需要根据名字去注册中心查找，注册中心返回你要的东西。</li>
-</ol>
-</li>
-<li>代码热替换（HotSwap）、模块热部署（Hot Deployment）等,对代码重新部署时通常需要连加载器一起替换</li>
-</ol>
-<h4 id="tomcat的加载过程"><a href="#tomcat的加载过程" class="headerlink" title="tomcat的加载过程"></a>tomcat的加载过程</h4><ul>
-<li><p>web容器启动时</p>
-<ul>
-<li><p>第一阶段：JVM启动相关</p>
-<ol>
-<li>$JAVA_HOME/jre/lib/ext/*.jar</li>
-<li>环境变量CLASSPATH中的*.jar和*.class</li>
-</ol>
-</li>
-<li><p>第二阶段：TOMCAT启动相关</p>
-<ol>
-<li>$CATALINA_HOME/common/classes/*.class</li>
-<li>$CATALINA_HOME/commons/endorsed/*.jar</li>
-<li>$CATALINA_HOME/commons/i18n/*.jar</li>
-<li>$CATALINA_HOME/common/lib/*.jar文件。</li>
+<li>标记bean为创建中</li>
+<li>new 出bean的对象</li>
+<li>判断是否支持三级缓存,可以就提前暴露bean</li>
+<li>注入bean的属性,解决属性依赖</li>
+<li>初始化bean,处理Aware接口并执行后置处理器,执行初始化方法，如果需要生成aop代理对象</li>
+<li>若已经解决循环依赖会在缓存中放置提前生成的代理对象,最终bean也会被换成缓存中的代理bean</li>
+<li>可以使用bean</li>
+<li>将bean放入容器中(一级缓存)，移除创建中标记及二三级缓存(后面再具体分析)<h3 id="三级缓存-1"><a href="#三级缓存-1" class="headerlink" title="三级缓存"></a>三级缓存</h3>假如初始化A bean时，发现Abean依赖B bean,即A初始化执行到了填充属性，需要注入B bean，此时B还没有初始化，则需要暂停A，先去初始化B，<strong>那么此时new出来的A对象放哪里，直接放在容器Map里显然不合适，半残品怎么能用，所以需要提供一个可以标记创建中bean(A)的Map(二级缓存)**，可以提前暴露正在创建的bean供其他bean依赖，而如果初始化A所依赖的bean B时，发现B也需要注入一个A的依赖(即发生循环依赖)，</strong>则B可以从创建中的beanMap(二级缓存)中直接获取A对象（创建中）注入A**，然后完成B的初始化，返回给正在注入属性的A，最终A也完成初始化，皆大欢喜。</li>
 </ol>
 <ul>
-<li>注意：JDBC驱动之类的jar文件可以放在这里，这样就可以避免在server.xml配置好数据源却出现找不到JDBC Driver的情况</li>
-</ul>
-<ol start="5">
-<li>$CATALINA_HOME/server/classes/*.class</li>
-<li>$CATALINA_HOME/server/lib/*.jar</li>
-<li>$CATALINA_BASE/shared/classes/*.class</li>
-<li>$CATALINA_BASE/shared/lib/*.jar</li>
-</ol>
-</li>
-<li><p>第三阶段：CONTEXT(WEB应用)启动相关<br>1.各自具体的webapp： /WEB-INF/classes/<em>.class<br>2.各自具体的webapp /WEB-INF/lib/</em>.jar</p>
-</li>
+<li>三级缓存的<strong>bean工厂</strong>使用getObject方式，实际执行的是getEarlyBeanReference，如果对象需要被代理(存在beanPostProcessors -&gt; SmartInstantiationAwareBeanPostProcessor)，则提前生成代理对象。在new出之后就提前判断是否给予代理<h3 id="二级缓存"><a href="#二级缓存" class="headerlink" title="二级缓存"></a>二级缓存</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">synchronized</span>(<span class="keyword">this</span>.singletonObjects)&#123;</span><br><span class="line">  <span class="comment">//先查二级缓存是否有</span></span><br><span class="line">  singletonObject = <span class="keyword">this</span>.earlySingletonObjects.get(beanName);</span><br><span class="line">  <span class="comment">//如果没有并且可以循环依赖</span></span><br><span class="line">  <span class="keyword">if</span>(singletonObject!=<span class="keyword">null</span>&amp;&amp;allowSingletonReference)&#123;</span><br><span class="line">    <span class="comment">//再在三级缓存中查找</span></span><br><span class="line">    <span class="number">0</span>bjectFactory&lt;?&gt; singletonFactory = <span class="keyword">this</span>.singletonFactories.get(beanName) ;</span><br><span class="line">    <span class="comment">//如果还没有</span></span><br><span class="line">    <span class="keyword">if</span> (singletonFactory != nu11)&#123;</span><br><span class="line">      <span class="comment">//创建一个早期bean</span></span><br><span class="line">      singleton0bject = singletonFactory.get0bject() ;</span><br><span class="line">      <span class="comment">//加入二级缓存</span></span><br><span class="line">      <span class="keyword">this</span>.ear1ySingleton0bjects.put(beanName，singleton0bject) ;</span><br><span class="line">      <span class="comment">//移除三级缓存中的该bean</span></span><br><span class="line">      <span class="keyword">this</span>.singletonFactories.remove(beanName) ;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>出现循环依赖时，才会执行工厂的getObject生成(获取)早期依赖</li>
+<li>在三级工厂中put将对象生产在二级map中<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><h4 id="为什么使用三级缓存-用一级缓存或者二级行不行"><a href="#为什么使用三级缓存-用一级缓存或者二级行不行" class="headerlink" title="为什么使用三级缓存,用一级缓存或者二级行不行?"></a>为什么使用三级缓存,用一级缓存或者二级行不行?</h4></li>
+<li>只用一级可以解决,但是会复杂化逻辑</li>
+<li>map中寻访的有半成品bean,获取时会需要判断是否已经是个完整的bean,否则使用中有空指针风险<ul>
+<li>这样就势必会怎急啊一些外在的标记用于判断bean的状态和很多处理逻辑</li>
 </ul>
 </li>
-<li><p>运行时载入</p>
-<ol>
-<li>Tomcat自定义载入器（一般为WebappClassLoader）本地缓存及ClassLoader缓存</li>
-<li>Bootstrap class loader载入（在其安全目录内）</li>
-<li>Extension class loader载入（在其安全目录内，比如这里为：$JAVA_HOME/jre/lib/ext/*.jar ）</li>
-<li>System class loader （在其安全目录内，比如这里为：CLASSPATH/）<ul>
-<li>注意：以上要优先主要是基于安全，避免类似自定义java.lang.Object优先于JDK的java.lang.Object被加载 </li>
+<li>所以应该把成品和半成品bean分开存放</li>
+<li>但是也可以直接使用二级缓存<ul>
+<li>因为spring主推的是将代理对象的创建推迟,他执行的是原始对象对初始化之后,</li>
+<li>使用三级缓存主要是为了解决循环依赖中所依赖的bean尚未被代理问题<ul>
+<li>这里通过三级缓存的工厂初始化原始bean的代理对象</li>
 </ul>
 </li>
-<li>/WEB-INF/classes/*.class</li>
-<li>/WEB-INF/lib/*.jar</li>
-<li>$CATALINA_HOME/common/classes</li>
-<li>$CATALINA_HOME/common/endorsed/*.jar</li>
-<li>$CATALINA_HOME/common/i18n/*.jar</li>
-<li>$CATALINA_HOME/common/lib/*.jar</li>
-<li>$CATALINA_BASE/shared/classes</li>
-<li>$CATALINA_BASE/shared/lib/*.jar</li>
-</ol>
-</li>
+<li>如果没有aop的话只使用二级就可以了,或者说将对象代理的过程提前到初始化前,实例化后</li>
 </ul>
-<h3 id="类加载常见问题-new一个对象过程中发生了什么？"><a href="#类加载常见问题-new一个对象过程中发生了什么？" class="headerlink" title="类加载常见问题:new一个对象过程中发生了什么？"></a>类加载常见问题:new一个对象过程中发生了什么？</h3><ol>
-<li>确认类元信息是否存在。当 JVM 接收到 new 指令时，首先在 metaspace 内检查需要创建的类元信息是否存在。 若不存在，那么在双亲委派模式下，使用当前类加载器以<strong>ClassLoader + 包名＋类名</strong>为 Key 进行查找对应的 class 文件。 如果没有找到文件，则抛出 ClassNotFoundException 异常 ， 如果找到，则进行类加载（加载 - 验证 - 准备 - 解析 - 初始化），并生成对应的 Class 类对象 相当去jvm执行clinit方法。</li>
-<li>分配对象内存。 首先计算对象占用空间大小，如果实例成员变量是引用变量，仅分配引用变量空间即可，即 4 个字节大小，接着在堆中划分—块内存给新对象。 在分配内存空间时，需要进行同步操作，比如采用 CAS (Compare And Swap) 失败重试、 区域加锁等方式保证分配操作的原子性。</li>
-<li>设定默认值。 成员变量值都需要设定为默认值，即各种不同形式的零值。</li>
-<li>设置对象头。设置新对象的哈希码、 GC 信息、锁信息、对象所属的类元信息等。这个过程的具体设置方式取决于 JVM 实现。</li>
-<li>执行 init 方法。 初始化成员变量，执行实例化代码块，调用类的构造方法，并把堆内对象的首地址赋值给引用变量。</li>
-</ol>
-<h2 id="运行数据区"><a href="#运行数据区" class="headerlink" title="运行数据区"></a>运行数据区</h2><p>内存模型包括:堆,栈,本地方法栈 方法区 程序计数器</p>
-<ul>
-<li><p>虚拟机栈</p>
-<ul>
-<li>底层使用栈做数据结构</li>
-<li>栈帧:线程给每个方法执行分配的栈空间 每个线程多个犯法则多个栈帧<ul>
-<li>栈帧中存放局部变量,操作数栈,动态链接,方法出口<ul>
-<li>局部变量表结构</li>
-<li>操作数栈记录实际数值,通常赋值要使操作数出栈,到局部变量表给其赋值</li>
-<li>动态链接: 直接链接到方法区中指定方法代码的具体位置</li>
-<li>方法出口:找到返回的方法位置</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>main方法的对象变量执行堆中的具体地址</li>
-<li>栈中指针引用堆中的内存地址</li>
-</ul>
-</li>
-<li><p>程序计数器</p>
-<ul>
-<li>和线程同时创建,每个线程都有属于自己的程序计数器,由字节码执行引擎修改<ul>
-<li>用于记录已经运行到哪一行代码,多线程用于恢复挂起的线程</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>方法区</p>
-<ul>
-<li>1.8之前叫做永久代 1.8之后叫做元空间 保存在堆中</li>
-<li>保存个方法的具体地址</li>
-<li>具体包含常量+静态变量+类信息<ul>
-<li>常量</li>
-<li>静态变量 </li>
-<li>类信息</li>
-</ul>
-</li>
-<li>如果变量中引用一个对象则需要在堆中的寻找内存地址</li>
-</ul>
-</li>
-<li><p>堆</p>
-<ul>
-<li>堆包含 年轻代(eden区 新生区) 老年代<ul>
-<li>eden区 如果被填满 则执行minor gc 回收垃圾    </li>
-<li>survivor区 设置分代年龄 如果某一对象达到该区的一半会直接进入老年区<ul>
-<li>s0 设置分代年龄+1 eden区剩下存活对象的则进入该区域 并清空eden区</li>
-<li>s1 设置分代年龄+1 s1和eden区再次gc 存活的对象分代年龄+1 都进入s0 </li>
-</ul>
-</li>
-<li>老年代 分代年龄已经达到足够的值15会被移入老年代或者是s1中放满了也执行,如果老年区满了执行full gc 如果没有被清除的对象则直接报oom<ul>
-<li>例如连接池,springbean对象和容器,静态工具对象</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>gc收集机制 gc roots<ul>
-<li>可达性分析算法,从本地变量静态变量出发,寻找堆中所有被引用的对象 标记为非垃圾对象</li>
-</ul>
-</li>
-<li>对象头object header : 一个表结构记录了该对象加锁的状态,对象的hashcode值,分代年龄</li>
-<li>minor gc和full gc由字节码执行引擎执行</li>
-</ul>
-</li>
-<li><p>本地方法栈</p>
-<ul>
-<li>直接操作操作系统,原生使用c或c++实现,如今已经不怎么使用了</li>
-<li>本地方法想需要的内存空间,用于存放本地方法的空间</li>
-</ul>
-</li>
-<li><p>私有和共享</p>
-<ul>
-<li>一个线程中会包含线程栈,本地方法栈,程序计数器.<ul>
-<li>外部无法访问该线程内部数据</li>
-</ul>
-</li>
-<li>所有线程都需要使用堆和方法区中的数据<h3 id="jvisualvm工具"><a href="#jvisualvm工具" class="headerlink" title="jvisualvm工具"></a>jvisualvm工具</h3></li>
-</ul>
-</li>
-<li><p>识别jvm本地所有进程</p>
-</li>
-<li><p>插件中添加 visual GC插件 就可以看到分区情况</p>
-<h3 id="stw-stop-the-world"><a href="#stw-stop-the-world" class="headerlink" title="stw(stop the world)"></a>stw(stop the world)</h3></li>
-<li><p>在gc运行的过程中会出现应用程序停顿,因为在执行stw</p>
-</li>
-<li><p>原因是在执行gcroots 或者死锁检查</p>
-</li>
-<li><p>使用system.gc()可能会导致stw   </p>
-</li>
-<li><p>stw设置的原因?</p>
-<ul>
-<li>程序运行结束的时候 可能会回收栈空间 堆中的引用也会消失,gc无法判断是否有引用存在,所以设置stw停掉用户线程 转型让虚拟机执行gc<h3 id="解决频繁full-gc"><a href="#解决频繁full-gc" class="headerlink" title="解决频繁full gc"></a>解决频繁full gc</h3></li>
-</ul>
-</li>
-<li><p>放大年轻代 将老年代和年轻代比例调为1:1</p>
 </li>
 </ul>
 
@@ -552,7 +424,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/09/15/java%E8%BF%9B%E9%98%B6/jvm%E5%9F%BA%E7%A1%80/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2021/03/19/spring-/bean%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -566,18 +438,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/09/15/redis/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/03/19/%E7%AE%97%E6%B3%95/LeetCode/T26/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Redis学习
+          T26删除有序数组中的重复项
         
       </div>
     </a>
   
   
-    <a href="/2020/09/15/javaWeb/html/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">HTML</div>
+    <a href="/2021/03/18/javaWeb/JDBC/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JDBC</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -716,11 +588,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">javaWeb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+                <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -728,7 +596,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">算法</a>
+                <a href="javascript:void(0)" class="js-tag color3">javaWeb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
