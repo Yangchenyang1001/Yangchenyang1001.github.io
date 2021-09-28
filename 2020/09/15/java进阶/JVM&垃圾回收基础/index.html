@@ -16,7 +16,7 @@
 <meta property="og:description" content="JVM&amp;垃圾回收基础">
 <meta property="og:locale">
 <meta property="article:published_time" content="2020-09-15T06:28:36.000Z">
-<meta property="article:modified_time" content="2021-09-26T07:50:14.653Z">
+<meta property="article:modified_time" content="2021-09-28T09:54:13.140Z">
 <meta property="article:author" content="杨晨阳">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -65,7 +65,7 @@
 			</ul>
 		</nav>
 		<nav>
-        总文章数 46
+        总文章数 47
     </nav>
 		<nav class="header-smart-menu">
     		
@@ -177,7 +177,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">7,712字</span>
+        <span class="post-count">8,143字</span>
       </span>
     </span>
 
@@ -186,7 +186,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">27分</span>
+        <span class="post-count">29分</span>
       </span>
     </span>
 </div>
@@ -207,7 +207,7 @@
 </center>
 <a id="more"></a>
 
-<h1 id="jvm基础"><a href="#jvm基础" class="headerlink" title="jvm基础"></a>jvm基础</h1><ul>
+<h1 id="1-jvm基础"><a href="#1-jvm基础" class="headerlink" title="1. jvm基础"></a>1. jvm基础</h1><ul>
 <li><p>什么是jvm </p>
 <ul>
 <li>Java Virtual Machine: Java虚拟机,用来保证Java语言跨平台</li>
@@ -224,7 +224,7 @@
 <li><p>一般反编译java文件用  javap -c 生成一个更可读的文件</p>
 </li>
 </ul>
-<h2 id="jvm核心组成解析"><a href="#jvm核心组成解析" class="headerlink" title="jvm核心组成解析"></a>jvm核心组成解析</h2><ul>
+<h2 id="1-1-jvm核心组成解析"><a href="#1-1-jvm核心组成解析" class="headerlink" title="1.1. jvm核心组成解析"></a>1.1. jvm核心组成解析</h2><ul>
 <li>类加载子系统<ul>
 <li>clinit方法执行的过程 加载的流程</li>
 </ul>
@@ -238,7 +238,7 @@
 </ul>
 </li>
 </ul>
-<h2 id="类加载机制"><a href="#类加载机制" class="headerlink" title="类加载机制"></a>类加载机制</h2><ul>
+<h2 id="1-2-类加载机制"><a href="#1-2-类加载机制" class="headerlink" title="1.2. 类加载机制"></a>1.2. 类加载机制</h2><ul>
 <li><p>加载</p>
 <ol>
 <li>使用全路径类名获取定义此类的二进制字节流</li>
@@ -270,13 +270,14 @@
 </li>
 <li><p>初始化   </p>
 <ol>
-<li>执行clinit方法<h3 id="唯一性"><a href="#唯一性" class="headerlink" title="唯一性"></a>唯一性</h3></li>
+<li>执行clinit方法</li>
 </ol>
 </li>
-<li><p>加载他的类加载器和这个类本身一同确立其在Java虚拟机中的唯一性,比较两个类是否“相等”，只有在这两个类是由同一个类加载器加载的前提下才有意义，否则，即使这两个类来自同一个Class文件，被同一个虚拟机加载，只要加载他们的类加载器不同，那这个两个类就必定不相等。</p>
-</li>
 </ul>
-<h3 id="各种加载类"><a href="#各种加载类" class="headerlink" title="各种加载类"></a>各种加载类</h3><ul>
+<h3 id="1-2-1-唯一性"><a href="#1-2-1-唯一性" class="headerlink" title="1.2.1. 唯一性"></a>1.2.1. 唯一性</h3><ul>
+<li>加载他的类加载器和这个类本身一同确立其在Java虚拟机中的唯一性,比较两个类是否“相等”，只有在这两个类是由同一个类加载器加载的前提下才有意义，否则，即使这两个类来自同一个Class文件，被同一个虚拟机加载，只要加载他们的类加载器不同，那这个两个类就必定不相等。</li>
+</ul>
+<h3 id="1-2-2-各种加载类"><a href="#1-2-2-各种加载类" class="headerlink" title="1.2.2. 各种加载类"></a>1.2.2. 各种加载类</h3><ul>
 <li>启动类加载器bootstrapClassLoader jre/lib/rt.jar    c++/c 原生</li>
 <li>扩展类加载器extClassLoader jre/lib/ext/*.jar     java 原生</li>
 <li>系统类加载器applicationClassLoader  classPath项目路径</li>
@@ -287,10 +288,10 @@
 </ul>
 </li>
 </ul>
-<h3 id="双亲委派"><a href="#双亲委派" class="headerlink" title="双亲委派"></a>双亲委派</h3><ul>
+<h3 id="1-2-3-双亲委派"><a href="#1-2-3-双亲委派" class="headerlink" title="1.2.3. 双亲委派"></a>1.2.3. 双亲委派</h3><ul>
 <li>类进行加载时,首相询问父加载器是否可以处理,如果父类加载器无法处理,就由子类处理,级级传递. </li>
 </ul>
-<h4 id="破坏双亲委派"><a href="#破坏双亲委派" class="headerlink" title="破坏双亲委派"></a>破坏双亲委派</h4><ol>
+<h4 id="1-2-3-1-破坏双亲委派"><a href="#1-2-3-1-破坏双亲委派" class="headerlink" title="1.2.3.1. 破坏双亲委派"></a>1.2.3.1. 破坏双亲委派</h4><ol>
 <li>因为双亲委派在jdk1.2导入,在之前类加载器是直接使用loadClass()自定义自己加载类的方式,1.2后出现了findClass()方法实现双亲委派,这时候再重写loadClass()就是破坏双亲委派的方式</li>
 <li>启动类加载器加载了(jndi java命名和目录接口),它需要调用由独立厂商实现并部署在应用程序的 ClassPath 下的 JNDI 接口提供者（SPI,Service Provider Interface，例如 JDBC 驱动就是由 MySQL 等接口提供者提供的）的代码<ol>
 <li>为此 Java 引入了线程上下文类加载器（Thread Context ClassLoader）。这个类加载器可以通过 java.lang.Thread.setContextClassLoaser() 方法进行设置，如果创建线程时还未设置，它将会从父线程中继承一个，如果在应用程序的全局范围内都没有设置过的话，那这个类加载器默认就是应用程序类加载器。通常是父加载器委托子加载器加载文件.出现了逆双亲委派的行为</li>
@@ -299,7 +300,7 @@
 </li>
 <li>代码热替换（HotSwap）、模块热部署（Hot Deployment）等,对代码重新部署时通常需要连加载器一起替换</li>
 </ol>
-<h4 id="tomcat的加载过程"><a href="#tomcat的加载过程" class="headerlink" title="tomcat的加载过程"></a>tomcat的加载过程</h4><ul>
+<h4 id="1-2-3-2-tomcat的加载过程"><a href="#1-2-3-2-tomcat的加载过程" class="headerlink" title="1.2.3.2. tomcat的加载过程"></a>1.2.3.2. tomcat的加载过程</h4><ul>
 <li><p>web容器启动时</p>
 <ul>
 <li><p>第一阶段：JVM启动相关</p>
@@ -349,14 +350,14 @@
 </ol>
 </li>
 </ul>
-<h3 id="类加载常见问题-new一个对象过程中发生了什么？"><a href="#类加载常见问题-new一个对象过程中发生了什么？" class="headerlink" title="类加载常见问题:new一个对象过程中发生了什么？"></a>类加载常见问题:new一个对象过程中发生了什么？</h3><ol>
+<h3 id="1-2-2-类加载常见问题-new一个对象过程中发生了什么？"><a href="#1-2-2-类加载常见问题-new一个对象过程中发生了什么？" class="headerlink" title="1.2.2. 类加载常见问题:new一个对象过程中发生了什么？"></a>1.2.2. 类加载常见问题:new一个对象过程中发生了什么？</h3><ol>
 <li>确认类元信息是否存在。当 JVM 接收到 new 指令时，首先在 metaspace 内检查需要创建的类元信息是否存在。 若不存在，那么在双亲委派模式下，使用当前类加载器以<strong>ClassLoader + 包名＋类名</strong>为 Key 进行查找对应的 class 文件。 如果没有找到文件，则抛出 ClassNotFoundException 异常 ， 如果找到，则进行类加载（加载 - 验证 - 准备 - 解析 - 初始化），并生成对应的 Class 类对象 相当去jvm执行clinit方法。</li>
 <li>分配对象内存。 首先计算对象占用空间大小，如果实例成员变量是引用变量，仅分配引用变量空间即可，即 4 个字节大小，接着在堆中划分—块内存给新对象。 在分配内存空间时，需要进行同步操作，比如采用 CAS (Compare And Swap) 失败重试、 区域加锁等方式保证分配操作的原子性。</li>
 <li>设定默认值。 成员变量值都需要设定为默认值，即各种不同形式的零值。</li>
 <li>设置对象头。设置新对象的哈希码、 GC 信息、锁信息、对象所属的类元信息等。这个过程的具体设置方式取决于 JVM 实现。</li>
 <li>执行 init 方法。 初始化成员变量，执行实例化代码块，调用类的构造方法，并把堆内对象的首地址赋值给引用变量。</li>
 </ol>
-<h2 id="运行数据区"><a href="#运行数据区" class="headerlink" title="运行数据区"></a>运行数据区</h2><p>内存模型包括:堆,栈,本地方法栈 方法区 程序计数器</p>
+<h2 id="1-2-运行数据区"><a href="#1-2-运行数据区" class="headerlink" title="1.2. 运行数据区"></a>1.2. 运行数据区</h2><p>内存模型包括:堆,栈,本地方法栈 方法区 程序计数器</p>
 <ul>
 <li><p>虚拟机栈</p>
 <ul>
@@ -431,30 +432,48 @@
 <li>外部无法访问该线程内部数据</li>
 </ul>
 </li>
-<li>所有线程都需要使用堆和方法区中的数据<h3 id="jvisualvm工具"><a href="#jvisualvm工具" class="headerlink" title="jvisualvm工具"></a>jvisualvm工具</h3></li>
+<li>所有线程都需要使用堆和方法区中的数据</li>
 </ul>
 </li>
-<li><p>识别jvm本地所有进程</p>
-</li>
-<li><p>插件中添加 visual GC插件 就可以看到分区情况</p>
-<h3 id="stw-stop-the-world"><a href="#stw-stop-the-world" class="headerlink" title="stw(stop the world)"></a>stw(stop the world)</h3></li>
-<li><p>在gc运行的过程中会出现应用程序停顿,因为在执行stw</p>
-</li>
-<li><p>原因是在执行gcroots 或者死锁检查</p>
-</li>
-<li><p>使用system.gc()可能会导致stw   </p>
-</li>
-<li><p>stw设置的原因?</p>
-<ul>
+</ul>
+<h3 id="1-2-1-jvisualvm工具"><a href="#1-2-1-jvisualvm工具" class="headerlink" title="1.2.1. jvisualvm工具"></a>1.2.1. jvisualvm工具</h3><ul>
+<li>识别jvm本地所有进程</li>
+<li>插件中添加 visual GC插件 就可以看到分区情况</li>
+</ul>
+<h3 id="1-2-2-stw-stop-the-world"><a href="#1-2-2-stw-stop-the-world" class="headerlink" title="1.2.2. stw(stop the world)"></a>1.2.2. stw(stop the world)</h3><ul>
+<li>在gc运行的过程中会出现应用程序停顿,因为在执行stw</li>
+<li>原因是在执行gcroots 或者死锁检查</li>
+<li>使用system.gc()可能会导致stw   </li>
+<li>stw设置的原因?<ul>
 <li>程序运行结束的时候 可能会回收栈空间 堆中的引用也会消失,gc无法判断是否有引用存在,所以设置stw停掉用户线程 转型让虚拟机执行gc</li>
 </ul>
 </li>
 </ul>
-<h1 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h1><ul>
+<h2 id="1-2-TLAB线程本地分配缓存区"><a href="#1-2-TLAB线程本地分配缓存区" class="headerlink" title="1.2. TLAB线程本地分配缓存区"></a>1.2. TLAB线程本地分配缓存区</h2><ul>
+<li>线程创建时可以在eden分配一段区域用于创建对象分配对象,如果满了就再申请一段对空间<ul>
+<li>其他线程可以读取但是没法在该区域分配自己对象</li>
+</ul>
+</li>
+<li>这并不影响移动和回收</li>
+<li>事务总不是完美的，TLAB(thread local allocation buffer)也又自己的缺点。因为TLAB通常很小，所以放不下大对象。</li>
+</ul>
+<ol>
+<li>TLAB空间大小是固定的，但是这时候一个大对象，我TLAB剩余的空间已经容不下它了。(比如100kb的TLAB，来了个110KB的对象)</li>
+<li>TLAB空间还剩一点点没有用到，有点舍不得。(比如100kb的TLAB，装了80KB，又来了个30KB的对象)</li>
+</ol>
+<ul>
+<li>所以JVM开发人员做了以下处理，设置了最大浪费空间。</li>
+<li>当剩余的空间小于最大浪费空间，那该TLAB属于的线程在重新向Eden区申请一个TLAB空间。进行对象创建，还是空间不够，那你这个对象太大了，去Eden区直接创建吧！</li>
+<li>当剩余的空间大于最大浪费空间，那这个大对象请你直接去Eden区创建，我TLAB放不下没有使用完的空间。</li>
+</ul>
+<h1 id="2-垃圾回收"><a href="#2-垃圾回收" class="headerlink" title="2. 垃圾回收"></a>2. 垃圾回收</h1><ul>
 <li>垃圾回收值需要关注堆和方法区</li>
 <li>因为类的卸载需要类的所有实例都回收,包括子类,然后将加载器也回收,对应的对象没有被引用才允许被回收.</li>
 <li>就类加载器这一条来说，除非像特意设计过的 OSGI 等可以替换类加载器的场景，不然基本上回收不了。</li>
-<li>堆是垃圾回收的主要关注点<h2 id="如何判断对象已经成为垃圾"><a href="#如何判断对象已经成为垃圾" class="headerlink" title="如何判断对象已经成为垃圾?"></a>如何判断对象已经成为垃圾?</h2><h3 id="引用计数"><a href="#引用计数" class="headerlink" title="引用计数"></a>引用计数</h3>引用计数其实就是为每一个内存单元设置一个计数器，当被引用的时候计数器加一，当计数器减少为 0 的时候就意味着这个单元再也无法被引用了，所以可以立即释放内存。</li>
+<li>堆是垃圾回收的主要关注点</li>
+</ul>
+<h2 id="2-1-如何判断对象已经成为垃圾"><a href="#2-1-如何判断对象已经成为垃圾" class="headerlink" title="2.1. 如何判断对象已经成为垃圾?"></a>2.1. 如何判断对象已经成为垃圾?</h2><h3 id="2-1-1-引用计数"><a href="#2-1-1-引用计数" class="headerlink" title="2.1.1. 引用计数"></a>2.1.1. 引用计数</h3><p>引用计数其实就是为每一个内存单元设置一个计数器，当被引用的时候计数器加一，当计数器减少为 0 的时候就意味着这个单元再也无法被引用了，所以可以立即释放内存。</p>
+<ul>
 <li>存在循环引用的问题</li>
 <li>cpython使用了引用计数,怎么解决的循环依赖<ul>
 <li>使用引用计数+不可达的分析<ul>
@@ -466,13 +485,17 @@
 </ul>
 </li>
 </ul>
-<h3 id="可达性分析"><a href="#可达性分析" class="headerlink" title="可达性分析"></a>可达性分析</h3><p>利用标记清除,就是标记可达对象,清除不可达对象</p>
+<h3 id="2-1-2-可达性分析"><a href="#2-1-2-可达性分析" class="headerlink" title="2.1.2. 可达性分析"></a>2.1.2. 可达性分析</h3><p>利用标记清除,就是标记可达对象,清除不可达对象</p>
 <ul>
 <li>从gc roots开始遍历扫描,将扫描到的独享标记可达</li>
 <li>回收没有标记的对象</li>
-<li>缺点是,将垃圾收集起来一次性清除,这样垃圾回收消耗大量资源<strong>所以才会有分代式垃圾回收和仅先标记根节点直达的对象再并发 tracing 的手段。</strong><h2 id="分代收集"><a href="#分代收集" class="headerlink" title="分代收集"></a>分代收集</h2></li>
+<li>缺点是,将垃圾收集起来一次性清除,这样垃圾回收消耗大量资源<strong>所以才会有分代式垃圾回收和仅先标记根节点直达的对象再并发 tracing 的手段。</strong></li>
+</ul>
+<h2 id="1-2-分代收集"><a href="#1-2-分代收集" class="headerlink" title="1.2. 分代收集"></a>1.2. 分代收集</h2><ul>
 <li>根据有些对象基本不会消亡,存在时间很长,有些对象存活时间时间很短</li>
-<li>所以将堆分为新生代和老年代,不停区域对应不同的策略,提高回收效率<h3 id="新生代-标记复制算法"><a href="#新生代-标记复制算法" class="headerlink" title="新生代:标记复制算法"></a>新生代:标记复制算法</h3></li>
+<li>所以将堆分为新生代和老年代,不停区域对应不同的策略,提高回收效率</li>
+</ul>
+<h3 id="1-2-1-新生代-标记复制算法"><a href="#1-2-1-新生代-标记复制算法" class="headerlink" title="1.2.1. 新生代:标记复制算法"></a>1.2.1. 新生代:标记复制算法</h3><ul>
 <li>新生代如果使用标记清楚算法没必须要清除的对象很多,因此采用标记复制算法,每次将存活对象复制到另一个区域,剩下的全部清楚</li>
 <li>标记复制算法<ul>
 <li>把堆分为From和To</li>
@@ -487,15 +510,19 @@
 <li>缺点<ul>
 <li>内存利用率只有50%只用到一版的堆内存</li>
 <li>存在对象很多的时候,复制压力很大</li>
-<li>需要移动对象,所以不适合保守gc<h3 id="老年代-标记清除-标记整理"><a href="#老年代-标记清除-标记整理" class="headerlink" title="老年代:标记清除+标记整理"></a>老年代:标记清除+标记整理</h3></li>
+<li>需要移动对象,所以不适合保守gc</li>
 </ul>
 </li>
 </ul>
 </li>
+</ul>
+<h3 id="1-2-2-老年代-标记清除-标记整理"><a href="#1-2-2-老年代-标记清除-标记整理" class="headerlink" title="1.2.2. 老年代:标记清除+标记整理"></a>1.2.2. 老年代:标记清除+标记整理</h3><ul>
 <li>标记清除不会移动和整理内存空间,一版是通过空闲链表来标记那一块空间是可用的,出现空间碎片</li>
 <li>出现了内存明明够用,却无法申请的情况</li>
 <li>标记-整理其实和标记-复制差不多，区别在于复制算法是分为两个区来回复制，而整理不分区，直接整理。</li>
-<li>将存活的对象往边界整理，也没有内存碎片，也不需要复制算法那样腾出一半的空间，所以内存利用率也高。<h2 id="跨带引用"><a href="#跨带引用" class="headerlink" title="跨带引用"></a>跨带引用</h2></li>
+<li>将存活的对象往边界整理，也没有内存碎片，也不需要复制算法那样腾出一半的空间，所以内存利用率也高。</li>
+</ul>
+<h2 id="1-2-跨带引用"><a href="#1-2-跨带引用" class="headerlink" title="1.2. 跨带引用"></a>1.2. 跨带引用</h2><ul>
 <li>我们已经根据对象存活的特性进行了分代，提高了垃圾收集的效率，但是像在回收新生代的时候，有可能有老年代的对象引用了新生代对象，所以老年代也需要作为根，但是如果扫描整个老年代的话效率就又降低了。</li>
 <li>使用<strong>记忆集（Remembered Set）</strong>的东西，来记录跨代之间的引用而避免扫描整体非收集区域。</li>
 <li>因此记忆集就是一种用于记录从非收集区域指向收集区域的指针集合的抽象数据结构。根据记录的精度分为<ul>
@@ -512,10 +539,14 @@
 </li>
 </ul>
 </li>
-<li>可能出现浮动垃圾的情况,老年代对象已经成为垃圾了,在从他开始gcroots,扫描的也可能是垃圾<h2 id="增量gc"><a href="#增量gc" class="headerlink" title="增量gc"></a>增量gc</h2></li>
+<li>可能出现浮动垃圾的情况,老年代对象已经成为垃圾了,在从他开始gcroots,扫描的也可能是垃圾</li>
+</ul>
+<h2 id="1-3-增量gc"><a href="#1-3-增量gc" class="headerlink" title="1.3. 增量gc"></a>1.3. 增量gc</h2><ul>
 <li>原始或者停止式gc是在应用线程中停止等gc执行后再停止</li>
 <li>增量gc是应用线程分段停止,在停止间隙gc执行,这避免不了gc间隙前后引用被应用线程修改问题</li>
-<li>使用<strong>三色标记算法</strong>表示解决<h3 id="三色标记算法"><a href="#三色标记算法" class="headerlink" title="三色标记算法"></a>三色标记算法</h3></li>
+<li>使用<strong>三色标记算法</strong>表示解决</li>
+</ul>
+<h3 id="1-3-1-三色标记算法"><a href="#1-3-1-三色标记算法" class="headerlink" title="1.3.1. 三色标记算法"></a>1.3.1. 三色标记算法</h3><ul>
 <li>白色:还未搜索到的对象</li>
 <li>灰色:正在搜索还未搜索完成的对象</li>
 <li>黑色:确定搜索完成的情况</li>
@@ -526,26 +557,32 @@
 <li>当所有子对象都涂灰后该对象就涂黑</li>
 <li>清除所有白色节点</li>
 </ol>
-<h2 id="GC分类"><a href="#GC分类" class="headerlink" title="GC分类"></a>GC分类</h2><ul>
-<li>JVM 还需要判断栈上的数据是什么类型，这里又可以分为保守式 GC、半保守式 GC、和准确式 GC。<h3 id="保守GC"><a href="#保守GC" class="headerlink" title="保守GC"></a>保守GC</h3>保守式 GC 指的是 JVM <strong>不会记录数据的类型</strong>，也就是无法区分内存上的某个位置的数据到底是引用类型还是非引用类型。</li>
+<h2 id="1-2-GC分类"><a href="#1-2-GC分类" class="headerlink" title="1.2. GC分类"></a>1.2. GC分类</h2><ul>
+<li>JVM 还需要判断栈上的数据是什么类型，这里又可以分为保守式 GC、半保守式 GC、和准确式 GC。</li>
+</ul>
+<h3 id="1-2-1-保守GC"><a href="#1-2-1-保守GC" class="headerlink" title="1.2.1. 保守GC"></a>1.2.1. 保守GC</h3><p>保守式 GC 指的是 JVM <strong>不会记录数据的类型</strong>，也就是无法区分内存上的某个位置的数据到底是引用类型还是非引用类型。</p>
+<ul>
 <li>出现具体数值和引用指针的实际值相同的情况,不能确定是否是指针,就保守的认为是指针<ul>
 <li>这样的话就有些已经死的地址被判断为引用,无法回收</li>
 <li>引用句柄层,想判断句柄层,句柄层寻找具体对象地址,但是多次判断又要修改句柄层,相率下降</li>
 </ul>
 </li>
-<li>因为不能操作移动部分对象,只能使用标记清除这种不移动对象的算法<h3 id="半保守gc"><a href="#半保守gc" class="headerlink" title="半保守gc"></a>半保守gc</h3>半保守式GC，在对象上会<strong>记录类型信息</strong>而其他地方还是没有记录，因此从根扫描的话还是一样，得靠猜测。</li>
+<li>因为不能操作移动部分对象,只能使用标记清除这种不移动对象的算法</li>
+</ul>
+<h3 id="1-2-2-半保守gc"><a href="#1-2-2-半保守gc" class="headerlink" title="1.2.2. 半保守gc"></a>1.2.2. 半保守gc</h3><p>半保守式GC，在对象上会<strong>记录类型信息</strong>而其他地方还是没有记录，因此从根扫描的话还是一样，得靠猜测。</p>
+<ul>
 <li>但是当访问到对象了就知道对象的类型,可以对对象进行一个操作<ul>
 <li>可知从根直接扫描部分需要推测不能直 接移动,但是访问到具体对象后就会的字对象类型,就可以对对象移动,因此可以使用移动对象的清除算法,亦可以使用标记清除算法</li>
 </ul>
 </li>
 </ul>
-<h3 id="准确GC"><a href="#准确GC" class="headerlink" title="准确GC"></a>准确GC</h3><ul>
+<h3 id="1-2-3-准确GC"><a href="#1-2-3-准确GC" class="headerlink" title="1.2.3. 准确GC"></a>1.2.3. 准确GC</h3><ul>
 <li><p>JVM 需要清晰的知晓对象的类型，包括在栈上的引用也能得知类型等。</p>
 </li>
 <li><p>能想到的可以在指针上打标记，来表明类型，或者在外部记录类型信息形成一张映射表。</p>
 </li>
 </ul>
-<h4 id="hotspot-OopMap"><a href="#hotspot-OopMap" class="headerlink" title="hotspot OopMap"></a>hotspot OopMap</h4><ul>
+<h4 id="1-2-3-1-hotspot-OopMap"><a href="#1-2-3-1-hotspot-OopMap" class="headerlink" title="1.2.3.1. hotspot OopMap"></a>1.2.3.1. hotspot OopMap</h4><ul>
 <li><p>在 HotSpot 中，对象的类型信息里会记录自己的 OopMap，记录了在该类型的对象内什么偏移量上是什么类型的数据，</p>
 </li>
 <li><p>在<strong>解释器</strong>中执行的方法可以通过解释器里的功能自动生成出 OopMap 出来给 GC 用。</p>
@@ -584,23 +621,27 @@
 <li>Safepoint机制保证了程序执行时，在不太长的时间内就会遇到可进入GC 的Safepoint 。但是，程序“不执行”的时候呢？例如线程处于Sleep状 态或Blocked状态，这时候线程无法响应JVM的中断请求，“走”到安全 点去中断挂起，JVM也不太可能等待线程被唤醒。对于这种情况，就需要安全 区域(Safe Region)来解决。安全区域是指在一段代码片段中，<strong>对象的引用关系不会发生变化</strong>，<strong>在这个区域中的任何位置开始GC都是安全的</strong>。我们也可以把Safe Region看做被扩展的 Safepoint。</li>
 <li>实际执行时       <ul>
 <li>当线程运行到 Safe Region的代码时，首先标识己经进入Safe Region,如果这段时间内发生GC, JVM会忽略标识为Safe Region状态的线程;</li>
-<li>当线程即将离开Safe Region时，会检查]VM是否已经完成GC,如果完成了，则继续运行，否则线程必须等待直到收到可以安全离开Safe Region的 信号为止。<h2 id="垃圾回收器种类"><a href="#垃圾回收器种类" class="headerlink" title="垃圾回收器种类"></a>垃圾回收器种类</h2></li>
+<li>当线程即将离开Safe Region时，会检查]VM是否已经完成GC,如果完成了，则继续运行，否则线程必须等待直到收到可以安全离开Safe Region的 信号为止。</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<h3 id="新生代收集器"><a href="#新生代收集器" class="headerlink" title="新生代收集器"></a>新生代收集器</h3><h4 id="Serial"><a href="#Serial" class="headerlink" title="Serial"></a>Serial</h4><ul>
+<h2 id="1-2-垃圾回收器种类"><a href="#1-2-垃圾回收器种类" class="headerlink" title="1.2. 垃圾回收器种类"></a>1.2. 垃圾回收器种类</h2><h3 id="1-2-1-新生代收集器"><a href="#1-2-1-新生代收集器" class="headerlink" title="1.2.1. 新生代收集器"></a>1.2.1. 新生代收集器</h3><h4 id="1-2-1-1-Serial"><a href="#1-2-1-1-Serial" class="headerlink" title="1.2.1.1. Serial"></a>1.2.1.1. Serial</h4><ul>
 <li><strong>单线程</strong>垃圾收集器</li>
 <li>该收集器收集垃圾会造成<strong>STW</strong>, gc期间应用不可用</li>
 <li>对于运行在 Client 模式下的虚拟机，Serial 收集器是新生代的默认收集器</li>
-<li>可以个CMS配合工作<h4 id="ParNew"><a href="#ParNew" class="headerlink" title="ParNew"></a>ParNew</h4></li>
+<li>可以个CMS配合工作</li>
+</ul>
+<h4 id="1-2-1-2-ParNew"><a href="#1-2-1-2-ParNew" class="headerlink" title="1.2.1.2. ParNew"></a>1.2.1.2. ParNew</h4><ul>
 <li>多线程版本的Serial</li>
 <li>主要工作在 Server 模式<ul>
 <li>多线程可以让垃圾回收得更快，也就是减少了<strong>STW</strong>时间，能提升响应时间，所以是许多运行在 Server 模式下的虚拟机的首选新生代收集器</li>
 </ul>
 </li>
-<li>可以和CMS配合工作<h4 id="ParallelScavenge"><a href="#ParallelScavenge" class="headerlink" title="ParallelScavenge"></a>ParallelScavenge</h4></li>
+<li>可以和CMS配合工作</li>
+</ul>
+<h4 id="1-2-1-3-ParallelScavenge"><a href="#1-2-1-3-ParallelScavenge" class="headerlink" title="1.2.1.3. ParallelScavenge"></a>1.2.1.3. ParallelScavenge</h4><ul>
 <li>使用<strong>复制算法，多线程</strong>，工作于新生代的垃圾收集器</li>
 <li>Parallel Scavenge 目标是达到一个可控制的吞吐量（吞吐量 = 运行用户代码时间 / （运行用户代码时间+垃圾收集时间））</li>
 <li>提供两个参数控制吞吐<ul>
@@ -609,7 +650,9 @@
 </ul>
 </li>
 <li>可以用 Parallel Scavenge 收集器提供的第三个参数 -XX:UseAdaptiveSizePolicy，开启这个参数后，就不需要手工指定新生代大小,Eden 与 Survivor 比例（SurvivorRatio）等细节，只需要设置好基本的堆大小（-Xmx 设置最大堆）,以及最大垃圾收集时间与吞吐量大小，虚拟机就会根据当前系统运行情况收集监控信息，动态调整这些参数以尽可能地达到我们设定的最大垃圾收集时间或吞吐量大小这两个指标。</li>
-<li>自适应策略也是 Parallel Scavenge  与 ParNew 的重要区别！<h3 id="老年代收集器"><a href="#老年代收集器" class="headerlink" title="老年代收集器"></a>老年代收集器</h3><h4 id="CMS"><a href="#CMS" class="headerlink" title="CMS"></a>CMS</h4></li>
+<li>自适应策略也是 Parallel Scavenge  与 ParNew 的重要区别！</li>
+</ul>
+<h3 id="1-2-2-老年代收集器"><a href="#1-2-2-老年代收集器" class="headerlink" title="1.2.2. 老年代收集器"></a>1.2.2. 老年代收集器</h3><h4 id="1-2-2-1-CMS"><a href="#1-2-2-1-CMS" class="headerlink" title="1.2.2.1. CMS"></a>1.2.2.1. CMS</h4><ul>
 <li>CMS 收集器是以实现最短 STW 时间为目标的收集器</li>
 <li>CMS 虽然工作于老年代，但采用的是标记清除法，主要有以下四个步骤<ol>
 <li>初始标记,会导致stw<ol>
@@ -648,14 +691,20 @@
 <li>JDK 1.5 默认当老年代使用了68%空间后就会被激活，当然这个比例可以通过 -XX:CMSInitiatingOccupancyFraction 来设置，但是如果设置地太高很容易导致在 CMS 运行期间预留的内存无法满足程序要求，会导致<strong>Concurrent Mode Failure</strong>失败，这时会启用 Serial Old 收集器来重新进行老年代的收集，而我们知道 Serial Old 收集器是单线程收集器，这样就会导致 STW 更长了</li>
 </ul>
 </li>
-<li>无法处理内存碎片<h4 id="Serial-Old"><a href="#Serial-Old" class="headerlink" title="Serial Old"></a>Serial Old</h4></li>
+<li>无法处理内存碎片</li>
 </ul>
 </li>
+</ul>
+<h4 id="1-2-2-2-Serial-Old"><a href="#1-2-2-2-Serial-Old" class="headerlink" title="1.2.2.2. Serial Old"></a>1.2.2.2. Serial Old</h4><ul>
 <li>Serial Old 是工作于老年代的单线程收集器</li>
 <li>主要意义在于给 Client 模式下的虚拟机使用</li>
-<li>如果在 Server 模式下，则它还有两大用途：一种是在 JDK 1.5 及之前的版本中与 Parallel Scavenge 配合使用，另一种是作为 CMS 收集器的后备预案,在并发收集发生 Concurrent Mode Failure 时使用<h4 id="Paralled-Old"><a href="#Paralled-Old" class="headerlink" title="Paralled Old"></a>Paralled Old</h4></li>
+<li>如果在 Server 模式下，则它还有两大用途：一种是在 JDK 1.5 及之前的版本中与 Parallel Scavenge 配合使用，另一种是作为 CMS 收集器的后备预案,在并发收集发生 Concurrent Mode Failure 时使用</li>
+</ul>
+<h4 id="1-2-2-3-Paralled-Old"><a href="#1-2-2-3-Paralled-Old" class="headerlink" title="1.2.2.3. Paralled Old"></a>1.2.2.3. Paralled Old</h4><ul>
 <li>Parallel Old 是相对于 Parallel Scavenge 收集器的老年代版本</li>
-<li>使用<strong>多线程和标记整理</strong>法 可以用于配合Parallel Scavenge处理新老区垃圾<h3 id="G1"><a href="#G1" class="headerlink" title="G1"></a>G1</h3></li>
+<li>使用<strong>多线程和标记整理</strong>法 可以用于配合Parallel Scavenge处理新老区垃圾</li>
+</ul>
+<h3 id="1-2-2-G1"><a href="#1-2-2-G1" class="headerlink" title="1.2.2. G1"></a>1.2.2. G1</h3><ul>
 <li>面向服务端的垃圾收集器,在所有区都存在</li>
 <li>特点<ul>
 <li>像 CMS 收集器一样，能与应用程序线程并发执行。</li>
@@ -949,7 +998,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">javaWeb</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -958,14 +1015,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">组成原理</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">javaWeb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
              
               <li class="article-tag-list-item">
