@@ -16,7 +16,7 @@
 <meta property="og:description" content="spring生命周期">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-03-19T01:03:36.000Z">
-<meta property="article:modified_time" content="2021-09-26T07:50:11.798Z">
+<meta property="article:modified_time" content="2022-03-19T08:14:07.401Z">
 <meta property="article:author" content="杨晨阳">
 <meta property="article:tag" content="java">
 <meta name="twitter:card" content="summary">
@@ -65,7 +65,7 @@
 			</ul>
 		</nav>
 		<nav>
-        总文章数 50
+        总文章数 51
     </nav>
 		<nav class="header-smart-menu">
     		
@@ -177,7 +177,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-keyboard-o"></i>
         <span class="post-meta-item-text">  字数统计: </span>
-        <span class="post-count">1,695字</span>
+        <span class="post-count">2,442字</span>
       </span>
     </span>
 
@@ -186,7 +186,7 @@
       <span class="post-meta-item-icon">
         <i class="fa fa-hourglass-half"></i>
         <span class="post-meta-item-text">  阅读时长: </span>
-        <span class="post-count">6分</span>
+        <span class="post-count">9分</span>
       </span>
     </span>
 </div>
@@ -284,14 +284,23 @@ spring生命周期
 </li>
 <li>三级缓存private final Map&lt;String，Object&gt; singletonFoctories = new ConcurrentHashMap&lt;&gt;(16) ;<ul>
 <li>单例对象工厂的cache，存的是 ObjectFactory&lt;?&gt; 类型的 lambda 表达式，用于处理存在 AOP 时的循环依赖问题,能将代理对象提前创建</li>
+<li>在需要生成代理对象时调用其getObject()（实际上调用的是getEarlyBeanReference()）</li>
 </ul>
 </li>
 <li>二级缓存private final Map&lt;String，Object&gt; earlySingleton0bjects = new ConcurrentHashMap&lt;&gt;(16) ;<ul>
-<li>提前曝光的单例对象的cache，存放原始的bean对象（尚未填充属性），用于解决循环依赖;<h3 id="一级缓存"><a href="#一级缓存" class="headerlink" title="一级缓存"></a>一级缓存</h3></li>
+<li>提前曝光的单例对象的cache，存放原始的bean对象（尚未填充属性），用于解决循环依赖;</li>
 </ul>
 </li>
 </ul>
 </li>
+<li>Set<Object> singletonsCurrentlyInCreation这样一个缓存防止了bean对象在循环引用的过程中重复创建的问题。<ul>
+<li>这个缓存存放了当前正在创建0的对象，会用来在即将发生重复创建的时候做一个判断</li>
+</ul>
+</Object></li>
+<li>Spring解决循环依赖依靠的是Bean的“中间态”这个概念，而这个中间态指的是已经实例化，但还没初始化的状态。而构造器是完成实例化的东东，所以构造器的循环依赖无法解决<del>~</del></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">protected</span> Object <span class="title">getSingleton</span><span class="params">(String beanName, <span class="keyword">boolean</span> allowEarlyReference)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// 先查一级缓存</span></span><br><span class="line">	Object singletonObject = <span class="keyword">this</span>.singletonObjects.get(beanName);</span><br><span class="line">	<span class="comment">// 没有一级缓存，看bean是否正在创建中</span></span><br><span class="line">	<span class="keyword">if</span> (singletonObject == <span class="keyword">null</span> &amp;&amp; isSingletonCurrentlyInCreation(beanName)) &#123;</span><br><span class="line">		<span class="keyword">synchronized</span> (<span class="keyword">this</span>.singletonObjects) &#123;</span><br><span class="line">			<span class="comment">// 再查二级缓存</span></span><br><span class="line">			singletonObject = <span class="keyword">this</span>.earlySingletonObjects.get(beanName);</span><br><span class="line">			<span class="keyword">if</span> (singletonObject == <span class="keyword">null</span> &amp;&amp; allowEarlyReference) &#123;  </span><br><span class="line">				<span class="comment">// 最后查三级缓存</span></span><br><span class="line">				ObjectFactory&lt;?&gt; singletonFactory = <span class="keyword">this</span>.singletonFactories.get(beanName);</span><br><span class="line">				<span class="keyword">if</span> (singletonFactory != <span class="keyword">null</span>) &#123;</span><br><span class="line">					<span class="comment">// 执行lambda AOP</span></span><br><span class="line">					<span class="comment">// 从三级缓存中根据beanName取出的value是ObjectFactory对象，执行它的方法。</span></span><br><span class="line">					singletonObject = singletonFactory.getObject();  </span><br><span class="line">					<span class="comment">// 放入二级缓存中</span></span><br><span class="line">					<span class="keyword">this</span>.earlySingletonObjects.put(beanName, singletonObject);</span><br><span class="line">					<span class="comment">// 移除对应的三级缓存</span></span><br><span class="line">					<span class="keyword">this</span>.singletonFactories.remove(beanName); </span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> singletonObject;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="一级"><a href="#一级" class="headerlink" title="一级"></a>一级</h3><ul>
 <li>singleton0bjects</li>
 </ul>
 <ol>
@@ -302,12 +311,21 @@ spring生命周期
 <li>初始化bean,处理Aware接口并执行后置处理器,执行初始化方法，如果需要生成aop代理对象</li>
 <li>若已经解决循环依赖会在缓存中放置提前生成的代理对象,最终bean也会被换成缓存中的代理bean</li>
 <li>可以使用bean</li>
-<li>将bean放入容器中(一级缓存)，移除创建中标记及二三级缓存(后面再具体分析)<h3 id="三级缓存-1"><a href="#三级缓存-1" class="headerlink" title="三级缓存"></a>三级缓存</h3>假如初始化A bean时，发现Abean依赖B bean,即A初始化执行到了填充属性，需要注入B bean，此时B还没有初始化，则需要暂停A，先去初始化B，<strong>那么此时new出来的A对象放哪里，直接放在容器Map里显然不合适，半残品怎么能用，所以需要提供一个可以标记创建中bean(A)的Map(二级缓存)**，可以提前暴露正在创建的bean供其他bean依赖，而如果初始化A所依赖的bean B时，发现B也需要注入一个A的依赖(即发生循环依赖)，</strong>则B可以从创建中的beanMap(二级缓存)中直接获取A对象（创建中）注入A**，然后完成B的初始化，返回给正在注入属性的A，最终A也完成初始化，皆大欢喜。</li>
+<li>将bean放入容器中(一级缓存)，移除创建中标记及二三级缓存(后面再具体分析)<h3 id="三级"><a href="#三级" class="headerlink" title="三级"></a>三级</h3>假如初始化A bean时，发现Abean依赖B bean,即A初始化执行到了填充属性，需要注入B bean，此时B还没有初始化，则需要暂停A，先去初始化B，<strong>那么此时new出来的A对象放哪里，直接放在容器Map里显然不合适，半残品怎么能用，所以需要提供一个可以标记创建中bean(A)的Map(二级缓存)**，可以提前暴露正在创建的bean供其他bean依赖，而如果初始化A所依赖的bean B时，发现B也需要注入一个A的依赖(即发生循环依赖)，</strong>则B可以从创建中的beanMap(二级缓存)中直接获取A对象（创建中）注入A**，然后完成B的初始化，返回给正在注入属性的A，最终A也完成初始化，皆大欢喜。</li>
 </ol>
 <ul>
-<li>三级缓存的<strong>bean工厂</strong>使用getObject方式，实际执行的是getEarlyBeanReference，如果对象需要被代理(存在beanPostProcessors -&gt; SmartInstantiationAwareBeanPostProcessor)，则提前生成代理对象。在new出之后就提前判断是否给予代理<h3 id="二级缓存"><a href="#二级缓存" class="headerlink" title="二级缓存"></a>二级缓存</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">synchronized</span>(<span class="keyword">this</span>.singletonObjects)&#123;</span><br><span class="line">  <span class="comment">//先查二级缓存是否有</span></span><br><span class="line">  singletonObject = <span class="keyword">this</span>.earlySingletonObjects.get(beanName);</span><br><span class="line">  <span class="comment">//如果没有并且可以循环依赖</span></span><br><span class="line">  <span class="keyword">if</span>(singletonObject!=<span class="keyword">null</span>&amp;&amp;allowSingletonReference)&#123;</span><br><span class="line">    <span class="comment">//再在三级缓存中查找</span></span><br><span class="line">    <span class="number">0</span>bjectFactory&lt;?&gt; singletonFactory = <span class="keyword">this</span>.singletonFactories.get(beanName) ;</span><br><span class="line">    <span class="comment">//如果还没有</span></span><br><span class="line">    <span class="keyword">if</span> (singletonFactory != nu11)&#123;</span><br><span class="line">      <span class="comment">//创建一个早期bean</span></span><br><span class="line">      singleton0bject = singletonFactory.get0bject() ;</span><br><span class="line">      <span class="comment">//加入二级缓存</span></span><br><span class="line">      <span class="keyword">this</span>.ear1ySingleton0bjects.put(beanName，singleton0bject) ;</span><br><span class="line">      <span class="comment">//移除三级缓存中的该bean</span></span><br><span class="line">      <span class="keyword">this</span>.singletonFactories.remove(beanName) ;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>三级缓存的<strong>bean工厂</strong>使用getObject方式，实际执行的是getEarlyBeanReference，如果对象需要被代理(存在beanPostProcessors -&gt; SmartInstantiationAwareBeanPostProcessor)，则提前生成代理对象。在new出之后就提前判断是否给予代理<h3 id="二级"><a href="#二级" class="headerlink" title="二级"></a>二级</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">synchronized</span>(<span class="keyword">this</span>.singletonObjects)&#123;</span><br><span class="line">  <span class="comment">//先查二级缓存是否有</span></span><br><span class="line">  singletonObject = <span class="keyword">this</span>.earlySingletonObjects.get(beanName);</span><br><span class="line">  <span class="comment">//如果没有并且可以循环依赖</span></span><br><span class="line">  <span class="keyword">if</span>(singletonObject!=<span class="keyword">null</span>&amp;&amp;allowSingletonReference)&#123;</span><br><span class="line">    <span class="comment">//再在三级缓存中查找</span></span><br><span class="line">    <span class="number">0</span>bjectFactory&lt;?&gt; singletonFactory = <span class="keyword">this</span>.singletonFactories.get(beanName) ;</span><br><span class="line">    <span class="comment">//如果还没有</span></span><br><span class="line">    <span class="keyword">if</span> (singletonFactory != nu11)&#123;</span><br><span class="line">      <span class="comment">//创建一个早期bean</span></span><br><span class="line">      singleton0bject = singletonFactory.get0bject() ;</span><br><span class="line">      <span class="comment">//加入二级缓存</span></span><br><span class="line">      <span class="keyword">this</span>.ear1ySingleton0bjects.put(beanName，singleton0bject) ;</span><br><span class="line">      <span class="comment">//移除三级缓存中的该bean</span></span><br><span class="line">      <span class="keyword">this</span>.singletonFactories.remove(beanName) ;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li>出现循环依赖时，才会执行工厂的getObject生成(获取)早期依赖</li>
-<li>在三级工厂中put将对象生产在二级map中<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><h4 id="为什么使用三级缓存-用一级缓存或者二级行不行"><a href="#为什么使用三级缓存-用一级缓存或者二级行不行" class="headerlink" title="为什么使用三级缓存,用一级缓存或者二级行不行?"></a>为什么使用三级缓存,用一级缓存或者二级行不行?</h4></li>
+<li>在三级工厂中put将对象生产在二级map中<h2 id="解决依赖条件"><a href="#解决依赖条件" class="headerlink" title="解决依赖条件"></a>解决依赖条件</h2></li>
+<li>必须是单例bean<ul>
+<li>源码中如果bean的类型是prototype的会直接抛出异常</li>
+</ul>
+</li>
+<li>必须不全是构造器注入, 且beanName字母序在前的不能是构造器注入<ul>
+<li>使用构造函数依赖注入时，Spring保证所有一个对象所有依赖的对象先实例化后，才实例化这个对象。（没有他们就没有我原则）表达了2个对象间的一种强的聚合关系：组合关系</li>
+<li>使用set方法依赖注入时，Spring首先实例化对象，然后才实例化所有依赖的对象。表达了2个对象间较弱的依赖关系：聚合关系<h3 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h3><h4 id="为什么使用三级缓存-用一级缓存或者二级行不行"><a href="#为什么使用三级缓存-用一级缓存或者二级行不行" class="headerlink" title="为什么使用三级缓存,用一级缓存或者二级行不行?"></a>为什么使用三级缓存,用一级缓存或者二级行不行?</h4></li>
+</ul>
+</li>
 <li>只用一级可以解决,但是会复杂化逻辑</li>
 <li>map中寻访的有半成品bean,获取时会需要判断是否已经是个完整的bean,否则使用中有空指针风险<ul>
 <li>这样就势必会怎急啊一些外在的标记用于判断bean的状态和很多处理逻辑</li>
@@ -324,6 +342,27 @@ spring生命周期
 </ul>
 </li>
 </ul>
+<h4 id="无aop解决循环依赖"><a href="#无aop解决循环依赖" class="headerlink" title="无aop解决循环依赖"></a>无aop解决循环依赖</h4><ol>
+<li>a实例化 -&gt; 半成品a -&gt; a 放入三级缓存中</li>
+<li>a initializeBean 发现b </li>
+<li>b实例化 -&gt; 半成品b -&gt; b 放入三级缓存中</li>
+<li>b init….       发现a -&gt; 查找a</li>
+<li>a调用getSingleton方法-&gt; getObject 半成品a  <ol>
+<li>移除三级缓存添加到二级缓存</li>
+</ol>
+</li>
+<li>b继续init…  populateBean赋值   b移除三级缓存放入一级缓存</li>
+<li>a继续init…  populateBean赋值   a移除二级缓存放入一级缓存</li>
+</ol>
+<h4 id="有aop解决循环依赖"><a href="#有aop解决循环依赖" class="headerlink" title="有aop解决循环依赖"></a>有aop解决循环依赖</h4><ol>
+<li>a实例化 -&gt; 半成品a -&gt; a 放入三级缓存中</li>
+<li>a initializeBean 发现b </li>
+<li>b实例化 -&gt; 半成品b -&gt; b 放入三级缓存中</li>
+<li>b init….       发现a -&gt; 查找a</li>
+<li>a调用getSingleton方法-&gt; getObject-&gt; getEarlyReference方法-&gt;半成品a代理对象  移除三级缓存添加到二级缓存</li>
+<li>b populateBean赋值 b继续init…  -&gt; 成品b代理对象   b移除三级缓存放入一级缓存</li>
+<li>a populateBean赋值 a继续init…  -&gt; 成品a代理对象 a移除二级缓存放入一级缓存</li>
+</ol>
 
       
 
@@ -596,6 +635,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">算法</a>
               </li>
              
@@ -608,19 +651,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">redis</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">设计原则</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">中间件</a>
               </li>
             
             <div class="clearfix"></div>
